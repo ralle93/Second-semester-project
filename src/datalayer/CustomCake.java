@@ -13,11 +13,13 @@ public class CustomCake {
    }
 
    public int getPrice() {
-      return price;
-   }
+      int price = 0;
 
-   public void setPrice(int price) {
-      this.price = price;
+      for (int i = 0; i < components.size() - 1; i++) {
+         price += components.get(i).getPrice();
+      }
+
+      return price;
    }
 
    public ArrayList<Component> getComponents() {
