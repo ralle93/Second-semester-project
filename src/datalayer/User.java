@@ -12,6 +12,7 @@ public class User {
       this.password = password;
       this.name = name;
       this.phoneNumber;
+      this.admin = false;
    }
 
    public String getEmail() {
@@ -24,6 +25,10 @@ public class User {
 
    public String getName() {
       return name;
+   }
+
+   public String getPhoneNumber() {
+      return phoneNumber;
    }
 
    public boolean isAdmin() {
