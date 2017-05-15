@@ -8,10 +8,10 @@
 
 <body>
 <div class="top-menu-bar">
-  <a href="#home">Home</a>
-  <a href="#cakes">Cakes</a>
-  <a href="#custom-cake">Custom Cake</a>
-  <a href="#about">About</a>
+  <a href="index.jsp">Start</a>
+  <a href="cakes.jsp">Kager</a>
+  <a href="custom-cakes.jsp">Byg Selv Kage</a>
+  <a href="about.jsp">Om Pernille's Kager</a>
 </div>
 
 <div class="center-area">
@@ -96,7 +96,7 @@
 
 <footer>
   <div class="bottom-bar">
-    <a href="#facebook">facebook</a>
+    <a href="https://www.facebook.com/PernillesLaekkerier/">facebook</a>
     <i class="fa fa-facebook-official fa-2x" aria-hidden="true"></i>
     <a href="#mail">Email</a>
     <i class="fa fa-envelope fa-2x" aria-hidden="true"></i>
