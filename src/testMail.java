@@ -60,13 +60,6 @@ public class testMail {
    }
 
    public static void main(String[] args) {
-      try{
-         testMail.Send("snubi68", "rasmus415263", "rasmusdreierthrane@gmail.com", "testMailTitle", "this is the message");
 
-      } catch (AddressException e) {
-         e.printStackTrace();
-      } catch (MessagingException e) {
-         e.printStackTrace();
-      }
    }
 }
