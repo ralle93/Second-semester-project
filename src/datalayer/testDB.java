@@ -6,7 +6,7 @@ public class testDB {
 
    // JDBC driver name and database URL
    static final String JDBC_DRIVER = "com.mysql.jdbc.Driver";
-   static final String DB_URL = "jdbc:mysql://mydbinstance.c71ud1joo1ez.eu-central-1.rds.amazonaws.com:3306";
+   static final String DB_URL = "jdbc:mysql://mydbinstance.c71ud1joo1ez.eu-central-1.rds.amazonaws.com:3306/mydb";
 
    // Database credendials
    static final String USER = "SSP";
