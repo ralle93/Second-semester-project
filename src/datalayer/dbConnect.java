@@ -4,34 +4,51 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.Statement;
 
-public final class dbConnect {
+public final class DbConnect {
 
-   public Connection con;
+   public Connection conn;
+   public ResultSet rs;
    public Statement stmt;
-   public static dbConnect db;
-   private dbConnect() {
+   public static DbConnect db;
+
+   private DbConnect() {
       String DBURL = "jdbc:mysql://mydbinstance.c71ud1joo1ez.eu-central-1.rds.amazonaws.com:3306/mydb?useSSL=false";
       String driver = "com.mysql.jdbc.Driver";
       String usern = "SSP";
       String pass = "123456";
       try {
          Class.forName(driver).newInstance();
-         this.con = DriverManager.getConnection(DBURL,usern,pass);
+         this.conn = DriverManager.getConnection(DBURL,usern,pass);
       } catch (Exception ex) {
          ex.printStackTrace();
          System.out.println(ex);
       }
    }
 
-   public static synchronized dbConnect getConnection(){
+   public static DbConnect getConnection(){
       if(db == null){
-         db = new dbConnect();
+         db = new DbConnect();
       }
       return db;
    }
 
+   public ResultSet resultQuery(String query) throws SQLException{
+      stmt = conn.createStatement();
+      rs = stmt.executeQuery(query);
+      return rs;
+   }
+
+   public int insertQuery(String query) throws SQLException{
+      int result;
+      stmt = conn.createStatement();
+      result = stmt.executeUpdate(query);
+      return result;
+   }
+
+
    public static void main(String[] args)throws SQLException {
-      Connection l = dbConnect.getConnection().con;
-      System.out.println(l.toString());
+      Connection connection = DbConnect.getConnection().conn;
+
+
    }
 }
