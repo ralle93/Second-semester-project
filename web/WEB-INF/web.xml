@@ -6,7 +6,7 @@
 
     <servlet>
         <servlet-name>CreateUser</servlet-name>
-        <servlet-class>applayer.CreateUser</servlet-class>
+        <servlet-class>Servlets.CreateUser</servlet-class>
     </servlet>
 
     <servlet-mapping>
