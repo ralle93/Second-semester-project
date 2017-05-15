@@ -21,7 +21,6 @@ public final class dbConnect {
          ex.printStackTrace();
          System.out.println(ex);
       }
-
    }
 
    public static synchronized dbConnect getConnection(){
