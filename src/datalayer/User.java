@@ -1,10 +1,10 @@
-package applayer;
+package datalayer;
 
 public class User {
    private String email;
    private String password;
    private String name;
-   private boolean isAdmin;
+   private boolean admin;
 
    public User(String email, String password, String name) {
       this.email = email;
@@ -24,7 +24,7 @@ public class User {
       return name;
    }
 
-   public boolean getIsAdmin() {
-      return isAdmin;
+   public boolean isAdmin() {
+      return admin;
    }
 }
