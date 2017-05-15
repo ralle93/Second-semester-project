@@ -32,6 +32,8 @@ public class CreateUser extends HttpServlet {
          request.getRequestDispatcher("/create-user.jsp").forward(request, response);
       } else {
          User user = new User(email, password, name, phoneNumber);
+
+         // TODO: Send user object to class that handles adding the user to the database
          System.out.println(user);
       }
    }
