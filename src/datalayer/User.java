@@ -15,6 +15,10 @@ public class User {
       this.admin = false;
    }
 
+   public String toString() {
+      return "[" + email + ", " + password + ", " + name + ", " + phoneNumber + "]";
+   }
+
    public String getEmail() {
       return email;
    }
