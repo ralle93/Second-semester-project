@@ -1,4 +1,4 @@
-package applayer;
+package servlets;
 
 import datalayer.User;
 
