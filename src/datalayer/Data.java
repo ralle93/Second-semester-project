@@ -82,7 +82,7 @@ public class Data {
    public static void main(String[] args)throws SQLException {
       User user = new User(5,"bla@dinmorSøren.dk1","blub", "søren", "61616161");
       Data d = new Data();
-      d.httpSessionAdd(user,"13414$24124");
+
 
    }
 
