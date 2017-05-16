@@ -45,6 +45,10 @@ public class User {
       return phoneNumber;
    }
 
+   public int getId() {
+      return id;
+   }
+
    public boolean isAdmin() {
       return admin;
    }
