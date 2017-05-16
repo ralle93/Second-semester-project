@@ -50,13 +50,9 @@ public class Data {
       } catch(SQLException ex){
          ex.printStackTrace();
       }
-
       return null;
    }
 
-   public User fetchUser(int id){
-      String query
-   }
    //method to create order in db
    public boolean createOrder(){
 
