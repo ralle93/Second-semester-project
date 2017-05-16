@@ -12,9 +12,10 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 @WebServlet(name = "CreateUser")
-
 public class CreateUser extends HttpServlet {
-   Data d = new Data();
+
+   private Data d = new Data();
+
    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
       String email = request.getParameter("email");
@@ -39,8 +40,5 @@ public class CreateUser extends HttpServlet {
          d.createUser(user);
          System.out.println(user);
       }
-   }
-
-   protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
    }
 }
