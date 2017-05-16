@@ -27,7 +27,7 @@
         <div id="product-description-1">
             <h1>Navn</h1>
             <p>Beskrivelse</p>
-            <button>Tilføj</button>
+            <button id="add-button">Tilføj</button>
         </div>
     </div>
     <div class="product">
@@ -35,7 +35,7 @@
         <div id="product-description-2">
             <h1>Navn</h1>
             <p>Beskrivelse</p>
-            <button>Tilføj</button>
+            <button id="add-button">Tilføj</button>
         </div>
     </div>
 </div>

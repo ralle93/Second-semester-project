@@ -15,8 +15,8 @@
   <div id="dropdown">
     <a id="dropbtn">Profil</a>
     <div id="dropdown-content">
-      <a href="#">Login</a>
-      <a href="#">Opret ny Bruger</a>
+      <a href="login.jsp">Login</a>
+      <a href="create-user.jsp">Opret ny Bruger</a>
     </div>
   </div>
 </div>

@@ -13,9 +13,7 @@
 }
 
 .top-menu-bar a {
-    border-color: white;
-    border-width: 1px;
-    border-style: solid;
+    border: 1px solid white;
     border-radius: 15px;
     display: inline-block;
     color: white;
@@ -34,9 +32,7 @@
 
 .center-area {
     align-self: center;
-    border-width: 2px;
-    border-color: transparent;
-    border-style: solid;
+    border: 2px solid transparent;
     width: 100%;
     padding: 10px;
     z-index: 1;
@@ -47,10 +43,8 @@
 
 /* Slideshow container */
 .slideshow-container {
-    border-color: #aeaad1;
-    border-width: 2px;
     border-radius: 15px;
-    border-style: solid;
+    border: 2px solid #aeaad1;
     height: 500px;
     position: relative;
     top: 50px;
@@ -145,30 +139,29 @@
 }
 
 #main-text-area {
-    margin: 50px;
+    margin: 25px 100px 50px;
     position: relative;
     bottom: auto;
     left:auto;
     right: auto;
     overflow: scroll;
-    border-color: #aeaad1;
-    border-width: 1px;
     border-radius: 15px;
-    border-style: solid;
+    border: 1px solid dimgray;
     padding: 20px;
+    height: 400px;
 }
 
 #main-header {
     font-family: monospace;
     font-size: 28px;
     text-align: center;
-    color: #aeaad1;
+    color: dimgray;
 }
 
 #main-paragraph {
     font-family: monospace;
     font-size: 16px;
-    color: #aeaad1;
+    color: dimgray;
 }
 
 .bottom-bar {
@@ -186,9 +179,7 @@
 }
 
 .bottom-bar a {
-    border-color: white;
-    border-width: 1px;
-    border-style: solid;
+    border: 1px solid white;
     border-radius: 15px;
     display: inline-block;
     color: white;
@@ -206,9 +197,8 @@
 }
 
 .products-table {
+    color: dimgray;
     align-self: center;
-    border-width: 2px;
-    border-style: solid;
     width: 100%;
     padding: 10px;
     position: relative;
@@ -217,16 +207,12 @@
     right: auto;
     top: 50px;
     overflow: hidden;
-    border-style: solid;
-    border-width: 2px;
-    border-color: #aeaad1;
+    border: 2px solid #aeaad1;
     border-radius: 15px;
 }
 
 .product {
-    border-color: transparent;
-    border-width: 1px;
-    border-style: solid;
+    border: 1px solid transparent;
     border-radius: 15px;
     float: left;
     margin: 10px;
@@ -234,17 +220,26 @@
 }
 
 #product-description-1 {
+    margin: 10px;
     display: none;
 }
 
 #product-description-2 {
     display: none;
+    margin: 10px;
+}
+
+#add-button {
+    border: 1px white;
+    border-radius: 15px;
+    background-color: dimgray;
+    color: white;
+    font-size: 16px;
+    font-family: monospace;
 }
 
 .product-image {
-    border-color: white;
-    border-width: 1px;
-    border-style: solid;
+    border: 1px solid white;
     border-radius: 15px;
     height: 200px;
     width: 300px;
@@ -252,22 +247,19 @@
 
 /* Dropdown Button */
 #dropbtn {
-    border-color: white;
-    border-width: 1px;
-    border-style: solid;
+    border: 1px solid white;
     border-radius: 15px;
     background-color: dimgray;
     color: white;
     font-size: 16px;
     cursor: pointer;
-    width: 200;
+    width: 200px;
     font-family: monospace;
-    font-size: 16px;
 }
 
 /* The container <div> - needed to position the dropdown content */
 #dropdown {
-    width: 200;
+    width: 200px;
     position: relative;
     display: inline-block;
     z-index: 999;
@@ -288,9 +280,7 @@
     text-decoration: none;
     display: block;
     background-color: white;
-    border-color: #aeaad1;
-    border-style: solid;
-    border-width: 2px;
+    border: 2px solid #aeaad1;
 }
 
 /* Change color of dropdown links on hover */
