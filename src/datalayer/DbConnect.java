@@ -9,7 +9,7 @@ public final class DbConnect {
 
    private Connection conn;
    private ResultSet rs;
-   private static DbConnect db;
+   static DbConnect db;
 
    private DbConnect() {
       String DBURL = "jdbc:mysql://mydbinstance.c71ud1joo1ez.eu-central-1.rds.amazonaws.com:3306/mydb?useSSL=false";
