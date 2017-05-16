@@ -7,9 +7,10 @@ import java.sql.Statement;
 //Singleton class in charge of getting connection to db and fetch/pulling data
 public final class DbConnect {
 
-   private Connection conn;
+   public Connection conn;
    private ResultSet rs;
-   static DbConnect db;
+   public Statement stmt;
+   public static DbConnect db;
 
    private DbConnect() {
       String DBURL = "jdbc:mysql://mydbinstance.c71ud1joo1ez.eu-central-1.rds.amazonaws.com:3306/mydb?useSSL=false";

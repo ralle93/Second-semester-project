@@ -34,21 +34,28 @@ public class Data {
       return false;
    }
    //method to check user credentials
-   public boolean logInCheck(String email, String password){
+   public User logInCheck(String email, String password){
       try{
-         String query ="SELECT email, password FROM users WHERE email = ? AND password = ?;";
+         String query ="SELECT * FROM users WHERE email = ? AND password = ?;";
          stmt = conn.prepareStatement(query);
 
          stmt.setString(1, email);
          stmt.setString(2, password);
          rs = db.resultQuery(stmt);
-         if(rs.next()) return true;
-         return false;
+         if(rs.next()) {
+            User user = new User(rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5));
+            return user;
+         }
+         return null;
       } catch(SQLException ex){
          ex.printStackTrace();
       }
 
-      return false;
+      return null;
+   }
+
+   public User fetchUser(int id){
+      String query
    }
    //method to create order in db
    public boolean createOrder(){
