@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="bef55695-3af2-45f8-bbc6-4dfd01918866" name="Default" comment="login check added and working">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/datalayer/Data.java" afterPath="$PROJECT_DIR$/src/datalayer/Data.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -23,7 +22,7 @@
         <entry file="file://$PROJECT_DIR$/src/datalayer/DbConnect.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="-78">
-              <caret line="9" column="26" lean-forward="true" selection-start-line="9" selection-start-column="26" selection-end-line="9" selection-end-column="26" />
+              <caret line="9" column="26" lean-forward="false" selection-start-line="9" selection-start-column="26" selection-end-line="9" selection-end-column="26" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -34,10 +33,9 @@
       <file leaf-file-name="Data.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/datalayer/Data.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="150">
-              <caret line="10" column="52" lean-forward="true" selection-start-line="10" selection-start-column="52" selection-end-line="10" selection-end-column="52" />
+            <state relative-caret-position="75">
+              <caret line="5" column="18" lean-forward="true" selection-start-line="5" selection-start-column="18" selection-end-line="5" selection-end-column="18" />
               <folding>
-                <element signature="imports" expanded="true" />
                 <element signature="method#createUser#0;class#Data#0" expanded="false" />
                 <element signature="method#logInCheck#0;class#Data#0" expanded="false" />
                 <element signature="method#httpSessionAdd#0;class#Data#0" expanded="false" />
@@ -1018,11 +1016,18 @@
       <option name="project" value="LOCAL" />
       <updated>1494930734651</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="login check added and working">
+      <created>1494930864523</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1494930864523</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="22734000" />
+    <option name="totallyTimeSpent" value="22828000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
@@ -1047,8 +1052,8 @@
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.29191092" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3282532" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.29191092" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3282532" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16458334" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -1103,7 +1108,6 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="imports" expanded="true" />
             <element signature="method#createUser#0;class#Data#0" expanded="false" />
             <element signature="method#logInCheck#0;class#Data#0" expanded="false" />
             <element signature="method#httpSessionAdd#0;class#Data#0" expanded="false" />
@@ -1163,34 +1167,34 @@
         <state relative-caret-position="165">
           <caret line="11" column="28" lean-forward="true" selection-start-line="11" selection-start-column="28" selection-end-line="11" selection-end-column="28" />
           <folding>
-            <marker date="1494842441000" expanded="true" signature="71:4644" ph="..." />
-            <marker date="1494842441000" expanded="true" signature="79:193" ph="..." />
-            <marker date="1494842441000" expanded="true" signature="201:241" ph="..." />
-            <marker date="1494842441000" expanded="true" signature="228:241" ph="..." />
-            <marker date="1494842441000" expanded="true" signature="388:4308" ph="..." />
-            <marker date="1494842441000" expanded="true" signature="425:991" ph="..." />
-            <marker date="1494842441000" expanded="true" signature="457:645" ph="..." />
-            <marker date="1494842441000" expanded="false" signature="550:560" ph="..." />
-            <marker date="1494842441000" expanded="true" signature="678:866" ph="..." />
-            <marker date="1494842441000" expanded="false" signature="771:781" ph="..." />
-            <marker date="1494842441000" expanded="true" signature="914:922" ph="&amp;##10094;" />
-            <marker date="1494842441000" expanded="true" signature="971:979" ph="&amp;##10095;" />
-            <marker date="1494842441000" expanded="false" signature="1016:1033" ph="..." />
-            <marker date="1494842441000" expanded="true" signature="1034:1211" ph="..." />
-            <marker date="1494842441000" expanded="true" signature="1223:2144" ph="..." />
-            <marker date="1494842441000" expanded="true" signature="1311:1359" ph="{...}" />
-            <marker date="1494842441000" expanded="true" signature="1392:1439" ph="{...}" />
-            <marker date="1494842441000" expanded="true" signature="1470:2133" ph="{...}" />
-            <marker date="1494842441000" expanded="true" signature="1652:1694" ph="{...}" />
-            <marker date="1494842441000" expanded="true" signature="1717:1771" ph="{...}" />
-            <marker date="1494842441000" expanded="true" signature="1819:1880" ph="{...}" />
-            <marker date="1494842441000" expanded="true" signature="1926:2015" ph="{...}" />
-            <marker date="1494842441000" expanded="true" signature="2173:4301" ph="..." />
-            <marker date="1494842441000" expanded="true" signature="2243:2833" ph="..." />
-            <marker date="1494842441000" expanded="true" signature="2861:3767" ph="..." />
-            <marker date="1494842441000" expanded="true" signature="3795:4292" ph="..." />
-            <marker date="1494842441000" expanded="true" signature="4444:4635" ph="..." />
-            <marker date="1494842441000" expanded="true" signature="4444:4625" ph="..." />
+            <marker date="1494930873000" expanded="true" signature="71:4817" ph="..." />
+            <marker date="1494930873000" expanded="true" signature="79:193" ph="..." />
+            <marker date="1494930873000" expanded="true" signature="201:241" ph="..." />
+            <marker date="1494930873000" expanded="true" signature="228:241" ph="..." />
+            <marker date="1494930873000" expanded="true" signature="561:4481" ph="..." />
+            <marker date="1494930873000" expanded="true" signature="598:1164" ph="..." />
+            <marker date="1494930873000" expanded="true" signature="630:818" ph="..." />
+            <marker date="1494930873000" expanded="false" signature="723:733" ph="..." />
+            <marker date="1494930873000" expanded="true" signature="851:1039" ph="..." />
+            <marker date="1494930873000" expanded="false" signature="944:954" ph="..." />
+            <marker date="1494930873000" expanded="true" signature="1087:1095" ph="&amp;##10094;" />
+            <marker date="1494930873000" expanded="true" signature="1144:1152" ph="&amp;##10095;" />
+            <marker date="1494930873000" expanded="false" signature="1189:1206" ph="..." />
+            <marker date="1494930873000" expanded="true" signature="1207:1384" ph="..." />
+            <marker date="1494930873000" expanded="true" signature="1396:2317" ph="..." />
+            <marker date="1494930873000" expanded="true" signature="1484:1532" ph="{...}" />
+            <marker date="1494930873000" expanded="true" signature="1565:1612" ph="{...}" />
+            <marker date="1494930873000" expanded="true" signature="1643:2306" ph="{...}" />
+            <marker date="1494930873000" expanded="true" signature="1825:1867" ph="{...}" />
+            <marker date="1494930873000" expanded="true" signature="1890:1944" ph="{...}" />
+            <marker date="1494930873000" expanded="true" signature="1992:2053" ph="{...}" />
+            <marker date="1494930873000" expanded="true" signature="2099:2188" ph="{...}" />
+            <marker date="1494930873000" expanded="true" signature="2346:4474" ph="..." />
+            <marker date="1494930873000" expanded="true" signature="2416:3006" ph="..." />
+            <marker date="1494930873000" expanded="true" signature="3034:3940" ph="..." />
+            <marker date="1494930873000" expanded="true" signature="3968:4465" ph="..." />
+            <marker date="1494930873000" expanded="true" signature="4617:4808" ph="..." />
+            <marker date="1494930873000" expanded="true" signature="4617:4798" ph="..." />
           </folding>
         </state>
       </provider>
@@ -1263,7 +1267,6 @@
         <state relative-caret-position="357">
           <caret line="62" column="0" lean-forward="false" selection-start-line="62" selection-start-column="0" selection-end-line="62" selection-end-column="0" />
           <folding>
-            <element signature="imports" expanded="true" />
             <element signature="method#createUser#0;class#Data#0" expanded="false" />
             <element signature="method#logInCheck#0;class#Data#0" expanded="false" />
             <element signature="method#httpSessionAdd#0;class#Data#0" expanded="false" />
@@ -1298,7 +1301,6 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="imports" expanded="true" />
             <element signature="method#createUser#0;class#Data#0" expanded="false" />
             <element signature="method#logInCheck#0;class#Data#0" expanded="false" />
             <element signature="method#httpSessionAdd#0;class#Data#0" expanded="false" />
@@ -1358,34 +1360,34 @@
         <state relative-caret-position="165">
           <caret line="11" column="28" lean-forward="true" selection-start-line="11" selection-start-column="28" selection-end-line="11" selection-end-column="28" />
           <folding>
-            <marker date="1494842441000" expanded="true" signature="71:4644" ph="..." />
-            <marker date="1494842441000" expanded="true" signature="79:193" ph="..." />
-            <marker date="1494842441000" expanded="true" signature="201:241" ph="..." />
-            <marker date="1494842441000" expanded="true" signature="228:241" ph="..." />
-            <marker date="1494842441000" expanded="true" signature="388:4308" ph="..." />
-            <marker date="1494842441000" expanded="true" signature="425:991" ph="..." />
-            <marker date="1494842441000" expanded="true" signature="457:645" ph="..." />
-            <marker date="1494842441000" expanded="false" signature="550:560" ph="..." />
-            <marker date="1494842441000" expanded="true" signature="678:866" ph="..." />
-            <marker date="1494842441000" expanded="false" signature="771:781" ph="..." />
-            <marker date="1494842441000" expanded="true" signature="914:922" ph="&amp;##10094;" />
-            <marker date="1494842441000" expanded="true" signature="971:979" ph="&amp;##10095;" />
-            <marker date="1494842441000" expanded="false" signature="1016:1033" ph="..." />
-            <marker date="1494842441000" expanded="true" signature="1034:1211" ph="..." />
-            <marker date="1494842441000" expanded="true" signature="1223:2144" ph="..." />
-            <marker date="1494842441000" expanded="true" signature="1311:1359" ph="{...}" />
-            <marker date="1494842441000" expanded="true" signature="1392:1439" ph="{...}" />
-            <marker date="1494842441000" expanded="true" signature="1470:2133" ph="{...}" />
-            <marker date="1494842441000" expanded="true" signature="1652:1694" ph="{...}" />
-            <marker date="1494842441000" expanded="true" signature="1717:1771" ph="{...}" />
-            <marker date="1494842441000" expanded="true" signature="1819:1880" ph="{...}" />
-            <marker date="1494842441000" expanded="true" signature="1926:2015" ph="{...}" />
-            <marker date="1494842441000" expanded="true" signature="2173:4301" ph="..." />
-            <marker date="1494842441000" expanded="true" signature="2243:2833" ph="..." />
-            <marker date="1494842441000" expanded="true" signature="2861:3767" ph="..." />
-            <marker date="1494842441000" expanded="true" signature="3795:4292" ph="..." />
-            <marker date="1494842441000" expanded="true" signature="4444:4635" ph="..." />
-            <marker date="1494842441000" expanded="true" signature="4444:4625" ph="..." />
+            <marker date="1494930873000" expanded="true" signature="71:4817" ph="..." />
+            <marker date="1494930873000" expanded="true" signature="79:193" ph="..." />
+            <marker date="1494930873000" expanded="true" signature="201:241" ph="..." />
+            <marker date="1494930873000" expanded="true" signature="228:241" ph="..." />
+            <marker date="1494930873000" expanded="true" signature="561:4481" ph="..." />
+            <marker date="1494930873000" expanded="true" signature="598:1164" ph="..." />
+            <marker date="1494930873000" expanded="true" signature="630:818" ph="..." />
+            <marker date="1494930873000" expanded="false" signature="723:733" ph="..." />
+            <marker date="1494930873000" expanded="true" signature="851:1039" ph="..." />
+            <marker date="1494930873000" expanded="false" signature="944:954" ph="..." />
+            <marker date="1494930873000" expanded="true" signature="1087:1095" ph="&amp;##10094;" />
+            <marker date="1494930873000" expanded="true" signature="1144:1152" ph="&amp;##10095;" />
+            <marker date="1494930873000" expanded="false" signature="1189:1206" ph="..." />
+            <marker date="1494930873000" expanded="true" signature="1207:1384" ph="..." />
+            <marker date="1494930873000" expanded="true" signature="1396:2317" ph="..." />
+            <marker date="1494930873000" expanded="true" signature="1484:1532" ph="{...}" />
+            <marker date="1494930873000" expanded="true" signature="1565:1612" ph="{...}" />
+            <marker date="1494930873000" expanded="true" signature="1643:2306" ph="{...}" />
+            <marker date="1494930873000" expanded="true" signature="1825:1867" ph="{...}" />
+            <marker date="1494930873000" expanded="true" signature="1890:1944" ph="{...}" />
+            <marker date="1494930873000" expanded="true" signature="1992:2053" ph="{...}" />
+            <marker date="1494930873000" expanded="true" signature="2099:2188" ph="{...}" />
+            <marker date="1494930873000" expanded="true" signature="2346:4474" ph="..." />
+            <marker date="1494930873000" expanded="true" signature="2416:3006" ph="..." />
+            <marker date="1494930873000" expanded="true" signature="3034:3940" ph="..." />
+            <marker date="1494930873000" expanded="true" signature="3968:4465" ph="..." />
+            <marker date="1494930873000" expanded="true" signature="4617:4808" ph="..." />
+            <marker date="1494930873000" expanded="true" signature="4617:4798" ph="..." />
           </folding>
         </state>
       </provider>
@@ -1454,7 +1456,7 @@
     <entry file="file://$PROJECT_DIR$/src/datalayer/DbConnect.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-78">
-          <caret line="9" column="26" lean-forward="true" selection-start-line="9" selection-start-column="26" selection-end-line="9" selection-end-column="26" />
+          <caret line="9" column="26" lean-forward="false" selection-start-line="9" selection-start-column="26" selection-end-line="9" selection-end-column="26" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1489,10 +1491,9 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/datalayer/Data.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" column="52" lean-forward="true" selection-start-line="10" selection-start-column="52" selection-end-line="10" selection-end-column="52" />
+        <state relative-caret-position="75">
+          <caret line="5" column="18" lean-forward="true" selection-start-line="5" selection-start-column="18" selection-end-line="5" selection-end-column="18" />
           <folding>
-            <element signature="imports" expanded="true" />
             <element signature="method#createUser#0;class#Data#0" expanded="false" />
             <element signature="method#logInCheck#0;class#Data#0" expanded="false" />
             <element signature="method#httpSessionAdd#0;class#Data#0" expanded="false" />
