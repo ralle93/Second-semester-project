@@ -28,7 +28,7 @@ public class ReceiptCreator {
       PDPage blankpage = new PDPage();
       document.addPage(blankpage);
 
-      PDImageXObject pdImage = PDImageXObject.createFromFile("src/datalayer/ReceiptData/Logo.png", document);
+      PDImageXObject pdImage = PDImageXObject.createFromFile("ReceiptData/Logo.png", document);
       PDPageContentStream contents = new PDPageContentStream(document, blankpage);
       contents.drawImage(pdImage,0,692,240,100);
       contents.close();
