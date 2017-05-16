@@ -1,5 +1,6 @@
 package servlets;
 
+import datalayer.Data;
 import datalayer.User;
 
 import javax.servlet.ServletException;
@@ -12,6 +13,7 @@ import java.io.IOException;
 @WebServlet(name = "CreateUser")
 
 public class CreateUser extends HttpServlet {
+   Data d = new Data();
    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
       String email = request.getParameter("email");
@@ -33,8 +35,7 @@ public class CreateUser extends HttpServlet {
          request.getRequestDispatcher("/create-user.jsp").forward(request, response);
       } else {
          User user = new User(email, password, name, phoneNumber);
-
-         // TODO: Send user object to class that handles adding the user to the database
+         d.createUser(user);
          System.out.println(user);
       }
    }

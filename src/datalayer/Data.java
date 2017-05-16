@@ -13,19 +13,24 @@ public class Data {
    private ResultSet rs;
 
    //Method to add user to user table in database.
-   public void createUser(User user) throws SQLException{
+   public void createUser(User user) {
       String query = "INSERT INTO `mydb`.`users` (`email`, `password`, `is_admin`, `created`, `name`, `phone_nr`)";
       query += " VALUES (?, ?, ?, ?, ?, ?);";
-      stmt = conn.prepareStatement(query);
+      try{
+         stmt = conn.prepareStatement(query);
 
-      stmt.setString(1, user.getEmail());
-      stmt.setString(2, user.getPassword());
-      stmt.setBoolean(3, false);
-      stmt.setDate(4, Date.valueOf(LocalDate.now()));
-      stmt.setString(5, user.getName());
-      stmt.setString(6,user.getPhoneNumber());
+         stmt.setString(1, user.getEmail());
+         stmt.setString(2, user.getPassword());
+         stmt.setBoolean(3, false);
+         stmt.setDate(4, Date.valueOf(LocalDate.now()));
+         stmt.setString(5, user.getName());
+         stmt.setString(6,user.getPhoneNumber());
 
-      db.insertQuery(stmt);
+         db.insertQuery(stmt);
+      }catch(SQLException ex){
+         ex.printStackTrace();
+      }
+
 
 
    }
