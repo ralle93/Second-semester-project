@@ -4,7 +4,8 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.Statement;
 
-public final class DbConnect { //Singleton class with connection to database and
+//Singleton class in charge of getting connection to db and fetch/pulling data
+public final class DbConnect {
 
    public Connection conn;
    public ResultSet rs;
@@ -32,8 +33,7 @@ public final class DbConnect { //Singleton class with connection to database and
       return db;
    }
 
-   public ResultSet resultQuery(String query) throws SQLException{
-      stmt = conn.createStatement();
+   public ResultSet resultQuery(PreparedStatement stmt, String query) throws SQLException{
       rs = stmt.executeQuery(query);
       return rs;
    }
