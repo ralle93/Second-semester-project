@@ -38,17 +38,8 @@ public final class DbConnect {
       return rs;
    }
 
-   public int insertQuery(String query) throws SQLException{
-      int result;
-      stmt = conn.createStatement();
-      result = stmt.executeUpdate(query);
-      return result;
-   }
-
-
-   public static void main(String[] args)throws SQLException {
-      Connection connection = DbConnect.getConnection().conn;
-
-
+   public boolean insertQuery(PreparedStatement stmt) throws SQLException{
+      if(stmt.executeUpdate() > 0) return true;
+      return false;
    }
 }
