@@ -41,7 +41,6 @@ public class CreateUser extends HttpServlet {
    }
 
    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-      System.out.println("y u do dis?");
    }
 
    // Method to determine if the user has entered a valid looking e-mail address
@@ -70,7 +69,6 @@ public class CreateUser extends HttpServlet {
       if (password.length() < 6) {
          return false;
       }
-
       return true;
    }
 
