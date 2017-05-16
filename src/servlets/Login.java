@@ -1,6 +1,7 @@
 package servlets;
 
 import datalayer.Data;
+import datalayer.User;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -13,10 +14,12 @@ import java.io.IOException;
 public class Login extends HttpServlet {
 
    Data d = new Data();
+   User user = null;
 
    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
       String email = request.getParameter("email");
       String password = request.getParameter("password");
+
 
    }
 }
