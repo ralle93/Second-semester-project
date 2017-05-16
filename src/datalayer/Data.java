@@ -34,13 +34,13 @@ public class Data {
       return false;
    }
    //method to check user credentials
-   public boolean logInCheck(User user){
+   public boolean logInCheck(String email, String password){
       try{
          String query ="SELECT email, password FROM users WHERE email = ? AND password = ?;";
          stmt = conn.prepareStatement(query);
 
-         stmt.setString(1, user.getEmail());
-         stmt.setString(2, user.getPassword());
+         stmt.setString(1, email);
+         stmt.setString(2, password);
          rs = db.resultQuery(stmt);
          if(rs.next()) return true;
          return false;
@@ -65,7 +65,7 @@ public class Data {
    public static void main(String[] args)throws SQLException {
       User user = new User("bla@dinmorSøren.dk1","blub", "søren", "61616161");
       Data d = new Data();
-      System.out.println(d.logInCheck(user));
+
    }
 
 }

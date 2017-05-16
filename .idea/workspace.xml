@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="bef55695-3af2-45f8-bbc6-4dfd01918866" name="Default" comment="">
+    <list default="true" id="bef55695-3af2-45f8-bbc6-4dfd01918866" name="Default" comment="login check added and working">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SecondSemesterProject.iml" afterPath="$PROJECT_DIR$/SecondSemesterProject.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/datalayer/Data.java" afterPath="$PROJECT_DIR$/src/datalayer/Data.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -19,108 +18,65 @@
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.5">
-      <split-first>
-        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file leaf-file-name="mainstylesheet.css" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/web/css/mainstylesheet.css">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="525">
-                  <caret line="35" column="23" lean-forward="false" selection-start-line="35" selection-start-column="23" selection-end-line="35" selection-end-column="23" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="DbConnect.java" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/datalayer/DbConnect.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="570">
-                  <caret line="38" column="4" lean-forward="false" selection-start-line="38" selection-start-column="4" selection-end-line="38" selection-end-column="4" />
-                  <folding>
-                    <element signature="imports" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="Data.java" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/src/datalayer/Data.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="427">
-                  <caret line="48" column="7" lean-forward="false" selection-start-line="48" selection-start-column="7" selection-end-line="48" selection-end-column="7" />
-                  <folding>
-                    <element signature="imports" expanded="true" />
-                    <marker date="1494925109000" expanded="true" signature="463:554" ph="INSERT INTO `mydb`.`users`... " />
-                    <marker date="1494925109000" expanded="true" signature="577:602" ph="VALUES (?, ?... " />
-                    <marker date="1494925109000" expanded="true" signature="1181:1247" ph="SELECT `emai... users" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="User.java" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/datalayer/User.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="30">
-                  <caret line="2" column="13" lean-forward="false" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="CreateUser.java" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/servlets/CreateUser.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="791">
-                  <caret line="83" column="0" lean-forward="false" selection-start-line="83" selection-start-column="0" selection-end-line="83" selection-end-column="0" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="create-user.jsp" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/web/create-user.jsp">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="300">
-                  <caret line="20" column="46" lean-forward="false" selection-start-line="20" selection-start-column="46" selection-end-line="20" selection-end-column="46" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-        </leaf>
-      </split-first>
-      <split-second>
-        <leaf>
-          <file leaf-file-name="Data.java" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/datalayer/Data.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="342">
-                  <caret line="63" column="0" lean-forward="false" selection-start-line="63" selection-start-column="0" selection-end-line="63" selection-end-column="0" />
-                  <folding>
-                    <element signature="imports" expanded="true" />
-                    <marker date="1494925109000" expanded="true" signature="463:554" ph="INSERT INTO `mydb`.`users`... " />
-                    <marker date="1494925109000" expanded="true" signature="577:602" ph="VALUES (?, ?... " />
-                    <marker date="1494925109000" expanded="true" signature="1181:1247" ph="SELECT `emai... users" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="cakes.jsp" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/web/cakes.jsp">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="0">
-                  <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-        </leaf>
-      </split-second>
-    </splitter>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="mainstylesheet.css" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/web/css/mainstylesheet.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="525">
+              <caret line="35" column="23" lean-forward="false" selection-start-line="35" selection-start-column="23" selection-end-line="35" selection-end-column="23" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DbConnect.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/datalayer/DbConnect.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="570">
+              <caret line="38" column="4" lean-forward="false" selection-start-line="38" selection-start-column="4" selection-end-line="38" selection-end-column="4" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Data.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/datalayer/Data.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1005">
+              <caret line="67" column="6" lean-forward="false" selection-start-line="67" selection-start-column="6" selection-end-line="67" selection-end-column="6" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <marker date="1494925984000" expanded="true" signature="463:554" ph="INSERT INTO `mydb`.`users`... " />
+                <marker date="1494925984000" expanded="true" signature="577:602" ph="VALUES (?, ?... " />
+                <marker date="1494925984000" expanded="true" signature="1201:1267" ph="SELECT `emai... users" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="User.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/datalayer/User.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="30">
+              <caret line="2" column="13" lean-forward="false" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CreateUser.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/servlets/CreateUser.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="791">
+              <caret line="83" column="0" lean-forward="false" selection-start-line="83" selection-start-column="0" selection-end-line="83" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -892,11 +848,18 @@
       <option name="project" value="LOCAL" />
       <updated>1494924096985</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="login check added and working">
+      <created>1494925113516</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1494925113516</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="19303000" />
+    <option name="totallyTimeSpent" value="19591000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
@@ -985,9 +948,9 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <marker date="1494925109000" expanded="true" signature="463:554" ph="INSERT INTO `mydb`.`users`... " />
-            <marker date="1494925109000" expanded="true" signature="577:602" ph="VALUES (?, ?... " />
-            <marker date="1494925109000" expanded="true" signature="1181:1247" ph="SELECT `emai... users" />
+            <marker date="1494925984000" expanded="true" signature="463:554" ph="INSERT INTO `mydb`.`users`... " />
+            <marker date="1494925984000" expanded="true" signature="577:602" ph="VALUES (?, ?... " />
+            <marker date="1494925984000" expanded="true" signature="1201:1267" ph="SELECT `emai... users" />
           </folding>
         </state>
       </provider>
@@ -1139,9 +1102,9 @@
           <caret line="62" column="0" lean-forward="false" selection-start-line="62" selection-start-column="0" selection-end-line="62" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <marker date="1494925109000" expanded="true" signature="463:554" ph="INSERT INTO `mydb`.`users`... " />
-            <marker date="1494925109000" expanded="true" signature="577:602" ph="VALUES (?, ?... " />
-            <marker date="1494925109000" expanded="true" signature="1181:1247" ph="SELECT `emai... users" />
+            <marker date="1494925984000" expanded="true" signature="463:554" ph="INSERT INTO `mydb`.`users`... " />
+            <marker date="1494925984000" expanded="true" signature="577:602" ph="VALUES (?, ?... " />
+            <marker date="1494925984000" expanded="true" signature="1201:1267" ph="SELECT `emai... users" />
           </folding>
         </state>
       </provider>
@@ -1170,9 +1133,9 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <marker date="1494925109000" expanded="true" signature="463:554" ph="INSERT INTO `mydb`.`users`... " />
-            <marker date="1494925109000" expanded="true" signature="577:602" ph="VALUES (?, ?... " />
-            <marker date="1494925109000" expanded="true" signature="1181:1247" ph="SELECT `emai... users" />
+            <marker date="1494925984000" expanded="true" signature="463:554" ph="INSERT INTO `mydb`.`users`... " />
+            <marker date="1494925984000" expanded="true" signature="577:602" ph="VALUES (?, ?... " />
+            <marker date="1494925984000" expanded="true" signature="1201:1267" ph="SELECT `emai... users" />
           </folding>
         </state>
       </provider>
@@ -1283,26 +1246,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/create-user.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="20" column="46" lean-forward="false" selection-start-line="20" selection-start-column="46" selection-end-line="20" selection-end-column="46" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/datalayer/User.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="30">
           <caret line="2" column="13" lean-forward="false" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/servlets/CreateUser.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="791">
-          <caret line="83" column="0" lean-forward="false" selection-start-line="83" selection-start-column="0" selection-end-line="83" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -1325,24 +1272,40 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/datalayer/Data.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="342">
-          <caret line="63" column="0" lean-forward="false" selection-start-line="63" selection-start-column="0" selection-end-line="63" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <marker date="1494925109000" expanded="true" signature="463:554" ph="INSERT INTO `mydb`.`users`... " />
-            <marker date="1494925109000" expanded="true" signature="577:602" ph="VALUES (?, ?... " />
-            <marker date="1494925109000" expanded="true" signature="1181:1247" ph="SELECT `emai... users" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/web/cakes.jsp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/create-user.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="20" column="46" lean-forward="false" selection-start-line="20" selection-start-column="46" selection-end-line="20" selection-end-column="46" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/servlets/CreateUser.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="791">
+          <caret line="83" column="0" lean-forward="false" selection-start-line="83" selection-start-column="0" selection-end-line="83" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/datalayer/Data.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1005">
+          <caret line="67" column="6" lean-forward="false" selection-start-line="67" selection-start-column="6" selection-end-line="67" selection-end-column="6" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <marker date="1494925984000" expanded="true" signature="463:554" ph="INSERT INTO `mydb`.`users`... " />
+            <marker date="1494925984000" expanded="true" signature="577:602" ph="VALUES (?, ?... " />
+            <marker date="1494925984000" expanded="true" signature="1201:1267" ph="SELECT `emai... users" />
+          </folding>
         </state>
       </provider>
     </entry>
