@@ -1,6 +1,7 @@
 package datalayer;
 
 public class User {
+   private int id;
    private String email;
    private String password;
    private String name;
@@ -8,6 +9,15 @@ public class User {
    private boolean admin;
 
    public User(String email, String password, String name, String phoneNumber) {
+      this.email = email;
+      this.password = password;
+      this.name = name;
+      this.phoneNumber = phoneNumber;
+      this.admin = false;
+   }
+
+   public User(int id, String email, String password, String name, String phoneNumber) {
+      this.id = id;
       this.email = email;
       this.password = password;
       this.name = name;

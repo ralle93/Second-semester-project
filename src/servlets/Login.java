@@ -14,11 +14,18 @@ import java.io.IOException;
 public class Login extends HttpServlet {
 
    Data d = new Data();
-   User user = null;
 
    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
       String email = request.getParameter("email");
       String password = request.getParameter("password");
 
+      User user = d.logInCheck(email, password);
+
+      if (user == null) {
+         request.setAttribute("errorMessage", "Invalid email or password!");
+         request.getRequestDispatcher("/login.jsp").forward(request, response);
+      } else {
+         String session = request.getSession().getId();
+      }
    }
 }
