@@ -40,7 +40,7 @@ public class Data {
 
          stmt.setString(1, user.getEmail());
          stmt.setString(2, user.getPassword());
-         rs = db.resultQuery(stmt, query);
+         rs = db.resultQuery(stmt);
          if(rs.next()) return true;
          return false;
       } catch(SQLException ex){
