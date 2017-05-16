@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="bef55695-3af2-45f8-bbc6-4dfd01918866" name="Default" comment="login check added and working">
+    <list default="true" id="bef55695-3af2-45f8-bbc6-4dfd01918866" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/datalayer/Data.java" afterPath="$PROJECT_DIR$/src/datalayer/Data.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/datalayer/DbConnect.java" afterPath="$PROJECT_DIR$/src/datalayer/DbConnect.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -29,11 +29,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="DbConnect.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="DbConnect.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/datalayer/DbConnect.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="570">
-              <caret line="38" column="4" lean-forward="false" selection-start-line="38" selection-start-column="4" selection-end-line="38" selection-end-column="4" />
+            <state relative-caret-position="-34">
+              <caret line="13" column="24" lean-forward="true" selection-start-line="13" selection-start-column="24" selection-end-line="13" selection-end-column="24" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -41,16 +41,16 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Data.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Data.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/datalayer/Data.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1005">
-              <caret line="67" column="6" lean-forward="false" selection-start-line="67" selection-start-column="6" selection-end-line="67" selection-end-column="6" />
+            <state relative-caret-position="705">
+              <caret line="47" column="30" lean-forward="true" selection-start-line="47" selection-start-column="30" selection-end-line="47" selection-end-column="30" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <marker date="1494925984000" expanded="true" signature="463:554" ph="INSERT INTO `mydb`.`users`... " />
-                <marker date="1494925984000" expanded="true" signature="577:602" ph="VALUES (?, ?... " />
-                <marker date="1494925984000" expanded="true" signature="1201:1267" ph="SELECT `emai... users" />
+                <marker date="1494925985000" expanded="true" signature="463:554" ph="INSERT INTO `mydb`.`users`... " />
+                <marker date="1494925985000" expanded="true" signature="577:602" ph="VALUES (?, ?... " />
+                <marker date="1494925985000" expanded="true" signature="1201:1267" ph="SELECT `emai... users" />
               </folding>
             </state>
           </provider>
@@ -110,8 +110,8 @@
         <option value="$PROJECT_DIR$/src/datalayer/testDB.java" />
         <option value="$PROJECT_DIR$/src/datalayer/dbConnect.java" />
         <option value="$PROJECT_DIR$/src/servlets/CreateUser.java" />
-        <option value="$PROJECT_DIR$/src/datalayer/DbConnect.java" />
         <option value="$PROJECT_DIR$/src/datalayer/Data.java" />
+        <option value="$PROJECT_DIR$/src/datalayer/DbConnect.java" />
       </list>
     </option>
   </component>
@@ -855,11 +855,18 @@
       <option name="project" value="LOCAL" />
       <updated>1494925113516</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="login check added and working">
+      <created>1494925988084</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1494925988084</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="19591000" />
+    <option name="totallyTimeSpent" value="19702000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
@@ -948,9 +955,9 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <marker date="1494925984000" expanded="true" signature="463:554" ph="INSERT INTO `mydb`.`users`... " />
-            <marker date="1494925984000" expanded="true" signature="577:602" ph="VALUES (?, ?... " />
-            <marker date="1494925984000" expanded="true" signature="1201:1267" ph="SELECT `emai... users" />
+            <marker date="1494925985000" expanded="true" signature="463:554" ph="INSERT INTO `mydb`.`users`... " />
+            <marker date="1494925985000" expanded="true" signature="577:602" ph="VALUES (?, ?... " />
+            <marker date="1494925985000" expanded="true" signature="1201:1267" ph="SELECT `emai... users" />
           </folding>
         </state>
       </provider>
@@ -1102,9 +1109,9 @@
           <caret line="62" column="0" lean-forward="false" selection-start-line="62" selection-start-column="0" selection-end-line="62" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <marker date="1494925984000" expanded="true" signature="463:554" ph="INSERT INTO `mydb`.`users`... " />
-            <marker date="1494925984000" expanded="true" signature="577:602" ph="VALUES (?, ?... " />
-            <marker date="1494925984000" expanded="true" signature="1201:1267" ph="SELECT `emai... users" />
+            <marker date="1494925985000" expanded="true" signature="463:554" ph="INSERT INTO `mydb`.`users`... " />
+            <marker date="1494925985000" expanded="true" signature="577:602" ph="VALUES (?, ?... " />
+            <marker date="1494925985000" expanded="true" signature="1201:1267" ph="SELECT `emai... users" />
           </folding>
         </state>
       </provider>
@@ -1133,9 +1140,9 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <marker date="1494925984000" expanded="true" signature="463:554" ph="INSERT INTO `mydb`.`users`... " />
-            <marker date="1494925984000" expanded="true" signature="577:602" ph="VALUES (?, ?... " />
-            <marker date="1494925984000" expanded="true" signature="1201:1267" ph="SELECT `emai... users" />
+            <marker date="1494925985000" expanded="true" signature="463:554" ph="INSERT INTO `mydb`.`users`... " />
+            <marker date="1494925985000" expanded="true" signature="577:602" ph="VALUES (?, ?... " />
+            <marker date="1494925985000" expanded="true" signature="1201:1267" ph="SELECT `emai... users" />
           </folding>
         </state>
       </provider>
@@ -1254,16 +1261,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/datalayer/DbConnect.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="570">
-          <caret line="38" column="4" lean-forward="false" selection-start-line="38" selection-start-column="4" selection-end-line="38" selection-end-column="4" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1298,13 +1295,23 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/datalayer/Data.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1005">
-          <caret line="67" column="6" lean-forward="false" selection-start-line="67" selection-start-column="6" selection-end-line="67" selection-end-column="6" />
+        <state relative-caret-position="705">
+          <caret line="47" column="30" lean-forward="true" selection-start-line="47" selection-start-column="30" selection-end-line="47" selection-end-column="30" />
           <folding>
             <element signature="imports" expanded="true" />
-            <marker date="1494925984000" expanded="true" signature="463:554" ph="INSERT INTO `mydb`.`users`... " />
-            <marker date="1494925984000" expanded="true" signature="577:602" ph="VALUES (?, ?... " />
-            <marker date="1494925984000" expanded="true" signature="1201:1267" ph="SELECT `emai... users" />
+            <marker date="1494925985000" expanded="true" signature="463:554" ph="INSERT INTO `mydb`.`users`... " />
+            <marker date="1494925985000" expanded="true" signature="577:602" ph="VALUES (?, ?... " />
+            <marker date="1494925985000" expanded="true" signature="1201:1267" ph="SELECT `emai... users" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/datalayer/DbConnect.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-34">
+          <caret line="13" column="24" lean-forward="true" selection-start-line="13" selection-start-column="24" selection-end-line="13" selection-end-column="24" />
+          <folding>
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
