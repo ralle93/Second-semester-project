@@ -4,6 +4,8 @@ import org.apache.pdfbox.pdmodel.PDDocument;
 import org.apache.pdfbox.pdmodel.PDDocumentInformation;
 import org.apache.pdfbox.pdmodel.PDPage;
 import org.apache.pdfbox.pdmodel.PDPageContentStream;
+import org.apache.pdfbox.pdmodel.encryption.AccessPermission;
+import org.apache.pdfbox.pdmodel.encryption.StandardProtectionPolicy;
 import org.apache.pdfbox.pdmodel.graphics.image.PDImageXObject;
 
 import java.io.IOException;
@@ -22,6 +24,7 @@ class ReceiptCreator {
       doc.addPage(page);
 
       formatDocument();
+      encryptDocument();
       saveDocument();
 
       doc = null;
@@ -41,6 +44,15 @@ class ReceiptCreator {
 
    private static void formatDocument() {
       addLogo();
+   }
+
+   private static void encryptDocument() {
+      AccessPermission ap = new AccessPermission();
+      ap.canExtractContent();
+
+      StandardProtectionPolicy spp = new StandardProtectionPolicy("", "", ap);
+      spp.setEncryptionKeyLength(128);
+      spp.setPermissions(ap);
    }
 
    private static PDDocumentInformation addInformation(PDDocument document) {
@@ -65,7 +77,6 @@ class ReceiptCreator {
       try {
          doc.setDocumentInformation(addInformation(doc));
          doc.save("pdf_examples/KageKvittering" + getID() + ".pdf");
-         System.out.println("PDF created!");
          doc.close();
       } catch (IOException e) {
          System.out.println("ERROR: FILE ERROR");
