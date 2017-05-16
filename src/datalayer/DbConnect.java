@@ -33,8 +33,8 @@ public final class DbConnect {
       return db;
    }
 
-   public ResultSet resultQuery(PreparedStatement stmt, String query) throws SQLException{
-      rs = stmt.executeQuery(query);
+   public ResultSet resultQuery(PreparedStatement stmt) throws SQLException{
+      rs = stmt.executeQuery();
       return rs;
    }
 

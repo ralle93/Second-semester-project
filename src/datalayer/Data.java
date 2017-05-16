@@ -33,6 +33,7 @@ public class Data {
       }
       return false;
    }
+   //method to check user credentials
    public boolean logInCheck(User user){
       try{
          String query ="SELECT email, password FROM users WHERE email = ? AND password = ?;";
@@ -40,7 +41,7 @@ public class Data {
 
          stmt.setString(1, user.getEmail());
          stmt.setString(2, user.getPassword());
-         rs = db.resultQuery(stmt, query);
+         rs = db.resultQuery(stmt);
          if(rs.next()) return true;
          return false;
       } catch(SQLException ex){
@@ -49,11 +50,17 @@ public class Data {
 
       return false;
    }
-
+   //method to create order in db
    public boolean createOrder(){
 
       return false;
    }
+
+   public boolean createCake(){
+
+      return false;
+   }
+   
 
 
    public static void main(String[] args)throws SQLException {
