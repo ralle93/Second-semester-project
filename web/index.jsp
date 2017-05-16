@@ -13,10 +13,10 @@
   <a href="custom-cakes.jsp">Byg Selv Kage</a>
   <a href="about.jsp">Om Pernille's Kager</a>
   <div id="dropdown">
-    <a id="dropbtn">Dropdown</a>
+    <a id="dropbtn">Profil</a>
     <div id="dropdown-content">
-      <a href="#">Login</a>
-      <a href="#">Opret ny Bruger</a>
+      <a href="login.jsp">Login</a>
+      <a href="create-user.jsp">Opret ny Bruger</a>
     </div>
   </div>
 </div>
@@ -45,7 +45,6 @@
   <div style="text-align:center">
     <span class="dot" onclick="currentSlide(1)"></span>
     <span class="dot" onclick="currentSlide(2)"></span>
-    <span class="dot" onclick="currentSlide(3)"></span>
   </div>
 
   <script>

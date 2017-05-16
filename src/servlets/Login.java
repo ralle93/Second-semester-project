@@ -14,7 +14,6 @@ import java.io.IOException;
 public class Login extends HttpServlet {
 
    Data d = new Data();
-   User user = null;
 
    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
       String email = request.getParameter("email");
