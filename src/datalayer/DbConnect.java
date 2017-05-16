@@ -8,7 +8,7 @@ import java.sql.Statement;
 public final class DbConnect {
 
    public Connection conn;
-   public ResultSet rs;
+   private ResultSet rs;
    public Statement stmt;
    public static DbConnect db;
 
@@ -18,7 +18,8 @@ public final class DbConnect {
       String usern = "SSP";
       String pass = "123456";
       try {
-         Class.forName(driver).newInstance();
+         //Class.forName(driver).newInstance();
+         //this.conn = DriverManager.getConnection(DBURL,usern,pass);
          this.conn = DriverManager.getConnection(DBURL,usern,pass);
       } catch (Exception ex) {
          ex.printStackTrace();

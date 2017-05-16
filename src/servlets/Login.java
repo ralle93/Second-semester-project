@@ -20,6 +20,15 @@ public class Login extends HttpServlet {
       String email = request.getParameter("email");
       String password = request.getParameter("password");
 
+      User user = d.logInCheck(email, password);
+
+      if (user == null) {
+         request.setAttribute("errorMessage", "Invalid email or password!");
+         request.getRequestDispatcher("/login.jsp").forward(request, response);
+      } else {
+         String session = request.getSession().getId();
+
+      }
 
    }
 }

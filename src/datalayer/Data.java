@@ -34,21 +34,39 @@ public class Data {
       return false;
    }
    //method to check user credentials
-   public boolean logInCheck(User user){
+   public User logInCheck(String email, String password){
       try{
-         String query ="SELECT email, password FROM users WHERE email = ? AND password = ?;";
+         String query ="SELECT * FROM users WHERE email = ? AND password = ?;";
          stmt = conn.prepareStatement(query);
 
-         stmt.setString(1, user.getEmail());
-         stmt.setString(2, user.getPassword());
+         stmt.setString(1, email);
+         stmt.setString(2, password);
          rs = db.resultQuery(stmt);
-         if(rs.next()) return true;
-         return false;
+         if(rs.next()) {
+            User user = new User(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5));
+            return user;
+         }
+         return null;
       } catch(SQLException ex){
          ex.printStackTrace();
       }
+      return null;
+   }
 
+   public boolean httpSessionAdd(User user, String session){
+      try {
+         String query = "INSERT INTO `mydb`.`http_requests` (`user_id`, `requests`) VALUES (?, ?);";
+         stmt = conn.prepareStatement(query);
+
+         stmt.setInt(1,user.getId());
+         stmt.setString(2,session);
+
+         return db.insertQuery(stmt);
+      }catch(SQLException ex){
+         ex.printStackTrace();
+      }
       return false;
+
    }
    //method to create order in db
    public boolean createOrder(){
@@ -60,13 +78,12 @@ public class Data {
 
       return false;
    }
-   
-
 
    public static void main(String[] args)throws SQLException {
-      User user = new User("bla@dinmorSøren.dk1","blub", "søren", "61616161");
+      User user = new User(5,"bla@dinmorSøren.dk1","blub", "søren", "61616161");
       Data d = new Data();
-      System.out.println(d.logInCheck(user));
+
+
    }
 
 }
