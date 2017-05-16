@@ -34,6 +34,14 @@ public class Data {
       return false;
    }
    public boolean logInCheck(User user){
+      try{
+         String query ="SELECT `email`, `password` FROM users WHERE email = ? AND password = ?;";
+         stmt = conn.prepareStatement(query);
+
+         stmt.setString(1, );
+      } catch(SQLException ex){
+         ex.printStackTrace();
+      }
 
       return false;
    }
