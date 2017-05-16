@@ -35,11 +35,11 @@ public class Data {
    }
    public boolean logInCheck(User user){
       try{
-         String query ="SELECT `email`, `password` FROM users WHERE email = ? AND password = ?;";
+         String query ="SELECT email, password FROM users WHERE email = ? AND password = ?;";
          stmt = conn.prepareStatement(query);
 
          stmt.setString(1, user.getEmail());
-         stmt.setString(2,user.getPassword());
+         stmt.setString(2, user.getPassword());
          rs = db.resultQuery(stmt, query);
          if(rs.next()) return true;
          return false;
@@ -59,7 +59,7 @@ public class Data {
    public static void main(String[] args)throws SQLException {
       User user = new User("bla@dinmorSøren.dk1","blub", "søren", "61616161");
       Data d = new Data();
-      d.createUser(user);
+      System.out.println(d.logInCheck(user));
    }
 
 }
