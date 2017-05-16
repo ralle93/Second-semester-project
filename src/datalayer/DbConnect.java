@@ -4,7 +4,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.Statement;
 
-//Singleton class in charge of getting connection to db and fetch/pulling data
+// Singleton class in charge of getting connection to db and fetch/pulling data
 public final class DbConnect {
 
    public Connection conn;
@@ -18,8 +18,7 @@ public final class DbConnect {
       String usern = "SSP";
       String pass = "123456";
       try {
-         //Class.forName(driver).newInstance();
-         //this.conn = DriverManager.getConnection(DBURL,usern,pass);
+         Class.forName(driver).newInstance();
          this.conn = DriverManager.getConnection(DBURL,usern,pass);
       } catch (Exception ex) {
          ex.printStackTrace();
