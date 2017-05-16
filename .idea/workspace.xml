@@ -4,7 +4,6 @@
     <list default="true" id="bef55695-3af2-45f8-bbc6-4dfd01918866" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/datalayer/Data.java" afterPath="$PROJECT_DIR$/src/datalayer/Data.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/datalayer/DbConnect.java" afterPath="$PROJECT_DIR$/src/datalayer/DbConnect.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -47,13 +46,13 @@
           <file leaf-file-name="Data.java" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/datalayer/Data.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="352">
-                  <caret line="42" column="33" lean-forward="false" selection-start-line="42" selection-start-column="33" selection-end-line="42" selection-end-column="33" />
+                <state relative-caret-position="427">
+                  <caret line="48" column="7" lean-forward="false" selection-start-line="48" selection-start-column="7" selection-end-line="48" selection-end-column="7" />
                   <folding>
                     <element signature="imports" expanded="true" />
-                    <marker date="1494923978000" expanded="true" signature="463:554" ph="INSERT INTO `mydb`.`users`... " />
-                    <marker date="1494923978000" expanded="true" signature="577:602" ph="VALUES (?, ?... " />
-                    <marker date="1494923978000" expanded="true" signature="1143:1209" ph="SELECT `emai... users" />
+                    <marker date="1494924270000" expanded="true" signature="463:554" ph="INSERT INTO `mydb`.`users`... " />
+                    <marker date="1494924270000" expanded="true" signature="577:602" ph="VALUES (?, ?... " />
+                    <marker date="1494924270000" expanded="true" signature="1181:1247" ph="SELECT `emai... users" />
                   </folding>
                 </state>
               </provider>
@@ -96,13 +95,13 @@
           <file leaf-file-name="Data.java" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/datalayer/Data.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="262">
-                  <caret line="43" column="35" lean-forward="true" selection-start-line="43" selection-start-column="35" selection-end-line="43" selection-end-column="35" />
+                <state relative-caret-position="357">
+                  <caret line="62" column="3" lean-forward="false" selection-start-line="62" selection-start-column="3" selection-end-line="62" selection-end-column="3" />
                   <folding>
                     <element signature="imports" expanded="true" />
-                    <marker date="1494923978000" expanded="true" signature="463:554" ph="INSERT INTO `mydb`.`users`... " />
-                    <marker date="1494923978000" expanded="true" signature="577:602" ph="VALUES (?, ?... " />
-                    <marker date="1494923978000" expanded="true" signature="1143:1209" ph="SELECT `emai... users" />
+                    <marker date="1494924270000" expanded="true" signature="463:554" ph="INSERT INTO `mydb`.`users`... " />
+                    <marker date="1494924270000" expanded="true" signature="577:602" ph="VALUES (?, ?... " />
+                    <marker date="1494924270000" expanded="true" signature="1181:1247" ph="SELECT `emai... users" />
                   </folding>
                 </state>
               </provider>
@@ -276,7 +275,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="js.eslint.eslintPackage" value="" />
-    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.097751714" />
     <property name="project.structure.side.proportion" value="0.17895877" />
     <property name="FullScreen" value="true" />
@@ -775,7 +774,7 @@
       <workItem from="1494832871509" duration="22000" />
       <workItem from="1494833734879" duration="1384000" />
       <workItem from="1494835545023" duration="11141000" />
-      <workItem from="1494917487840" duration="5896000" />
+      <workItem from="1494917487840" duration="6076000" />
     </task>
     <task id="LOCAL-00001" summary="ændred">
       <created>1494832890303</created>
@@ -875,11 +874,18 @@
       <option name="project" value="LOCAL" />
       <updated>1494923371435</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="login check added and working">
+      <created>1494924096985</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1494924096985</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="18443000" />
+    <option name="totallyTimeSpent" value="18623000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
@@ -932,7 +938,8 @@
     <MESSAGE value="database stuff" />
     <MESSAGE value="Create user in database working and added" />
     <MESSAGE value="login check added" />
-    <option name="LAST_COMMIT_MESSAGE" value="login check added" />
+    <MESSAGE value="login check added and working" />
+    <option name="LAST_COMMIT_MESSAGE" value="login check added and working" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -967,9 +974,9 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <marker date="1494923978000" expanded="true" signature="463:554" ph="INSERT INTO `mydb`.`users`... " />
-            <marker date="1494923978000" expanded="true" signature="577:602" ph="VALUES (?, ?... " />
-            <marker date="1494923978000" expanded="true" signature="1143:1209" ph="SELECT `emai... users" />
+            <marker date="1494924270000" expanded="true" signature="463:554" ph="INSERT INTO `mydb`.`users`... " />
+            <marker date="1494924270000" expanded="true" signature="577:602" ph="VALUES (?, ?... " />
+            <marker date="1494924270000" expanded="true" signature="1181:1247" ph="SELECT `emai... users" />
           </folding>
         </state>
       </provider>
@@ -1117,13 +1124,13 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/datalayer/Data.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="262">
-          <caret line="43" column="35" lean-forward="true" selection-start-line="43" selection-start-column="35" selection-end-line="43" selection-end-column="35" />
+        <state relative-caret-position="357">
+          <caret line="62" column="3" lean-forward="false" selection-start-line="62" selection-start-column="3" selection-end-line="62" selection-end-column="3" />
           <folding>
             <element signature="imports" expanded="true" />
-            <marker date="1494923978000" expanded="true" signature="463:554" ph="INSERT INTO `mydb`.`users`... " />
-            <marker date="1494923978000" expanded="true" signature="577:602" ph="VALUES (?, ?... " />
-            <marker date="1494923978000" expanded="true" signature="1143:1209" ph="SELECT `emai... users" />
+            <marker date="1494924270000" expanded="true" signature="463:554" ph="INSERT INTO `mydb`.`users`... " />
+            <marker date="1494924270000" expanded="true" signature="577:602" ph="VALUES (?, ?... " />
+            <marker date="1494924270000" expanded="true" signature="1181:1247" ph="SELECT `emai... users" />
           </folding>
         </state>
       </provider>
