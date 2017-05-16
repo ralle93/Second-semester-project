@@ -38,7 +38,11 @@ public class Data {
          String query ="SELECT `email`, `password` FROM users WHERE email = ? AND password = ?;";
          stmt = conn.prepareStatement(query);
 
-         stmt.setString(1, );
+         stmt.setString(1, user.getEmail());
+         stmt.setString(2,user.getPassword());
+         rs = db.resultQuery(stmt, query);
+         if(rs.next()) return true;
+         return false;
       } catch(SQLException ex){
          ex.printStackTrace();
       }

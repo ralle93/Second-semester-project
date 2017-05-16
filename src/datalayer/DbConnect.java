@@ -32,8 +32,7 @@ public final class DbConnect { //Singleton class with connection to database and
       return db;
    }
 
-   public ResultSet resultQuery(String query) throws SQLException{
-      stmt = conn.createStatement();
+   public ResultSet resultQuery(PreparedStatement stmt, String query) throws SQLException{
       rs = stmt.executeQuery(query);
       return rs;
    }
