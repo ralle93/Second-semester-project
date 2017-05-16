@@ -9,51 +9,67 @@ import org.apache.pdfbox.pdmodel.graphics.image.PDImageXObject;
 import java.io.IOException;
 import java.util.Calendar;
 
-public class ReceiptCreator {
-   private static int receiptID = 1;
-
-   private static String author = "Pernille Jensen";
-   private static String title = "Kage Kvittering";
-   private static String creator = "Pernilles Kager";
-   private static String subject = "Kage Bestilling";
-
+class ReceiptCreator {
+   private static PDDocument doc;
+   private static PDPage page;
    /** DIMENSIONS OF PDF DOCUMENTS
     * IN PIXELS: 792 height / 612 width
     **/
 
-   // TIL tests af pdfBox funktioner
-   public static void main(String[] args) throws IOException {
-      PDDocument document = new PDDocument();
+   static void newReceipt() {
+      doc = new PDDocument();
+      page = new PDPage();
+      doc.addPage(page);
 
-      PDPage blankpage = new PDPage();
-      document.addPage(blankpage);
+      formatDocument();
+      saveDocument();
 
-      PDImageXObject pdImage = PDImageXObject.createFromFile("ReceiptData/Logo.png", document);
-      PDPageContentStream contents = new PDPageContentStream(document, blankpage);
-      contents.drawImage(pdImage,0,692,240,100);
-      contents.close();
-
-      document.setDocumentInformation(addInformation(document));
-      document.save("pdf_examples/KageKvittering" + appendZeros(receiptID) + ".pdf");
-      System.out.println("PDF created!");
-
-      document.close();
+      doc = null;
+      page = null;
    }
 
-   private static String appendZeros(int number) {
-      return String.format("%06d", number);
+   private static void addLogo() {
+      try {
+         PDImageXObject pdImage = PDImageXObject.createFromFile("ReceiptData/Logo.png", doc);
+         PDPageContentStream contents = new PDPageContentStream(doc, page);
+         contents.drawImage(pdImage, 30, 662, 240, 100);
+         contents.close();
+      } catch (IOException e) {
+         System.out.println("ERROR: LOGO MISSING");
+      }
+   }
+
+   private static void formatDocument() {
+      addLogo();
    }
 
    private static PDDocumentInformation addInformation(PDDocument document) {
       PDDocumentInformation pdd = document.getDocumentInformation();
 
-      pdd.setAuthor(author);
-      pdd.setTitle(title);
-      pdd.setCreator(creator);
-      pdd.setSubject(subject);
+      pdd.setAuthor(RecInfo.getAuthor());
+      pdd.setTitle(RecInfo.getTitle());
+      pdd.setCreator(RecInfo.getCreator());
+      pdd.setSubject(RecInfo.getSubject());
       Calendar date = Calendar.getInstance();
       pdd.setCreationDate(date);
 
       return pdd;
+   }
+
+   private static String getID() {
+      int number = RecInfo.getReceiptID();
+      return String.format("%06d", number);
+   }
+
+   private static void saveDocument() {
+      try {
+         doc.setDocumentInformation(addInformation(doc));
+         doc.save("pdf_examples/KageKvittering" + getID() + ".pdf");
+         System.out.println("PDF created!");
+         doc.close();
+      } catch (IOException e) {
+         System.out.println("ERROR: FILE ERROR");
+         e.printStackTrace();
+      }
    }
 }
