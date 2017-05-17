@@ -55,7 +55,7 @@ public class Data {
 
    public boolean httpSessionAdd(User user, String session){
       try {
-         String query = "INSERT INTO `mydb`.`http_requests` (`user_id`, `requests`) VALUES (?, ?);";
+         String query = "INSERT INTO `mydb`.`http_requests` (`user_id`, `request`) VALUES (?, ?);";
          stmt = conn.prepareStatement(query);
 
          stmt.setInt(1,user.getId());
