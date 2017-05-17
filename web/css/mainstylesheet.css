@@ -1,3 +1,23 @@
+#logo {
+    width: 300px;
+    background-color: white;
+    border-radius: 20px;
+    display: inline-block;
+    vertical-align: top;
+}
+
+#logo-image {
+    width: 300px;
+
+}
+
+#navigation-menu {
+    margin-left: 150px;
+    margin-right: 150px;
+    display: inline-block;
+    vertical-align: center;
+}
+
 .top-menu-bar {
     background-color: #aeaad1;
     overflow: visible;
@@ -13,6 +33,7 @@
 }
 
 .top-menu-bar a {
+    margin: 25px 20px;
     border: 1px solid white;
     border-radius: 15px;
     display: inline-block;
@@ -37,7 +58,6 @@
     padding: 10px;
     z-index: 1;
 }
-
 
 * {box-sizing:border-box}
 
@@ -306,6 +326,6 @@ h1 {
 .main-iframe {
     position: relative;
     top: 50px;
-    height: 800px;
+    height: 1000px;
     border-style: hidden;
 }

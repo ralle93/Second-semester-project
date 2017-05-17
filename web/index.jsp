@@ -8,10 +8,15 @@
 
 <body>
 <div class="top-menu-bar">
-  <a href="gallery.jsp" target="iframe">Start</a>
-  <a href="cakes.jsp" target="iframe">Kager</a>
-  <a href="custom-cakes.jsp" target="iframe">Byg Selv Kage</a>
-  <a href="about.jsp" target="iframe">Om Pernille's Kager</a>
+  <div id="logo">
+    <img src="images/logo.png" alt="logo" id="logo-image">
+  </div>
+  <div id="navigation-menu">
+    <a href="gallery.jsp" target="iframe">Start</a>
+    <a href="cakes.jsp" target="iframe">Kager</a>
+    <a href="custom-cakes.jsp" target="iframe">Byg Selv Kage</a>
+    <a href="about.jsp" target="iframe">Om Pernille's Kager</a>
+  </div>
   <div id="dropdown">
     <a id="dropbtn">Profil</a>
     <div id="dropdown-content">
