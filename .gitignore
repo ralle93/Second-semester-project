@@ -1,4 +1,5 @@
+.idea
 *.iml
-/.idea/workspace.xml
+*.iws
 .DS_Store
 out/
