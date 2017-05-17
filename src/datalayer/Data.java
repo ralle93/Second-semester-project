@@ -68,9 +68,39 @@ public class Data {
       return false;
 
    }
-   public User fetchUserFromSession(String httpSession){
-      String query = "SELECT * FROM ";
 
+   public User getUserFromId(int id){
+      try {
+         String query = "SELECT * FROM users WHERE user_id = ?";
+         stmt = conn.prepareStatement(query);
+         stmt.setInt(1,id);
+         rs = db.resultQuery(stmt);
+         if(rs.next()){
+            User user = new User(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5));
+            return user;
+         }
+
+      }catch(SQLException ex){
+         ex.printStackTrace();
+      }
+      return null;
+   }
+
+   public User fetchUserFromSession(String httpSession){
+      try {
+         String query = "SELECT * FROM http_requests WHERE request = ?";
+         stmt = conn.prepareStatement(query);
+         stmt.setString(1, httpSession);
+         rs = db.resultQuery(stmt);
+         if(rs.next()){
+           return getUserFromId(rs.getInt(2));
+         }
+
+
+      } catch(SQLException ex){
+         ex.printStackTrace();
+      }
+      return null;
    }
    //method to create order in db
    public boolean createOrder(){
