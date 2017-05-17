@@ -13,21 +13,6 @@
     </head>
 
     <body>
-    <div class="top-menu-bar">
-        <a href="index.jsp">Start</a>
-        <a href="cakes.jsp">Kager</a>
-        <a href="custom-cakes.jsp">Byg Selv Kage</a>
-        <a href="about.jsp">Om Pernille's Kager</a>
-    </div>
-
+        <h1>Om Pernille's Kager</h1>
     </body>
-
-    <footer>
-        <div class="bottom-bar">
-            <a href="https://www.facebook.com/PernillesLaekkerier/">facebook</a>
-            <i class="fa fa-facebook-official fa-2x" aria-hidden="true"></i>
-            <a href="#mail">Email</a>
-            <i class="fa fa-envelope fa-2x" aria-hidden="true"></i>
-        </div>
-    </footer>
 </html>

@@ -296,3 +296,16 @@
 #dropdown:hover #dropbtn {
     background-color: #aeaad1;
 }
+
+h1 {
+    font-size: 24px;
+    font-family: monospace;
+    color: dimgray;
+}
+
+.main-iframe {
+    position: relative;
+    top: 50px;
+    height: 800px;
+    border-style: hidden;
+}
