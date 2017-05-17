@@ -68,6 +68,10 @@ public class Data {
       return false;
 
    }
+   public User fetchUserFromSession(String httpSession){
+      String query = "SELECT * FROM ";
+
+   }
    //method to create order in db
    public boolean createOrder(){
 
