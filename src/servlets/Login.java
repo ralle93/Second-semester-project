@@ -13,7 +13,7 @@ import java.io.IOException;
 @WebServlet(name = "Login")
 public class Login extends HttpServlet {
 
-   Data d = new Data();
+   private Data d = new Data();
 
    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
       String email = request.getParameter("email");
@@ -27,6 +27,7 @@ public class Login extends HttpServlet {
       } else {
          String session = request.getSession().getId();
          d.httpSessionAdd(user, session);
+         request.getRequestDispatcher("/index.jsp").forward(request, response);
       }
 
    }
