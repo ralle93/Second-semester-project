@@ -96,7 +96,6 @@ public class Data {
            return getUserFromId(rs.getInt(2));
          }
 
-
       } catch(SQLException ex){
          ex.printStackTrace();
       }
