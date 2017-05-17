@@ -68,7 +68,7 @@ public class Data {
       return false;
 
    }
-
+   // fetch a user solely based on their ID(primary key in MySQL db)
    public User getUserFromId(int id){
       try {
          String query = "SELECT * FROM users WHERE user_id = ?";
@@ -79,13 +79,12 @@ public class Data {
             User user = new User(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5));
             return user;
          }
-
       }catch(SQLException ex){
          ex.printStackTrace();
       }
       return null;
    }
-
+   //method to get user from their current http session id.
    public User fetchUserFromSession(String httpSession){
       try {
          String query = "SELECT * FROM http_requests WHERE request = ?";
@@ -95,21 +94,31 @@ public class Data {
          if(rs.next()){
            return getUserFromId(rs.getInt(2));
          }
-
       } catch(SQLException ex){
          ex.printStackTrace();
       }
       return null;
    }
    //method to create order in db
-   public boolean createOrder(){
+   public boolean createOrder(User user){
+      try{
+         String query = "INSERT INTO order (`user_id` , `created`) VALUES (?, ?);";
+         stmt = conn.prepareStatement(query);
+         stmt.setInt(1, user.getId());
+         stmt.setDate(2,Date.valueOf(LocalDate.now()));
+         db.insertQuery(stmt);
 
+      }catch(SQLException ex){
+         ex.printStackTrace();
+      }
       return false;
    }
 
-   public boolean createCake(){
+   public void fetchOrder(){
 
-      return false;
+   }
+   public void fetchAllOrders(){
+
    }
 
    public static void main(String[] args)throws SQLException {
