@@ -43,7 +43,8 @@ public class Data {
          stmt.setString(2, password);
          rs = db.resultQuery(stmt);
          if(rs.next()) {
-            User user = new User(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5));
+            User user = new User(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(6), rs.getString(7));
+            System.out.println(user);
             return user;
          }
          return null;
@@ -76,7 +77,7 @@ public class Data {
          stmt.setInt(1,id);
          rs = db.resultQuery(stmt);
          if(rs.next()){
-            User user = new User(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5));
+            User user = new User(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(6), rs.getString(7));
             return user;
          }
       }catch(SQLException ex){
