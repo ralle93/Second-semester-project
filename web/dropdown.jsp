@@ -7,7 +7,6 @@
 </head>
 <body>
 
-    ${loggedInUser}
     <a href="login.jsp">Login</a><br>
     <a href="create-user.jsp">Opret ny Bruger</a>
 
