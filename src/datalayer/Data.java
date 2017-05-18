@@ -33,6 +33,27 @@ public class Data {
       }
       return false;
    }
+
+   // Method to edit a user
+   public boolean editUser(User user) {
+      try{
+         String query = "UPDATE mydb.users SET email = ?, password = ?, name = ?, phone_nr = ? ";
+         query += "WHERE user_id = ?;";
+         stmt = conn.prepareStatement(query);
+
+         stmt.setString(1, user.getEmail());
+         stmt.setString(2, user.getPassword());
+         stmt.setString(3, user.getName());
+         stmt.setString(4, user.getPhoneNumber());
+         stmt.setInt(5, user.getId());
+
+         return db.insertQuery(stmt);
+      }catch(SQLException ex){
+         ex.printStackTrace();
+      }
+      return false;
+   }
+
    //method to check user credentials
    public User logInCheck(String email, String password){
       try{
@@ -123,10 +144,10 @@ public class Data {
    }
 
    public static void main(String[] args)throws SQLException {
-      User user = new User(5,"bla@dinmorSøren.dk1","blub", "søren", "61616161");
+      User user = new User(10, "test@test.dk", "testpass", "testname", "testnumber");
       Data d = new Data();
 
-      System.out.println(d.getUserFromId(10));
+      d.editUser(user);
    }
 
 }
