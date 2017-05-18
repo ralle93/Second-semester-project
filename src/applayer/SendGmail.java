@@ -1,6 +1,6 @@
 
 package applayer;
-import com.sun.mail.smtp.SMTPTransport;
+import com.sun.mail.smtp..SMTPTransport;
 import java.security.Security;
 import java.util.Date;
 import java.util.Properties;
@@ -17,7 +17,7 @@ public class SendGmail {
    private SendGmail() {
    }
 
-   public static void main(String[] args) throws MessagingException{
+   public static void main(String[] args) throws MessagingException {
       Send("snubi68", "rasmus415263", "snub68@gmail.com", "tester","this is a test");
    }
 
@@ -41,7 +41,6 @@ public class SendGmail {
       props.setProperty("mail.smtp.port", "465");
       props.setProperty("mail.smtp.socketFactory.port", "465");
       props.setProperty("mail.smtps.auth", "true");
-
 
       props.put("mail.smtps.quitwait", "false");
 
