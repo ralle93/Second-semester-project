@@ -23,6 +23,10 @@ public class Order {
       this.notes = notes;
    }
 
+   Cake getCake() {
+      return cake;
+   }
+
    int getPrice() {
       return price;
    }

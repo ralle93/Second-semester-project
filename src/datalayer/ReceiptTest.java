@@ -5,11 +5,13 @@ package datalayer;
 public class ReceiptTest {
    public static void main(String[] args) {
       OrderList orderList = testOrder();
-      System.out.println(orderList.getPrice());
-      //ReceiptCreator.newReceipt();
+      User user = new User("test@mail.com","1234","Bent Hansen","88888888");
+
+      ReceiptCreator rc = new ReceiptCreator(orderList, user);
+      rc.newReceipt();
    }
 
-   public static OrderList testOrder() {
+   private static OrderList testOrder() {
       OrderList ol = new OrderList();
 
       Cake cake1 = new Cake(1,25,"TestKage1","Dette er en Test 1");

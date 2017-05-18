@@ -4,58 +4,83 @@ import org.apache.pdfbox.pdmodel.PDDocument;
 import org.apache.pdfbox.pdmodel.PDDocumentInformation;
 import org.apache.pdfbox.pdmodel.PDPage;
 import org.apache.pdfbox.pdmodel.PDPageContentStream;
-import org.apache.pdfbox.pdmodel.encryption.AccessPermission;
-import org.apache.pdfbox.pdmodel.encryption.StandardProtectionPolicy;
+import org.apache.pdfbox.pdmodel.font.PDType1Font;
 import org.apache.pdfbox.pdmodel.graphics.image.PDImageXObject;
 
 import java.io.IOException;
 import java.util.Calendar;
 
 class ReceiptCreator {
-   private static PDDocument doc;
-   private static PDPage page;
+   private PDDocument doc;
+   private PDPage page;
+   private OrderList orderList;
+   private User user;
+   private PDPageContentStream contentStream;
    /** DIMENSIONS OF PDF DOCUMENTS
     * IN PIXELS: 792 height / 612 width
     **/
 
-   static void newReceipt() {
+   ReceiptCreator(OrderList orderList, User user) {
       doc = new PDDocument();
       page = new PDPage();
       doc.addPage(page);
 
-      formatDocument();
-      encryptDocument();
-      saveDocument();
-
-      doc = null;
-      page = null;
+      this.orderList = orderList;
+      this.user = user;
    }
 
-   private static void addLogo() {
+   // TODO KAN ÆNDRES TIL AT RETURNERE PDF DOKUMENTET
+   void newReceipt() {
       try {
-         PDImageXObject pdImage = PDImageXObject.createFromFile("ReceiptData/Logo.png", doc);
-         PDPageContentStream contents = new PDPageContentStream(doc, page);
-         contents.drawImage(pdImage, 30, 662, 240, 100);
-         contents.close();
+         contentStream = new PDPageContentStream(doc, page);
+         formatData();
+         formatOrder();
+         contentStream.close();
+         saveDocument();
       } catch (IOException e) {
+         e.printStackTrace();
+      }
+   }
+
+   private void addLogo() {
+      try {
+         PDImageXObject pdImage = PDImageXObject.createFromFile(RecInfo.getLogoPath(), doc);
+         contentStream.drawImage(pdImage, 30, 662, 240, 100);
+      } catch (IOException e) {
+         e.printStackTrace();
          System.out.println("ERROR: LOGO MISSING");
       }
    }
 
-   private static void formatDocument() {
+   private void formatData() {
       addLogo();
    }
 
-   private static void encryptDocument() {
-      AccessPermission ap = new AccessPermission();
-      ap.canExtractContent();
+   private void printOrders() {
+      int beginOrderListX = 25;
+      int beginOrderListY = 500;
 
-      StandardProtectionPolicy spp = new StandardProtectionPolicy("", "", ap);
-      spp.setEncryptionKeyLength(128);
-      spp.setPermissions(ap);
+      try {
+         for (int i = 0; i < RecInfo.getMaxOrderSize(); i++) {
+            if (orderList.getOrder(i) != null) {
+               contentStream.beginText();
+               contentStream.setFont(PDType1Font.TIMES_ROMAN, 12);
+               contentStream.newLineAtOffset(beginOrderListX, beginOrderListY - (i * 30));
+               String text = orderList.getOrder(i).getCake().getName();
+               contentStream.showText(text);
+               contentStream.endText();
+            }
+         }
+      } catch (IOException e) {
+         e.printStackTrace();
+      }
    }
 
-   private static PDDocumentInformation addInformation(PDDocument document) {
+   private void formatOrder() {
+      printOrders();
+   }
+
+   private PDDocumentInformation addInformation(PDDocument document) {
       PDDocumentInformation pdd = document.getDocumentInformation();
 
       pdd.setAuthor(RecInfo.getAuthor());
@@ -68,19 +93,19 @@ class ReceiptCreator {
       return pdd;
    }
 
-   private static String getID() {
+   private String getID() {
       int number = RecInfo.getReceiptID();
       return String.format("%06d", number);
    }
 
-   private static void saveDocument() {
+   private void saveDocument() {
       try {
          doc.setDocumentInformation(addInformation(doc));
          doc.save("pdf_examples/KageKvittering" + getID() + ".pdf");
          doc.close();
       } catch (IOException e) {
-         System.out.println("ERROR: FILE ERROR");
          e.printStackTrace();
+         System.out.println("ERROR: FILE ERROR");
       }
    }
 }

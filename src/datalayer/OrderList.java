@@ -1,7 +1,7 @@
 package datalayer;
 
-public class OrderList {
-   private Order[] orderlist = new Order[5];
+class OrderList {
+   private Order[] orderList = new Order[RecInfo.getMaxOrderSize()];
    private int price;
 
    OrderList() {
@@ -9,11 +9,10 @@ public class OrderList {
    }
 
    void add(Order order) {
-      for (int i = 0; i < orderlist.length; i++) {
-         if (orderlist[i] == null) {
-            orderlist[i] = order;
+      for (int i = 0; i < orderList.length; i++) {
+         if (orderList[i] == null) {
+            orderList[i] = order;
             price += order.getPrice();
-            System.out.println("Order Added");
             return;
          }
       }
@@ -21,31 +20,30 @@ public class OrderList {
    }
 
    void remove(int index) {
-      for (int i = 0; i < orderlist.length; i++) {
-         if (orderlist[i] != null && i == index) {
-            price -= orderlist[i].getPrice();
-            orderlist[i] = null;
+      for (int i = 0; i < orderList.length; i++) {
+         if (orderList[i] != null && i == index) {
+            price -= orderList[i].getPrice();
+            orderList[i] = null;
             shiftList();
-            System.out.println("Order Removed");
             return;
          }
       }
       System.out.println("Order Not Found");
    }
 
-   void shiftList() {
-      for (int i = 0; i < orderlist.length; i++) {
-         if (orderlist[i] == null) {
-            if (i + 1 < orderlist.length && orderlist[i + 1] != null) {
-               orderlist[i] = orderlist[i + 1];
-               orderlist[i + 1] = null;
+   private void shiftList() {
+      for (int i = 0; i < orderList.length; i++) {
+         if (orderList[i] == null) {
+            if (i + 1 < orderList.length && orderList[i + 1] != null) {
+               orderList[i] = orderList[i + 1];
+               orderList[i + 1] = null;
             }
          }
       }
    }
 
    Order getOrder(int index) {
-      return orderlist[index];
+      return orderList[index];
    }
 
    int getPrice() {

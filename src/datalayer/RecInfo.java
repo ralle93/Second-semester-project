@@ -2,10 +2,12 @@ package datalayer;
 
 public class RecInfo {
    private static int receiptID = 1;
+   private static int maxOrderSize = 5;
    private static String author = "Pernille Jensen";
    private static String title = "Kage Kvittering";
    private static String creator = "Pernilles Kager";
    private static String subject = "Kage Bestilling";
+   private static String logoPath = "ReceiptData/Logo.png";
 
    public static int getReceiptID() {
       return receiptID;
@@ -13,6 +15,10 @@ public class RecInfo {
 
    public static void setReceiptID(int receiptID) {
       RecInfo.receiptID = receiptID;
+   }
+
+   public static int getMaxOrderSize() {
+      return maxOrderSize;
    }
 
    public static String getAuthor() {
@@ -45,5 +51,13 @@ public class RecInfo {
 
    public static void setSubject(String subject) {
       RecInfo.subject = subject;
+   }
+
+   public static String getLogoPath() {
+      return logoPath;
+   }
+
+   public static void setLogoPath(String logoPath) {
+      RecInfo.logoPath = logoPath;
    }
 }
