@@ -27,7 +27,8 @@ public class Login extends HttpServlet {
       } else {
          String session = request.getSession().getId();
          d.httpSessionAdd(user, session);
-         request.getRequestDispatcher("/index.jsp").forward(request, response);
+         request.setAttribute("loggedInUser", user.getEmail());
+         request.getRequestDispatcher("/dropdown.jsp").forward(request, response);
       }
 
    }

@@ -38,7 +38,7 @@ public class CreateUser extends HttpServlet {
       } else {
          User user = new User(email, password, name, phoneNumber);
          d.createUser(user);
-         request.getRequestDispatcher("/index.jsp").forward(request, response);
+         request.getRequestDispatcher("/dropdown.jsp").forward(request, response);
       }
    }
 }
