@@ -125,7 +125,7 @@ public class Data {
       User user = new User(5,"bla@dinmorSøren.dk1","blub", "søren", "61616161");
       Data d = new Data();
 
-
+      System.out.println(d.getUserFromId(10));
    }
 
 }

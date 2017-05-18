@@ -23,6 +23,8 @@ public class CreateUser extends HttpServlet {
       String name = request.getParameter("name");
       String phoneNumber = request.getParameter("number");
 
+      String action = request.getParameter("action");
+
       if (!VerifyData.isValidEmail(email)) {
          request.setAttribute("errorMessage", "Invalid email");
          request.getRequestDispatcher("/create-user.jsp").forward(request, response);
@@ -36,9 +38,14 @@ public class CreateUser extends HttpServlet {
          request.setAttribute("errorMessage", "Please enter a phone number");
          request.getRequestDispatcher("/create-user.jsp").forward(request, response);
       } else {
-         User user = new User(email, password, name, phoneNumber);
-         d.createUser(user);
-         request.getRequestDispatcher("/dropdown.jsp").forward(request, response);
+         // Create user
+         if (action.equals("create")) {
+            User user = new User(email, password, name, phoneNumber);
+            d.createUser(user);
+            request.getRequestDispatcher("/dropdown.jsp").forward(request, response);
+         } else { // Edit user
+            // TODO: Edit user logic
+         }
       }
    }
 }

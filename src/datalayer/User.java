@@ -26,7 +26,7 @@ public class User {
    }
 
    public String toString() {
-      return "[" + email + ", " + password + ", " + name + ", " + phoneNumber + "]";
+      return "[" + id + ", " + email + ", " + password + ", " + name + ", " + phoneNumber + ", " + admin + "]";
    }
 
    public String getEmail() {

@@ -15,6 +15,7 @@
         Password: <input type="password" name="password" width="30"/>
         Name: <input type="text" name="name" width="30"/>
         Phone Number: <input type="text" name="number" width="30"/>
+        <input type="hidden" name="action" value="create"></input>
         <input type="submit" value="Register"/>
     </form>
 
