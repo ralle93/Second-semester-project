@@ -19,9 +19,9 @@
     background-color: #aeaad1;
     overflow: visible;
     white-space: nowrap;
-    padding: 10px;
     text-align: center;
     word-spacing: 10%;
+    padding-top: 10px;
     position: fixed;
     z-index: 998;
     top: 0;
