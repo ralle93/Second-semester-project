@@ -8,15 +8,16 @@
 </head>
 <body>
 
-<h1>Login test:</h1>
+    <h1>Login</h1>
 
-<form action="/Login" method="post">
-    E-mail: <input type="text" name="email" width="30"/>
-    Password: <input type="password" name="password" width="30"/>
+    <form action="/Login" method="post">
+        E-mail: <input type="text" name="email" width="30"/>
+        Password: <input type="password" name="password" width="30"/>
     <input type="submit" value="Login"/>
-</form>
+    </form>
 
-<p style="color: red;">${errorMessage}</p>
+    <a href="dropdown.jsp">Back</a>
+    <p style="color: red;">${errorMessage}</p>
 
 </body>
 </html>
