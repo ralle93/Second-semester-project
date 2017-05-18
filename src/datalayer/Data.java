@@ -84,7 +84,7 @@ public class Data {
       }
       return null;
    }
-   //method to get user from their current http session id.
+   //method to fetch a user from their current http session id.
    public User fetchUserFromSession(String httpSession){
       try {
          String query = "SELECT * FROM http_requests WHERE request = ?";
