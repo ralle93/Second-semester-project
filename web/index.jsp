@@ -20,9 +20,9 @@
   <div id="dropdown">
     <a id="dropbtn">Profil</a>
     <div id="dropdown-content">
-      <iframe width="200px" height="200px" id="dropdown-iframe">
-        <a href="login.jsp" target="dropdown-iframe">Login</a>
-        <a href="create-user.jsp" target="dropdown-iframe">Opret ny Bruger</a>
+      <iframe width="200px" height="200px" name="dropdown-iframe" id="dropdown-iframe">
+        <button href="login.jsp" target="dropdown-iframe">Login</button>
+        <button href="create-user.jsp" target="dropdown-iframe">Opret ny Bruger</button>
       </iframe>
     </div>
   </div>
@@ -40,11 +40,5 @@
     <i class="fa fa-envelope fa-2x" aria-hidden="true"></i>
   </div>
 </footer>
-
-<script>
-    $if (window.location == window.parent.location) {
-        this.window.location = 'index.html';
-    }
-</script>
 
 </html>
