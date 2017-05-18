@@ -18,6 +18,7 @@
         <input type="submit" value="Register"/>
     </form>
 
+    <a href="dropdown.jsp">Back</a>
     <p style="color: red;">${errorMessage}</p>
 
 </body>
