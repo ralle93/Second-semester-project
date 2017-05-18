@@ -69,4 +69,3 @@ public class SendGmail {
       t.close();
    }
 }
-
