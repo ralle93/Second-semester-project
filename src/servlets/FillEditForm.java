@@ -16,13 +16,20 @@ public class FillEditForm extends HttpServlet {
    Data d = new Data();
 
    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+      forwardFormData(request, response);
+   }
+
+   protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+      forwardFormData(request, response);
+   }
+
+   private void forwardFormData(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
       // Get user data from session db table
       String session = request.getSession().getId();
       User user = d.fetchUserFromSession(session);
 
       // Get data ready to be send to form
       request.setAttribute("email", user.getEmail());
-      request.setAttribute("password", user.getPassword());
       request.setAttribute("name", user.getName());
       request.setAttribute("number", user.getPhoneNumber());
 
