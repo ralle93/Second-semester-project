@@ -21,7 +21,7 @@
     <a id="dropbtn">Profil</a>
     <div id="dropdown-content">
       <iframe width="200px" height="200px" id="dropdown-iframe">
-        <p><a href="login.jsp" target="dropdown-iframe">Login</a></p>
+        <a href="login.jsp" target="dropdown-iframe">Login</a>
         <a href="create-user.jsp" target="dropdown-iframe">Opret ny Bruger</a>
       </iframe>
     </div>
