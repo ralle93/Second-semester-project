@@ -8,7 +8,7 @@
 </head>
 <body>
 
-    <h1>Create user test:</h1>
+    <h1>Create user:</h1>
 
     <form action="/CreateUser" method="post">
         E-mail: <input type="text" name="email" width="30"/>

@@ -14,7 +14,7 @@
 <body>
 
     ${loggedInUser}<br>
-    <a href="edit-user.jsp" target="index-iframe">Edit user</a><br>
+    <a href="FillEditForm" target="index-iframe">Edit user</a><br>
     <a href="dropdown.jsp">Log out</a>
 
 </body>

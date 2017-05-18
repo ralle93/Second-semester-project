@@ -5,19 +5,26 @@
          version="3.1">
 
     <servlet>
+        <servlet-name>Login</servlet-name>
+        <servlet-class>servlets.Login</servlet-class>
+    </servlet>
+
+    <servlet>
         <servlet-name>CreateUser</servlet-name>
         <servlet-class>servlets.CreateUser</servlet-class>
     </servlet>
 
     <servlet>
+        <servlet-name>FillEditForm</servlet-name>
+        <servlet-class>servlets.FillEditForm</servlet-class>
+    </servlet>
+
+
+
+    <servlet-mapping>
         <servlet-name>Login</servlet-name>
-        <servlet-class>servlets.Login</servlet-class>
-    </servlet>
-    
-    <servlet>
-        <servlet-name>EditUser</servlet-name>
-        <servlet-class>servlets.EditUser</servlet-class>
-    </servlet>
+        <url-pattern>/Login</url-pattern>
+    </servlet-mapping>
 
     <servlet-mapping>
         <servlet-name>CreateUser</servlet-name>
@@ -25,12 +32,8 @@
     </servlet-mapping>
 
     <servlet-mapping>
-        <servlet-name>Login</servlet-name>
-        <url-pattern>/Login</url-pattern>
+        <servlet-name>FillEditForm</servlet-name>
+        <url-pattern>/FillEditForm</url-pattern>
     </servlet-mapping>
-    
-    <servlet-mapping>
-        <servlet-name>EditUser</servlet-name>
-        <url-pattern>/EditUser</url-pattern>
-    </servlet-mapping>
+
 </web-app>
