@@ -7,13 +7,11 @@
 }
 
 #logo-image {
-    width: 300px;
+    width: 200px;
 
 }
 
 #navigation-menu {
-    margin-left: 150px;
-    margin-right: 150px;
     display: inline-block;
     vertical-align: center;
 }
@@ -30,6 +28,7 @@
     top: 0;
     right: 0;
     left: 0;
+    opacity: 0.95;
 }
 
 .top-menu-bar a {
@@ -55,7 +54,10 @@
     align-self: center;
     border: 2px solid transparent;
     width: 100%;
-    padding: 10px;
+    position: relative;
+    left: 0;
+    right: 0;
+    padding-bottom: 10px;
     z-index: 1;
 }
 
@@ -63,12 +65,11 @@
 
 /* Slideshow container */
 .slideshow-container {
-    border-radius: 15px;
+    border-radius: 20px;
     border: 2px solid #aeaad1;
     height: 500px;
+    width: 100%;
     position: relative;
-    top: 50px;
-    margin: 20px;
     overflow: hidden;
     z-index: 1;
 }
@@ -324,8 +325,15 @@ h1 {
 }
 
 .main-iframe {
+    margin-top: 125px;
     position: relative;
-    top: 50px;
+    left: 0;
+    right: 0;
     height: 1000px;
     border-style: hidden;
+    width: 100%;
+}
+
+#dropdown-iframe {
+    background-color: white;
 }
