@@ -18,7 +18,7 @@ public class SendGmail {
    }
 
    public static void main(String[] args) throws MessagingException{
-      Send("snubi68", "rasmus415263", "snub68@gmail.com", "tester","this is a test");
+      Send("snubi68", "", "rasmusdreierthrane@gmail.com", "tester","this is a test");
    }
 
    public static void Send(final String username, final String password, String recipientEmail, String title, String message) throws AddressException, MessagingException {
