@@ -18,6 +18,7 @@ public class CreateUser extends HttpServlet {
 
    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
+      // Get parameters from create/edit user form
       String email = request.getParameter("email");
       String password = request.getParameter("password");
       String name = request.getParameter("name");
@@ -25,26 +26,46 @@ public class CreateUser extends HttpServlet {
 
       String action = request.getParameter("action");
 
+      // Check for errors
       if (!VerifyData.isValidEmail(email)) {
          request.setAttribute("errorMessage", "Invalid email");
-         request.getRequestDispatcher("/create-user.jsp").forward(request, response);
       } else if (!VerifyData.isValidPass(password)) {
          request.setAttribute("errorMessage", "Password must be atleast 6 characters long");
-         request.getRequestDispatcher("/create-user.jsp").forward(request, response);
       } else if (!VerifyData.isValidName(name)) {
          request.setAttribute("errorMessage", "Please enter both a first and last name");
-         request.getRequestDispatcher("/create-user.jsp").forward(request, response);
       } else if (!VerifyData.isValidNumber(phoneNumber)) {
          request.setAttribute("errorMessage", "Please enter a phone number");
-         request.getRequestDispatcher("/create-user.jsp").forward(request, response);
-      } else {
+      }
+
+      // Return to create/edit user page with error message
+      if (request.getAttribute("errorMessage") != null) {
+         // Return to create user page
+         if (action.equals("create")) {
+            request.getRequestDispatcher("/create-user.jsp").forward(request, response);
+
+         } else { // Return to edit user page
+            request.getRequestDispatcher("/edit-user.jsp").forward(request, response);
+         }
+
+      } else { // Create/edit user if no errors
+
          // Create user
          if (action.equals("create")) {
             User user = new User(email, password, name, phoneNumber);
             d.createUser(user);
+
             request.getRequestDispatcher("/dropdown.jsp").forward(request, response);
+
          } else { // Edit user
-            // TODO: Edit user logic
+            // Find out first what user is logged in
+            String session = request.getSession().getId();
+            int id = d.fetchUserFromSession(session).getId();
+
+            // Construct new user object and update the database
+            User user = new User(id, email, password, name, phoneNumber);
+            d.editUser(user);
+
+            request.getRequestDispatcher("/gallery.jsp").forward(request, response);
          }
       }
    }

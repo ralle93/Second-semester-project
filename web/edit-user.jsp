@@ -17,5 +17,8 @@
         <input type="submit" value="Edit"/>
     </form>
 
+    <a href="gallery.jsp">Cancel</a>
+    <p style="color: red;">${errorMessage}</p>
+
 </body>
 </html>
