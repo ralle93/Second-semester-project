@@ -93,6 +93,19 @@ public class Data {
       return false;
 
    }
+   // adds activation string and connects a user_id in the database
+   public void createActivationString(String activation, User user){
+      try {
+         String query = "INSERT INTO `mydb`.`activation` (user_id, activation_string) VALUES (?, ?);";
+         stmt = conn.prepareStatement(query);
+         stmt.setInt(1, user.getId());
+         stmt.setString(2, activation);
+         db.insertQuery(stmt);
+
+      }catch(SQLException ex){
+         ex.printStackTrace();
+      }
+   }
    // fetch a user solely based on their ID(primary key in MySQL db)
    public User getUserFromId(int id){
       try {
