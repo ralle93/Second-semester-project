@@ -16,9 +16,12 @@ class ReceiptCreator {
    private OrderList orderList;
    private User user;
    private PDPageContentStream contentStream;
+
    /** DIMENSIONS OF PDF DOCUMENTS
     * IN PIXELS: 792 height / 612 width
     **/
+   private int beginOrderListX = 25;
+   private int beginOrderListY = 500;
 
    ReceiptCreator(OrderList orderList, User user) {
       doc = new PDDocument();
@@ -52,14 +55,15 @@ class ReceiptCreator {
       }
    }
 
+   private void orderOverview() {
+
+   }
+
    private void formatData() {
       addLogo();
    }
 
-   private void printOrders() {
-      int beginOrderListX = 25;
-      int beginOrderListY = 500;
-
+   private void orderName() {
       try {
          for (int i = 0; i < RecInfo.getMaxOrderSize(); i++) {
             if (orderList.getOrder(i) != null) {
@@ -76,8 +80,85 @@ class ReceiptCreator {
       }
    }
 
+   private void orderDesc() {
+      try {
+         for (int i = 0; i < RecInfo.getMaxOrderSize(); i++) {
+            if (orderList.getOrder(i) != null) {
+               contentStream.beginText();
+               contentStream.setFont(PDType1Font.TIMES_ROMAN, 10);
+               contentStream.newLineAtOffset(beginOrderListX, (beginOrderListY - 10) - (i * 30));
+               String text = orderList.getOrder(i).getCake().getDescription();
+               contentStream.showText(text);
+               contentStream.endText();
+            }
+         }
+      } catch (IOException e) {
+         e.printStackTrace();
+      }
+   }
+
+   private void orderAmount() {
+      try {
+         for (int i = 0; i < RecInfo.getMaxOrderSize(); i++) {
+            if (orderList.getOrder(i) != null) {
+               contentStream.beginText();
+               contentStream.setFont(PDType1Font.TIMES_ROMAN, 12);
+               contentStream.newLineAtOffset(beginOrderListX + 200, beginOrderListY - (i * 30));
+               String text = orderList.getOrder(i).getAmount() + "";
+               contentStream.showText(text);
+               contentStream.endText();
+            }
+         }
+      } catch (IOException e) {
+         e.printStackTrace();
+      }
+   }
+
+   private void orderPrice() {
+      try {
+         for (int i = 0; i < RecInfo.getMaxOrderSize(); i++) {
+            if (orderList.getOrder(i) != null) {
+               contentStream.beginText();
+               contentStream.setFont(PDType1Font.TIMES_ROMAN, 12);
+               contentStream.newLineAtOffset(beginOrderListX + 300, beginOrderListY - (i * 30));
+               String text = orderList.getOrder(i).getCake().getPrice() + "";
+               contentStream.showText(text);
+               contentStream.endText();
+            }
+         }
+      } catch (IOException e) {
+         e.printStackTrace();
+      }
+   }
+
+   private void orderTotal() {
+      try {
+         for (int i = 0; i < RecInfo.getMaxOrderSize(); i++) {
+            if (orderList.getOrder(i) != null) {
+               contentStream.beginText();
+               contentStream.setFont(PDType1Font.TIMES_ROMAN, 12);
+               contentStream.newLineAtOffset(beginOrderListX + 400, beginOrderListY - (i * 30));
+               String text = orderList.getOrder(i).getPrice() + "";
+               contentStream.showText(text);
+               contentStream.endText();
+            }
+         }
+      } catch (IOException e) {
+         e.printStackTrace();
+      }
+   }
+
+   private void calcTotal() {
+
+   }
+
    private void formatOrder() {
-      printOrders();
+      orderName();
+      orderDesc();
+      orderAmount();
+      orderPrice();
+      orderTotal();
+      calcTotal();
    }
 
    private PDDocumentInformation addInformation(PDDocument document) {
