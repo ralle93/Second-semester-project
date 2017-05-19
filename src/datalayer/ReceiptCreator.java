@@ -182,7 +182,7 @@ class ReceiptCreator {
    private void saveDocument() {
       try {
          doc.setDocumentInformation(addInformation(doc));
-         doc.save("pdf_examples/KageKvittering" + getID() + ".pdf");
+         doc.save("data/pdf_examples/KageKvittering" + getID() + ".pdf");
          doc.close();
       } catch (IOException e) {
          e.printStackTrace();
