@@ -20,8 +20,11 @@ class ReceiptCreator {
    /** DIMENSIONS OF PDF DOCUMENTS
     * IN PIXELS: 792 height / 612 width
     **/
-   private int beginOrderListX = 25;
-   private int beginOrderListY = 500;
+   private int beginOrderListX = 30;
+   private int beginOrderListY = 400;
+   private int amountColumn = 300;
+   private int priceColumn = 400;
+   private int totalColumn = 500;
 
    ReceiptCreator(OrderList orderList, User user) {
       doc = new PDDocument();
@@ -56,11 +59,44 @@ class ReceiptCreator {
    }
 
    private void orderOverview() {
+      int offset = 50;
 
+      try {
+         contentStream.beginText();
+         contentStream.setFont(PDType1Font.TIMES_ROMAN, 12);
+         contentStream.newLineAtOffset(beginOrderListX,beginOrderListY + offset);
+         String name = "Kage / Beskrivelse:";
+         contentStream.showText(name);
+         contentStream.endText();
+
+         contentStream.beginText();
+         contentStream.setFont(PDType1Font.TIMES_ROMAN, 12);
+         contentStream.newLineAtOffset(beginOrderListX + amountColumn,beginOrderListY + offset);
+         String amount = "Personer / Antal:";
+         contentStream.showText(amount);
+         contentStream.endText();
+
+         contentStream.beginText();
+         contentStream.setFont(PDType1Font.TIMES_ROMAN, 12);
+         contentStream.newLineAtOffset(beginOrderListX + priceColumn,beginOrderListY + offset);
+         String price = "Enkelt pris:";
+         contentStream.showText(price);
+         contentStream.endText();
+
+         contentStream.beginText();
+         contentStream.setFont(PDType1Font.TIMES_ROMAN, 12);
+         contentStream.newLineAtOffset(beginOrderListX + totalColumn,beginOrderListY + offset);
+         String total = "Total:";
+         contentStream.showText(total);
+         contentStream.endText();
+      } catch (IOException e) {
+         e.printStackTrace();
+      }
    }
 
    private void formatData() {
       addLogo();
+      orderOverview();
    }
 
    private void orderName() {
@@ -103,7 +139,7 @@ class ReceiptCreator {
             if (orderList.getOrder(i) != null) {
                contentStream.beginText();
                contentStream.setFont(PDType1Font.TIMES_ROMAN, 12);
-               contentStream.newLineAtOffset(beginOrderListX + 200, beginOrderListY - (i * 30));
+               contentStream.newLineAtOffset(beginOrderListX + amountColumn, beginOrderListY - (i * 30));
                String text = orderList.getOrder(i).getAmount() + "";
                contentStream.showText(text);
                contentStream.endText();
@@ -120,7 +156,7 @@ class ReceiptCreator {
             if (orderList.getOrder(i) != null) {
                contentStream.beginText();
                contentStream.setFont(PDType1Font.TIMES_ROMAN, 12);
-               contentStream.newLineAtOffset(beginOrderListX + 300, beginOrderListY - (i * 30));
+               contentStream.newLineAtOffset(beginOrderListX + priceColumn, beginOrderListY - (i * 30));
                String text = orderList.getOrder(i).getCake().getPrice() + "";
                contentStream.showText(text);
                contentStream.endText();
@@ -137,7 +173,7 @@ class ReceiptCreator {
             if (orderList.getOrder(i) != null) {
                contentStream.beginText();
                contentStream.setFont(PDType1Font.TIMES_ROMAN, 12);
-               contentStream.newLineAtOffset(beginOrderListX + 400, beginOrderListY - (i * 30));
+               contentStream.newLineAtOffset(beginOrderListX + totalColumn, beginOrderListY - (i * 30));
                String text = orderList.getOrder(i).getPrice() + "";
                contentStream.showText(text);
                contentStream.endText();
