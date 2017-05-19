@@ -94,7 +94,7 @@ public class Data {
 
    }
    // adds activation string and connects a user_id in the database
-   public void createActivationString(String activation, User user){
+   public void insertActivationLink(String activation, User user){
       try {
          String query = "INSERT INTO `mydb`.`activation` (user_id, activation_string) VALUES (?, ?);";
          stmt = conn.prepareStatement(query);

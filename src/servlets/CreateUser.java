@@ -100,7 +100,7 @@ public class CreateUser extends HttpServlet {
             String message = "\n Click this link to be activated on www.pernilleslaekkerier.dk";
             SendGmail.sendToCustomer(user.getEmail(),"Activation Mail", link + message);
             //link user and activation key in database
-            d.createActivationString(link, user);
+            d.insertActivationLink(link, user);
 
 
             request.getRequestDispatcher("/dropdown.jsp").forward(request, response);
