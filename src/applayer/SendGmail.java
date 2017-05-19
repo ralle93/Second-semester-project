@@ -76,7 +76,7 @@ public class SendGmail {
       t.close();
    }
 
-   public static Properties getProperties(){
+   private static Properties getProperties(){
       Properties props = System.getProperties();
       props.setProperty("mail.smtps.host", "smtp.gmail.com");
       props.setProperty("mail.smtp.socketFactory.class", "javax.net.ssl.SSLSocketFactory");
