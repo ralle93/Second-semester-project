@@ -1,7 +1,7 @@
 package datalayer;
 
 class OrderList {
-   private Order[] orderList = new Order[RecInfo.getMaxOrderSize()];
+   private Order[] list = new Order[RecInfo.getMaxOrderSize()];
    private int price;
 
    OrderList() {
@@ -9,9 +9,9 @@ class OrderList {
    }
 
    void add(Order order) {
-      for (int i = 0; i < orderList.length; i++) {
-         if (orderList[i] == null) {
-            orderList[i] = order;
+      for (int i = 0; i < list.length; i++) {
+         if (list[i] == null) {
+            list[i] = order;
             price += order.getPrice();
             return;
          }
@@ -20,10 +20,10 @@ class OrderList {
    }
 
    void remove(int index) {
-      for (int i = 0; i < orderList.length; i++) {
-         if (orderList[i] != null && i == index) {
-            price -= orderList[i].getPrice();
-            orderList[i] = null;
+      for (int i = 0; i < list.length; i++) {
+         if (list[i] != null && i == index) {
+            price -= list[i].getPrice();
+            list[i] = null;
             shiftList();
             return;
          }
@@ -32,18 +32,18 @@ class OrderList {
    }
 
    private void shiftList() {
-      for (int i = 0; i < orderList.length; i++) {
-         if (orderList[i] == null) {
-            if (i + 1 < orderList.length && orderList[i + 1] != null) {
-               orderList[i] = orderList[i + 1];
-               orderList[i + 1] = null;
+      for (int i = 0; i < list.length; i++) {
+         if (list[i] == null) {
+            if (i + 1 < list.length && list[i + 1] != null) {
+               list[i] = list[i + 1];
+               list[i + 1] = null;
             }
          }
       }
    }
 
    Order getOrder(int index) {
-      return orderList[index];
+      return list[index];
    }
 
    int getPrice() {
