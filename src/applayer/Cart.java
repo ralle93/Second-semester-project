@@ -1,6 +1,7 @@
 package applayer;
 
 import javax.servlet.http.HttpSession;
+import javax.sound.sampled.Line;
 import java.util.HashMap;
 
 /**
@@ -8,22 +9,28 @@ import java.util.HashMap;
  */
 public class Cart {
 
-   // Holding values in the ShoppingCart
-   HashMap<String, Integer> shoppingCartItems;
+   private LineItem[] list = new LineItem[RecInfo.getMaxOrderSize()];
+   private int totalPrice;
 
-   // Constructor
-   public Cart() {
-      shoppingCartItems = new HashMap<>();
+
+   public Cart(int totalPrice) {
+      this.totalPrice = totalPrice;
    }
 
-   // Get ShoppingCart Items
-   public HashMap getShoppingCartItems() {
-      return shoppingCartItems;
+
+   public void addItem() {
+
    }
 
-   // Adding items to ShoppingCart
-   public void addToCart(String itemID, int price) {
-      shoppingCartItems.put(itemID, price);
+   public void deleteItem() {
+
    }
 
+   public void clearCart() {
+
+   }
+
+   public LineItem[] getList() {
+      return list;
+   }
 }

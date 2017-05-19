@@ -15,65 +15,67 @@ import javax.mail.internet.*;
 
 public class SendGmail {
 
+   public static void sendToCustomer(String recipientEmail, String title, String message){
+      try {
+         final String username = "pernilleslaekkerier@gmail.com";
+         final String password = "Abcdefg123456789";
+         Security.addProvider(new com.sun.net.ssl.internal.ssl.Provider());
+         Session session = Session.getInstance(getProperties(), null);
 
-   public static void main(String[] args) throws MessagingException{
-      //SendToCustomer("pernilleslaekkerier", "Abcdefg123456789", "soren.ds@gmail.com", "tester","this is a test");
-      sendWithAttach(  "mikk7506@stud.kea.dk","PDF INVOICE","there is a pdf", "pdf_examples/KageKvittering000001.pdf");
-   }
+         final MimeMessage msg = new MimeMessage(session);
 
-   public static void sendToCustomer(String recipientEmail, String title, String message) throws AddressException, MessagingException {
-      final String username = "pernilleslaekkerier@gmail.com";
-      final String password = "Abcdefg123456789";
-      Security.addProvider(new com.sun.net.ssl.internal.ssl.Provider());
-      Session session = Session.getInstance(getProperties(), null);
+         msg.setFrom(new InternetAddress(username ));
+         msg.setRecipients(Message.RecipientType.TO, InternetAddress.parse(recipientEmail, false));
 
-      final MimeMessage msg = new MimeMessage(session);
+         msg.setSubject(title);
+         msg.setText(message, "utf-8");
+         msg.setSentDate(new Date());
 
-      msg.setFrom(new InternetAddress(username + "@gmail.com"));
-      msg.setRecipients(Message.RecipientType.TO, InternetAddress.parse(recipientEmail, false));
+         SMTPTransport t = (SMTPTransport) session.getTransport("smtps");
 
-      msg.setSubject(title);
-      msg.setText(message, "utf-8");
-      msg.setSentDate(new Date());
-
-      SMTPTransport t = (SMTPTransport) session.getTransport("smtps");
-
-      t.connect("smtp.gmail.com", username, password);
-      t.sendMessage(msg, msg.getAllRecipients());
-      t.close();
+         t.connect("smtp.gmail.com", username, password);
+         t.sendMessage(msg, msg.getAllRecipients());
+         t.close();
+      } catch(MessagingException ex ){
+         ex.printStackTrace();
+      }
 
    }
 
-   public static void sendWithAttach( String recipientEmail, String title, String message, String pdfFilePath) throws AddressException, MessagingException{
-      final String username = "pernilleslaekkerier@gmail.com";
-      final String password = "Abcdefg123456789";
-      Security.addProvider(new com.sun.net.ssl.internal.ssl.Provider());
-      Session session = Session.getInstance(getProperties(), null);
+   public static void sendWithAttach( String recipientEmail, String title, String message, String pdfFilePath) {
+      try {
+         final String username = "pernilleslaekkerier@gmail.com";
+         final String password = "Abcdefg123456789";
+         Security.addProvider(new com.sun.net.ssl.internal.ssl.Provider());
+         Session session = Session.getInstance(getProperties(), null);
 
-      //create msg, msgBody object and set subject, recipient
-      final Message msg = new MimeMessage(session);
-      msg.setFrom(new InternetAddress("pernilleslaekkerier@gmail.com"));
-      msg.setRecipients(Message.RecipientType.TO, InternetAddress.parse(recipientEmail, false));
-      msg.setSubject(title);
-      BodyPart msgBody = new MimeBodyPart();
-      msgBody.setText(message);
+         //create msg, msgBody object and set subject, recipient
+         final Message msg = new MimeMessage(session);
+         msg.setFrom(new InternetAddress("pernilleslaekkerier@gmail.com"));
+         msg.setRecipients(Message.RecipientType.TO, InternetAddress.parse(recipientEmail, false));
+         msg.setSubject(title);
+         BodyPart msgBody = new MimeBodyPart();
+         msgBody.setText(message);
 
-      Multipart multipart = new MimeMultipart();
-      multipart.addBodyPart(msgBody);
+         Multipart multipart = new MimeMultipart();
+         multipart.addBodyPart(msgBody);
 
-      // create the attachment and set it to the email
-      msgBody = new MimeBodyPart();
-      DataSource src = new FileDataSource(pdfFilePath);
-      msgBody.setDataHandler(new DataHandler(src));
-      msgBody.setFileName(pdfFilePath);
-      multipart.addBodyPart(msgBody);
-      msg.setContent(multipart);
+         // create the attachment and set it to the email
+         msgBody = new MimeBodyPart();
+         DataSource src = new FileDataSource(pdfFilePath);
+         msgBody.setDataHandler(new DataHandler(src));
+         msgBody.setFileName(pdfFilePath);
+         multipart.addBodyPart(msgBody);
+         msg.setContent(multipart);
 
-      SMTPTransport t = (SMTPTransport) session.getTransport("smtps");
+         SMTPTransport t = (SMTPTransport) session.getTransport("smtps");
 
-      t.connect("smtp.gmail.com", username, password);
-      t.sendMessage(msg, msg.getAllRecipients());
-      t.close();
+         t.connect("smtp.gmail.com", username, password);
+         t.sendMessage(msg, msg.getAllRecipients());
+         t.close();
+      }catch(MessagingException ex){
+         ex.printStackTrace();
+      }
    }
 
    private static Properties getProperties(){

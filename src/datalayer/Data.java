@@ -1,5 +1,6 @@
 package datalayer;
 
+import applayer.Cake;
 import applayer.User;
 
 import java.sql.Connection;
@@ -7,6 +8,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.*;
 import java.time.LocalDate;
+import java.util.ArrayList;
 
 public class Data {
 
@@ -91,6 +93,19 @@ public class Data {
       return false;
 
    }
+   // adds activation string and connects a user_id in the database
+   public void insertActivationLink(String activation, User user){
+      try {
+         String query = "INSERT INTO `mydb`.`activation` (user_id, activation_string) VALUES (?, ?);";
+         stmt = conn.prepareStatement(query);
+         stmt.setInt(1, user.getId());
+         stmt.setString(2, activation);
+         db.insertQuery(stmt);
+
+      }catch(SQLException ex){
+         ex.printStackTrace();
+      }
+   }
    // fetch a user solely based on their ID(primary key in MySQL db)
    public User getUserFromId(int id){
       try {
@@ -142,6 +157,26 @@ public class Data {
    }
    public void fetchAllOrders(){
 
+   }
+
+   public ArrayList<Cake> getCakes() {
+      try{
+         String query ="SELECT * FROM mydb.cake;";
+         stmt = conn.prepareStatement(query);
+
+         rs = db.resultQuery(stmt);
+         ArrayList<Cake> cakes = new ArrayList<>();
+
+         if(rs.next()) {
+            Cake cake = new Cake(rs.getInt(1), rs.getInt(2), rs.getString(3), rs.getString(4));
+            cakes.add(cake);
+         }
+
+         return cakes;
+      } catch(SQLException ex){
+         ex.printStackTrace();
+      }
+      return null;
    }
 
    public static void main(String[] args)throws SQLException {

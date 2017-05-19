@@ -1,5 +1,7 @@
 package servlets;
 
+import applayer.RNGString;
+import applayer.SendGmail;
 import applayer.VerifyData;
 import datalayer.Data;
 import applayer.User;
@@ -92,6 +94,14 @@ public class CreateUser extends HttpServlet {
          if (action.equals("create")) {
             User user = new User(email, password, name, phoneNumber);
             d.createUser(user);
+            //send activation email
+            RNGString rng = new RNGString("Activation", "link");
+            String link = rng.getLink();
+            String message = "\n Click this link to be activated on www.pernilleslaekkerier.dk";
+            SendGmail.sendToCustomer(user.getEmail(),"Activation Mail", link + message);
+            //link user and activation key in database
+            d.insertActivationLink(link, user);
+
 
             request.getRequestDispatcher("/dropdown.jsp").forward(request, response);
 
