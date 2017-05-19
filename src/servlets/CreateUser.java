@@ -63,6 +63,7 @@ public class CreateUser extends HttpServlet {
       String password = request.getParameter("password");
       String name = request.getParameter("name");
       String phoneNumber = request.getParameter("number");
+      action = request.getParameter("action");
 
       // Check for errors
       if (!VerifyData.isValidEmail(email)) {
