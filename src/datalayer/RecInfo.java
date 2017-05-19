@@ -7,7 +7,7 @@ public class RecInfo {
    private static String title = "Kage Kvittering";
    private static String creator = "Pernilles Kager";
    private static String subject = "Kage Bestilling";
-   private static String logoPath = "ReceiptData/Logo.png";
+   private static String logoPath = "data/ReceiptData/Logo.png";
 
    public static int getReceiptID() {
       return receiptID;

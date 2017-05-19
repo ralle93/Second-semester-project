@@ -1,7 +1,6 @@
 package datalayer;
 
 public class Cake {
-
    private int id;
    private int price;
    private String name;
@@ -12,6 +11,13 @@ public class Cake {
       this.price = price;
       this.name = name;
       this.description = description;
+   }
+
+   Cake(CustomCake customCake) {
+      this.id = 0;
+      this.price = customCake.getPrice();
+      this.name = "Byg Selv Kage";
+      this.description = customCake.getComponentsNames();
    }
 
    public int getId() {
