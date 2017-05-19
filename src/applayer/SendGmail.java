@@ -21,14 +21,14 @@ public class SendGmail {
       sendWithAttach(  "mikk7506@stud.kea.dk","PDF INVOICE","there is a pdf", "pdf_examples/KageKvittering000001.pdf");
    }
 
-   public static void sendToCustomer(final String username, final String password, String recipientEmail, String title, String message) throws AddressException, MessagingException {
+   public static void sendToCustomer(String recipientEmail, String title, String message) throws AddressException, MessagingException {
+      final String username = "pernilleslaekkerier@gmail.com";
+      final String password = "Abcdefg123456789";
       Security.addProvider(new com.sun.net.ssl.internal.ssl.Provider());
       Session session = Session.getInstance(getProperties(), null);
 
-      // -- Create a new message --
       final MimeMessage msg = new MimeMessage(session);
 
-      // -- Set the FROM and TO fields --
       msg.setFrom(new InternetAddress(username + "@gmail.com"));
       msg.setRecipients(Message.RecipientType.TO, InternetAddress.parse(recipientEmail, false));
 
@@ -51,7 +51,7 @@ public class SendGmail {
       Session session = Session.getInstance(getProperties(), null);
 
       //create msg, msgBody object and set subject, recipient
-      Message msg = new MimeMessage(session);
+      final Message msg = new MimeMessage(session);
       msg.setFrom(new InternetAddress("pernilleslaekkerier@gmail.com"));
       msg.setRecipients(Message.RecipientType.TO, InternetAddress.parse(recipientEmail, false));
       msg.setSubject(title);
