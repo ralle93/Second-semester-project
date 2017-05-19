@@ -1,4 +1,4 @@
-package datalayer;
+package applayer;
 
 import javax.servlet.http.HttpSession;
 import java.util.HashMap;

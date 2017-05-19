@@ -1,4 +1,4 @@
-package datalayer;
+package applayer;
 
 public class RecInfo {
    private static int receiptID = 1;

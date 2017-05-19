@@ -1,4 +1,4 @@
-package datalayer;
+package applayer;
 
 import org.apache.pdfbox.pdmodel.PDDocument;
 import org.apache.pdfbox.pdmodel.PDDocumentInformation;
@@ -13,7 +13,7 @@ import java.util.Calendar;
 class ReceiptCreator {
    private PDDocument doc;
    private PDPage page;
-   private OrderList orderList;
+   private Order order;
    private User user;
    private PDPageContentStream contentStream;
 
@@ -26,12 +26,12 @@ class ReceiptCreator {
    private int priceColumn = 400;
    private int totalColumn = 500;
 
-   ReceiptCreator(OrderList orderList, User user) {
+   ReceiptCreator(Order order, User user) {
       doc = new PDDocument();
       page = new PDPage();
       doc.addPage(page);
 
-      this.orderList = orderList;
+      this.order = order;
       this.user = user;
    }
 
@@ -102,11 +102,11 @@ class ReceiptCreator {
    private void orderName() {
       try {
          for (int i = 0; i < RecInfo.getMaxOrderSize(); i++) {
-            if (orderList.getOrder(i) != null) {
+            if (order.getOrder(i) != null) {
                contentStream.beginText();
                contentStream.setFont(PDType1Font.TIMES_ROMAN, 12);
                contentStream.newLineAtOffset(beginOrderListX, beginOrderListY - (i * 30));
-               String text = orderList.getOrder(i).getCake().getName();
+               String text = order.getOrder(i).getCake().getName();
                contentStream.showText(text);
                contentStream.endText();
             }
@@ -119,11 +119,11 @@ class ReceiptCreator {
    private void orderDesc() {
       try {
          for (int i = 0; i < RecInfo.getMaxOrderSize(); i++) {
-            if (orderList.getOrder(i) != null) {
+            if (order.getOrder(i) != null) {
                contentStream.beginText();
                contentStream.setFont(PDType1Font.TIMES_ROMAN, 10);
                contentStream.newLineAtOffset(beginOrderListX, (beginOrderListY - 10) - (i * 30));
-               String text = orderList.getOrder(i).getCake().getDescription();
+               String text = order.getOrder(i).getCake().getDescription();
                contentStream.showText(text);
                contentStream.endText();
             }
@@ -136,11 +136,11 @@ class ReceiptCreator {
    private void orderAmount() {
       try {
          for (int i = 0; i < RecInfo.getMaxOrderSize(); i++) {
-            if (orderList.getOrder(i) != null) {
+            if (order.getOrder(i) != null) {
                contentStream.beginText();
                contentStream.setFont(PDType1Font.TIMES_ROMAN, 12);
                contentStream.newLineAtOffset(beginOrderListX + amountColumn, beginOrderListY - (i * 30));
-               String text = orderList.getOrder(i).getAmount() + "";
+               String text = order.getOrder(i).getAmount() + "";
                contentStream.showText(text);
                contentStream.endText();
             }
@@ -153,11 +153,11 @@ class ReceiptCreator {
    private void orderPrice() {
       try {
          for (int i = 0; i < RecInfo.getMaxOrderSize(); i++) {
-            if (orderList.getOrder(i) != null) {
+            if (order.getOrder(i) != null) {
                contentStream.beginText();
                contentStream.setFont(PDType1Font.TIMES_ROMAN, 12);
                contentStream.newLineAtOffset(beginOrderListX + priceColumn, beginOrderListY - (i * 30));
-               String text = orderList.getOrder(i).getCake().getPrice() + "";
+               String text = order.getOrder(i).getCake().getPrice() + "";
                contentStream.showText(text);
                contentStream.endText();
             }
@@ -170,11 +170,11 @@ class ReceiptCreator {
    private void orderTotal() {
       try {
          for (int i = 0; i < RecInfo.getMaxOrderSize(); i++) {
-            if (orderList.getOrder(i) != null) {
+            if (order.getOrder(i) != null) {
                contentStream.beginText();
                contentStream.setFont(PDType1Font.TIMES_ROMAN, 12);
                contentStream.newLineAtOffset(beginOrderListX + totalColumn, beginOrderListY - (i * 30));
-               String text = orderList.getOrder(i).getPrice() + "";
+               String text = order.getOrder(i).getPrice() + "";
                contentStream.showText(text);
                contentStream.endText();
             }

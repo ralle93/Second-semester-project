@@ -1,22 +1,22 @@
-package datalayer;
+package applayer;
 
-class OrderList {
-   private Order[] list = new Order[RecInfo.getMaxOrderSize()];
+class Order {
+   private LineItem[] list = new LineItem[RecInfo.getMaxOrderSize()];
    private int price;
 
-   OrderList() {
+   Order() {
       this.price = 0;
    }
 
-   void add(Order order) {
+   void add(LineItem lineItem) {
       for (int i = 0; i < list.length; i++) {
          if (list[i] == null) {
-            list[i] = order;
-            price += order.getPrice();
+            list[i] = lineItem;
+            price += lineItem.getPrice();
             return;
          }
       }
-      System.out.println("Order List Full");
+      System.out.println("LineItem List Full");
    }
 
    void remove(int index) {
@@ -28,7 +28,7 @@ class OrderList {
             return;
          }
       }
-      System.out.println("Order Not Found");
+      System.out.println("LineItem Not Found");
    }
 
    private void shiftList() {
@@ -42,7 +42,7 @@ class OrderList {
       }
    }
 
-   Order getOrder(int index) {
+   LineItem getOrder(int index) {
       return list[index];
    }
 

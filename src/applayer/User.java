@@ -1,4 +1,4 @@
-package datalayer;
+package applayer;
 
 public class User {
    private int id;

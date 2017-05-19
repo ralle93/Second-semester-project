@@ -1,12 +1,12 @@
-package datalayer;
+package applayer;
 
-public class Order {
+public class LineItem {
    private Cake cake;
    private int amount;
    private int price;
    private String notes;
 
-   Order(Cake cake, int amount, String notes) {
+   LineItem(Cake cake, int amount, String notes) {
       this.cake = cake;
       this.amount = amount;
       this.price = cake.getPrice() * amount;

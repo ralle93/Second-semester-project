@@ -1,7 +1,7 @@
 package servlets;
 
 import datalayer.Data;
-import datalayer.User;
+import applayer.User;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
