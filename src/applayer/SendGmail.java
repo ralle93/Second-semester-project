@@ -1,9 +1,6 @@
 
 package applayer;
 import com.sun.mail.smtp.SMTPTransport;
-import org.apache.pdfbox.pdmodel.PDDocument;
-
-import java.io.IOException;
 import java.security.Security;
 import java.util.Date;
 import java.util.Properties;
@@ -14,17 +11,16 @@ import javax.mail.*;
 import javax.mail.internet.*;
 
 public class SendGmail {
-
+   final static String username = "pernilleslaekkerier@gmail.com";
+   final static String password = "Abcdefg123456789";
    public static void sendToCustomer(String recipientEmail, String title, String message){
       try {
-         final String username = "pernilleslaekkerier@gmail.com";
-         final String password = "Abcdefg123456789";
          Security.addProvider(new com.sun.net.ssl.internal.ssl.Provider());
          Session session = Session.getInstance(getProperties(), null);
 
          final MimeMessage msg = new MimeMessage(session);
 
-         msg.setFrom(new InternetAddress(username ));
+         msg.setFrom(new InternetAddress(username));
          msg.setRecipients(Message.RecipientType.TO, InternetAddress.parse(recipientEmail, false));
 
          msg.setSubject(title);
@@ -44,14 +40,12 @@ public class SendGmail {
 
    public static void sendWithAttach( String recipientEmail, String title, String message, String pdfFilePath) {
       try {
-         final String username = "pernilleslaekkerier@gmail.com";
-         final String password = "Abcdefg123456789";
          Security.addProvider(new com.sun.net.ssl.internal.ssl.Provider());
          Session session = Session.getInstance(getProperties(), null);
 
          //create msg, msgBody object and set subject, recipient
          final Message msg = new MimeMessage(session);
-         msg.setFrom(new InternetAddress("pernilleslaekkerier@gmail.com"));
+         msg.setFrom(new InternetAddress(username));
          msg.setRecipients(Message.RecipientType.TO, InternetAddress.parse(recipientEmail, false));
          msg.setSubject(title);
          BodyPart msgBody = new MimeBodyPart();
