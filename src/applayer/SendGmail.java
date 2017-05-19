@@ -15,12 +15,6 @@ import javax.mail.internet.*;
 
 public class SendGmail {
 
-
-   public static void main(String[] args) throws MessagingException{
-      //SendToCustomer("pernilleslaekkerier", "Abcdefg123456789", "soren.ds@gmail.com", "tester","this is a test");
-      sendWithAttach(  "mikk7506@stud.kea.dk","PDF INVOICE","there is a pdf", "pdf_examples/KageKvittering000001.pdf");
-   }
-
    public static void sendToCustomer(String recipientEmail, String title, String message){
       try {
          final String username = "pernilleslaekkerier@gmail.com";
