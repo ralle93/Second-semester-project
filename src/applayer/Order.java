@@ -1,11 +1,15 @@
 package applayer;
 
+import java.util.Date;
+
 class Order {
    private LineItem[] list = new LineItem[RecInfo.getMaxOrderSize()];
    private int total;
+   private Date deliveryDate;
 
-   Order() {
+   Order(Date deliveryDate) {
       this.total = 0;
+      this.deliveryDate = deliveryDate;
    }
 
    void add(LineItem lineItem) {
@@ -48,5 +52,9 @@ class Order {
 
    int getTotal() {
       return total;
+   }
+
+   Date getDeliveryDate() {
+      return deliveryDate;
    }
 }

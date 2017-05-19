@@ -61,6 +61,32 @@ class ReceiptCreator {
       }
    }
 
+   private void addUserInfo() {
+      try {
+         contentStream.beginText();
+         contentStream.setFont(PDType1Font.TIMES_ROMAN, 12);
+         contentStream.newLineAtOffset(0,0);
+         String text = "";
+         contentStream.showText(text);
+         contentStream.endText();
+      } catch (IOException e) {
+         e.printStackTrace();
+      }
+   }
+
+   private void addSellerInfo() {
+      try {
+         contentStream.beginText();
+         contentStream.setFont(PDType1Font.TIMES_ROMAN, 12);
+         contentStream.newLineAtOffset(10,0);
+         String text = "";
+         contentStream.showText(text);
+         contentStream.endText();
+      } catch (IOException e) {
+         e.printStackTrace();
+      }
+   }
+
    private void orderOverview() {
       int offset = 50;
 
@@ -99,6 +125,8 @@ class ReceiptCreator {
 
    private void formatData() {
       addLogo();
+      addUserInfo();
+      addSellerInfo();
       orderOverview();
    }
 
@@ -209,7 +237,8 @@ class ReceiptCreator {
          contentStream.beginText();
          contentStream.setFont(PDType1Font.TIMES_ITALIC, 12);
          contentStream.newLineAtOffset(beginOrderListX + totalColumn, beginOrderListY - vatLine);
-         String vat = (float) order.getTotal() * 0.25 + priceEnding;
+         double calcVAT = Math.round(((double) order.getTotal() * 0.25) * 100.0) / 100.0;
+         String vat = calcVAT + " kr.";
          contentStream.showText(vat);
          contentStream.endText();
       } catch (IOException e) {
