@@ -30,6 +30,5 @@ public class Login extends HttpServlet {
          request.setAttribute("loggedInUser", user.getEmail());
          request.getRequestDispatcher("/dropdown-loggedin.jsp").forward(request, response);
       }
-
    }
 }
