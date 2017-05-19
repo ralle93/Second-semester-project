@@ -36,7 +36,7 @@
 
 <script>
     $("#product-image-1").click(function() {
-     $("#product-description-1").toggle();
+        $("#product-description-1").toggle();
     });
 </script>
 

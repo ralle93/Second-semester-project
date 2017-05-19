@@ -1,5 +1,6 @@
 package datalayer;
 
+import applayer.Cake;
 import applayer.User;
 
 import java.sql.Connection;
@@ -7,6 +8,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.*;
 import java.time.LocalDate;
+import java.util.ArrayList;
 
 public class Data {
 
@@ -142,6 +144,26 @@ public class Data {
    }
    public void fetchAllOrders(){
 
+   }
+
+   public ArrayList<Cake> getCakes() {
+      try{
+         String query ="SELECT * FROM mydb.cake;";
+         stmt = conn.prepareStatement(query);
+
+         rs = db.resultQuery(stmt);
+         ArrayList<Cake> cakes = new ArrayList<>();
+
+         if(rs.next()) {
+            Cake cake = new Cake(rs.getInt(1), rs.getInt(2), rs.getString(3), rs.getString(4));
+            cakes.add(cake);
+         }
+
+         return cakes;
+      } catch(SQLException ex){
+         ex.printStackTrace();
+      }
+      return null;
    }
 
    public static void main(String[] args)throws SQLException {
