@@ -22,9 +22,12 @@ class ReceiptCreator {
     **/
    private int beginOrderListX = 30;
    private int beginOrderListY = 400;
+   private int lineSpace = 50;
    private int amountColumn = 300;
    private int priceColumn = 400;
    private int totalColumn = 500;
+
+   private String priceEnding = ",- kr.";
 
    ReceiptCreator(Order order, User user) {
       doc = new PDDocument();
@@ -99,101 +102,133 @@ class ReceiptCreator {
       orderOverview();
    }
 
-   private void orderName() {
+   private void itemName(int i) {
       try {
-         for (int i = 0; i < RecInfo.getMaxOrderSize(); i++) {
-            if (order.getOrder(i) != null) {
-               contentStream.beginText();
-               contentStream.setFont(PDType1Font.TIMES_ROMAN, 12);
-               contentStream.newLineAtOffset(beginOrderListX, beginOrderListY - (i * 30));
-               String text = order.getOrder(i).getCake().getName();
-               contentStream.showText(text);
-               contentStream.endText();
-            }
-         }
+         contentStream.beginText();
+         contentStream.setFont(PDType1Font.TIMES_ROMAN, 12);
+         contentStream.newLineAtOffset(beginOrderListX, beginOrderListY - (i * lineSpace));
+         String text = order.getLineItem(i).getCake().getName();
+         contentStream.showText(text);
+         contentStream.endText();
       } catch (IOException e) {
          e.printStackTrace();
       }
    }
 
-   private void orderDesc() {
+   private void itemDesc(int i) {
       try {
-         for (int i = 0; i < RecInfo.getMaxOrderSize(); i++) {
-            if (order.getOrder(i) != null) {
-               contentStream.beginText();
-               contentStream.setFont(PDType1Font.TIMES_ROMAN, 10);
-               contentStream.newLineAtOffset(beginOrderListX, (beginOrderListY - 10) - (i * 30));
-               String text = order.getOrder(i).getCake().getDescription();
-               contentStream.showText(text);
-               contentStream.endText();
-            }
-         }
+         contentStream.beginText();
+         contentStream.setFont(PDType1Font.TIMES_ROMAN, 10);
+         contentStream.newLineAtOffset(beginOrderListX, (beginOrderListY - 10) - (i * lineSpace));
+         String text = order.getLineItem(i).getCake().getDescription();
+         contentStream.showText(text);
+         contentStream.endText();
       } catch (IOException e) {
          e.printStackTrace();
       }
    }
 
-   private void orderAmount() {
+   private void itemNote(int i) {
       try {
-         for (int i = 0; i < RecInfo.getMaxOrderSize(); i++) {
-            if (order.getOrder(i) != null) {
-               contentStream.beginText();
-               contentStream.setFont(PDType1Font.TIMES_ROMAN, 12);
-               contentStream.newLineAtOffset(beginOrderListX + amountColumn, beginOrderListY - (i * 30));
-               String text = order.getOrder(i).getAmount() + "";
-               contentStream.showText(text);
-               contentStream.endText();
-            }
-         }
+         contentStream.beginText();
+         contentStream.setFont(PDType1Font.TIMES_ITALIC, 10);
+         contentStream.newLineAtOffset(beginOrderListX, (beginOrderListY - 20) - (i * lineSpace));
+         String text = order.getLineItem(i).getNotes();
+         contentStream.showText(text);
+         contentStream.endText();
       } catch (IOException e) {
          e.printStackTrace();
       }
    }
 
-   private void orderPrice() {
+   private void itemAmount(int i) {
       try {
-         for (int i = 0; i < RecInfo.getMaxOrderSize(); i++) {
-            if (order.getOrder(i) != null) {
-               contentStream.beginText();
-               contentStream.setFont(PDType1Font.TIMES_ROMAN, 12);
-               contentStream.newLineAtOffset(beginOrderListX + priceColumn, beginOrderListY - (i * 30));
-               String text = order.getOrder(i).getCake().getPrice() + "";
-               contentStream.showText(text);
-               contentStream.endText();
-            }
-         }
+         contentStream.beginText();
+         contentStream.setFont(PDType1Font.TIMES_ROMAN, 12);
+         contentStream.newLineAtOffset(beginOrderListX + amountColumn, beginOrderListY - (i * lineSpace));
+         String text = order.getLineItem(i).getAmount() + "";
+         contentStream.showText(text);
+         contentStream.endText();
       } catch (IOException e) {
          e.printStackTrace();
       }
    }
 
-   private void orderTotal() {
+   private void itemPrice(int i) {
       try {
-         for (int i = 0; i < RecInfo.getMaxOrderSize(); i++) {
-            if (order.getOrder(i) != null) {
-               contentStream.beginText();
-               contentStream.setFont(PDType1Font.TIMES_ROMAN, 12);
-               contentStream.newLineAtOffset(beginOrderListX + totalColumn, beginOrderListY - (i * 30));
-               String text = order.getOrder(i).getPrice() + "";
-               contentStream.showText(text);
-               contentStream.endText();
-            }
-         }
+         contentStream.beginText();
+         contentStream.setFont(PDType1Font.TIMES_ROMAN, 12);
+         contentStream.newLineAtOffset(beginOrderListX + priceColumn, beginOrderListY - (i * lineSpace));
+         String text = order.getLineItem(i).getCake().getPrice() + priceEnding;
+         contentStream.showText(text);
+         contentStream.endText();
+      } catch (IOException e) {
+         e.printStackTrace();
+      }
+   }
+
+   private void itemTotal(int i) {
+      try {
+         contentStream.beginText();
+         contentStream.setFont(PDType1Font.TIMES_ROMAN, 12);
+         contentStream.newLineAtOffset(beginOrderListX + totalColumn, beginOrderListY - (i * lineSpace));
+         String text = order.getLineItem(i).getPrice() + priceEnding;
+         contentStream.showText(text);
+         contentStream.endText();
       } catch (IOException e) {
          e.printStackTrace();
       }
    }
 
    private void calcTotal() {
+      int totalLine = RecInfo.getMaxOrderSize() * lineSpace;
+      int vatLine = totalLine + 20;
 
+      try {
+         contentStream.beginText();
+         contentStream.setFont(PDType1Font.TIMES_BOLD, 14);
+         contentStream.newLineAtOffset(beginOrderListX, beginOrderListY - totalLine);
+         String totalText = "Total:";
+         contentStream.showText(totalText);
+         contentStream.endText();
+
+         contentStream.beginText();
+         contentStream.setFont(PDType1Font.TIMES_BOLD, 14);
+         contentStream.newLineAtOffset(beginOrderListX + totalColumn, beginOrderListY - totalLine);
+         String total = order.getTotal() + priceEnding;
+         contentStream.showText(total);
+         contentStream.endText();
+
+         contentStream.beginText();
+         contentStream.setFont(PDType1Font.TIMES_ITALIC, 12);
+         contentStream.newLineAtOffset(beginOrderListX, beginOrderListY - vatLine);
+         String vatText = "Heraf Moms 25% :";
+         contentStream.showText(vatText);
+         contentStream.endText();
+
+         contentStream.beginText();
+         contentStream.setFont(PDType1Font.TIMES_ITALIC, 12);
+         contentStream.newLineAtOffset(beginOrderListX + totalColumn, beginOrderListY - vatLine);
+         String vat = (float) order.getTotal() * 0.25 + priceEnding;
+         contentStream.showText(vat);
+         contentStream.endText();
+      } catch (IOException e) {
+         e.printStackTrace();
+      }
    }
 
    private void formatOrder() {
-      orderName();
-      orderDesc();
-      orderAmount();
-      orderPrice();
-      orderTotal();
+      for (int i = 0; i < RecInfo.getMaxOrderSize(); i++) {
+         if (order.getLineItem(i) != null) {
+            itemName(i);
+            itemDesc(i);
+            itemNote(i);
+            itemAmount(i);
+            itemPrice(i);
+            itemTotal(i);
+         }
+      }
+
       calcTotal();
    }
 

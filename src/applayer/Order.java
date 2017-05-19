@@ -2,17 +2,17 @@ package applayer;
 
 class Order {
    private LineItem[] list = new LineItem[RecInfo.getMaxOrderSize()];
-   private int price;
+   private int total;
 
    Order() {
-      this.price = 0;
+      this.total = 0;
    }
 
    void add(LineItem lineItem) {
       for (int i = 0; i < list.length; i++) {
          if (list[i] == null) {
             list[i] = lineItem;
-            price += lineItem.getPrice();
+            total += lineItem.getPrice();
             return;
          }
       }
@@ -22,7 +22,7 @@ class Order {
    void remove(int index) {
       for (int i = 0; i < list.length; i++) {
          if (list[i] != null && i == index) {
-            price -= list[i].getPrice();
+            total -= list[i].getPrice();
             list[i] = null;
             shiftList();
             return;
@@ -42,11 +42,11 @@ class Order {
       }
    }
 
-   LineItem getOrder(int index) {
+   LineItem getLineItem(int index) {
       return list[index];
    }
 
-   int getPrice() {
-      return price;
+   int getTotal() {
+      return total;
    }
 }

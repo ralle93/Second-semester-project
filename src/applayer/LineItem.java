@@ -1,6 +1,6 @@
 package applayer;
 
-public class LineItem {
+class LineItem {
    private Cake cake;
    private int amount;
    private int price;
@@ -23,5 +23,9 @@ public class LineItem {
 
    int getAmount() {
       return amount;
+   }
+
+   String getNotes() {
+      return notes;
    }
 }
