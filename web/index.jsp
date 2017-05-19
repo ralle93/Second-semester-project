@@ -13,7 +13,7 @@
   </div>
   <div id="navigation-menu">
     <a href="gallery.jsp" target="index-iframe">Start</a>
-    <a href="cakes.jsp" target="index-iframe">Kager</a>
+    <a href="/GetCakes" target="index-iframe">Kager</a>
     <a href="custom-cakes.jsp" target="index-iframe">Byg Selv Kage</a>
     <a href="about.jsp" target="index-iframe">Om Pernille's Kager</a>
   </div>

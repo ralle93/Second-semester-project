@@ -20,6 +20,10 @@ public class Cake {
       this.description = customCake.getComponentsNames();
    }
 
+   public String toString() {
+      return "[" + id + ", " + price + ", " + name + ", " + description + "]";
+   }
+
    public int getId() {
       return id;
    }

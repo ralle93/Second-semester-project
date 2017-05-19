@@ -167,7 +167,7 @@ public class Data {
          rs = db.resultQuery(stmt);
          ArrayList<Cake> cakes = new ArrayList<>();
 
-         if(rs.next()) {
+         while(rs.next()) {
             Cake cake = new Cake(rs.getInt(1), rs.getInt(2), rs.getString(3), rs.getString(4));
             cakes.add(cake);
          }
@@ -179,11 +179,31 @@ public class Data {
       return null;
    }
 
-   public static void main(String[] args)throws SQLException {
-      User user = new User(10, "test@test.dk", "testpass", "testname", "testnumber");
-      Data d = new Data();
+   public Cake getCakeFromID(int id) {
+      try{
+         String query ="SELECT * FROM mydb.cake ";
+         query += "WHERE cake_id = " + id + ";";
 
-      d.editUser(user);
+         stmt = conn.prepareStatement(query);
+         rs = db.resultQuery(stmt);
+
+         if (rs.next()) {
+            Cake cake = new Cake(rs.getInt(1), rs.getInt(2), rs.getString(3), rs.getString(4));
+            return cake;
+         }
+
+         return null;
+      } catch(SQLException ex){
+         ex.printStackTrace();
+      }
+      return null;
+   }
+
+   public static void main(String[] args)throws SQLException {
+      Data d = new Data();
+      Cake c = d.getCakeFromID(2);
+
+      System.out.println(c);
    }
 
 }

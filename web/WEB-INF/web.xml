@@ -19,6 +19,11 @@
         <servlet-class>servlets.FillEditForm</servlet-class>
     </servlet>
 
+    <servlet>
+        <servlet-name>GetCakes</servlet-name>
+        <servlet-class>servlets.GetCakes</servlet-class>
+    </servlet>
+
 
 
     <servlet-mapping>
@@ -34,6 +39,11 @@
     <servlet-mapping>
         <servlet-name>FillEditForm</servlet-name>
         <url-pattern>/FillEditForm</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>GetCakes</servlet-name>
+        <url-pattern>/GetCakes</url-pattern>
     </servlet-mapping>
 
 </web-app>
