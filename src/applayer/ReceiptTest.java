@@ -9,8 +9,7 @@ public class ReceiptTest {
       Order order = testOrder();
       User user = new User("test@mail.com","1234","Bent Hansen","88888888");
 
-      ReceiptCreator rc = new ReceiptCreator(order, user);
-      rc.newReceipt();
+      new ReceiptCreator(order, user);
    }
 
    private static Order testOrder() {
