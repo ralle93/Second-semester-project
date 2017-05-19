@@ -12,6 +12,7 @@ public class Cart {
    private LineItem[] list = new LineItem[RecInfo.getMaxOrderSize()];
    private int totalPrice;
 
+
    public Cart(int totalPrice) {
       this.totalPrice = totalPrice;
    }
