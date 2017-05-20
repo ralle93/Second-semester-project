@@ -1,7 +1,5 @@
 package servlets;
 
-import datalayer.Data;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -11,8 +9,6 @@ import java.io.IOException;
 
 @WebServlet(name = "Logout")
 public class Logout extends HttpServlet {
-
-   Data d = new Data();
 
    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
       // Give the user a new session id
