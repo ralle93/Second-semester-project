@@ -16,15 +16,39 @@
 
     <div class="slideshow-container">
         <div class="mySlides fade">
-            <div class="numbertext">1 / 2</div>
-            <img src="images/sample_image1.jpg" style="width:100%">
+            <div class="numbertext">1 / 6</div>
+            <img src="images/cakes/cake_1.jpg" style="width:100%">
             <div class="text">Sample #1 of an image in our cake gallery.</div>
         </div>
 
         <div class="mySlides fade">
-            <div class="numbertext">2 / 2</div>
-            <img src="images/sample_image2.jpg" style="width:100%">
+            <div class="numbertext">2 / 6</div>
+            <img src="images/cakes/cake_2.jpg" style="width:100%">
             <div class="text">Sample #2 of an image in our cake gallery.</div>
+        </div>
+
+        <div class="mySlides fade">
+            <div class="numbertext">3 / 6</div>
+            <img src="images/cakes/cake_3.jpg" style="width:100%">
+            <div class="text">Sample #3 of an image in our cake gallery.</div>
+        </div>
+
+        <div class="mySlides fade">
+            <div class="numbertext">4 / 6</div>
+            <img src="images/cakes/cake_4.jpg" style="width:100%">
+            <div class="text">Sample #4 of an image in our cake gallery.</div>
+        </div>
+
+        <div class="mySlides fade">
+            <div class="numbertext">5 / 6</div>
+            <img src="images/cakes/cake_5.jpg" style="width:100%">
+            <div class="text">Sample #5 of an image in our cake gallery.</div>
+        </div>
+
+        <div class="mySlides fade">
+            <div class="numbertext">6 / 6</div>
+            <img src="images/cakes/cake_6.jpg" style="width:100%">
+            <div class="text">Sample #6 of an image in our cake gallery.</div>
         </div>
 
         <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
@@ -36,6 +60,10 @@
     <div style="text-align:center">
         <span class="dot" onclick="currentSlide(1)"></span>
         <span class="dot" onclick="currentSlide(2)"></span>
+        <span class="dot" onclick="currentSlide(3)"></span>
+        <span class="dot" onclick="currentSlide(4)"></span>
+        <span class="dot" onclick="currentSlide(5)"></span>
+        <span class="dot" onclick="currentSlide(6)"></span>
     </div>
 
     <script>
