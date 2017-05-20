@@ -71,6 +71,23 @@ public class Data {
       return false;
    }
 
+   // Change password from user id
+   public boolean changeUserPass(int id, String password) {
+      try{
+         String query = "UPDATE mydb.users SET password = ? ";
+         query += "WHERE user_id = ?;";
+         stmt = conn.prepareStatement(query);
+
+         stmt.setString(1, password);
+         stmt.setInt(2, id);
+
+         return db.insertQuery(stmt);
+      }catch(SQLException ex){
+         ex.printStackTrace();
+      }
+      return false;
+   }
+
    //method to check user credentials
    public User logInCheck(String email, String password){
       try{
@@ -172,6 +189,24 @@ public class Data {
       return null;
    }
 
+   // Method to get userID from email address
+   public int getUserIdFromEmail(String email){
+      try {
+         String query = "SELECT user_id FROM users WHERE email = ?";
+         stmt = conn.prepareStatement(query);
+         stmt.setString(1, email);
+
+         rs = db.resultQuery(stmt);
+         if(rs.next()){
+            return rs.getInt(1);
+         }
+      }catch(SQLException ex){
+         ex.printStackTrace();
+      }
+
+      return -1;
+   }
+
    //method to fetch a user from their current http session id.
    public User fetchUserFromSession(String httpSession){
       try {
@@ -252,7 +287,7 @@ public class Data {
    public static void main(String[] args)throws SQLException {
       Data d = new Data();
 
-      System.out.println(d.activateUser(30));
+      d.changeUserPass(31, "test");
    }
 
 }

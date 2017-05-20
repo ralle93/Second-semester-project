@@ -16,9 +16,11 @@
         Password: <input type="password" name="password" width="30"/>
     <input type="submit" value="Login"/>
     </form>
-
-    <a href="dropdown.jsp">Back</a>
     <p style="color: red;">${errorMessage}</p>
+
+    <a href="/send-reset-email.jsp">Forgot password</a><br>
+    <a href="/dropdown.jsp">Back</a>
+
 
 </body>
 </html>

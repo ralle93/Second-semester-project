@@ -1,5 +1,6 @@
 package servlets;
 
+import applayer.VerifyData;
 import datalayer.Data;
 
 import javax.servlet.ServletException;
@@ -46,11 +47,61 @@ public class ActivateReset extends HttpServlet {
       }
 
       // Forward to activate user results page
-      request.getRequestDispatcher("/activate-user.jsp").forward(request, response);
+      request.getRequestDispatcher("/activate-reset-user-result.jsp").forward(request, response);
    }
 
+   // Forward to reset password page
    private void resetPassword(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
       String resetKey = request.getParameter("reset");
 
+      // Get user id from key
+      int userID = d.getUserIdFromKey(resetKey);
+
+      if (userID == -1) {
+         // Invalid link
+         request.setAttribute("errorMessage", "Invalid reset password link!");
+         request.getRequestDispatcher("/activate-reset-user-result.jsp").forward(request, response);
+
+      } else {
+         // Forwarding to reset password page
+         request.setAttribute("resetKey", resetKey);
+         request.getRequestDispatcher("/reset-password.jsp").forward(request, response);
+      }
+   }
+
+   // Confirm new password
+   protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+      String resetKey = request.getParameter("resetKey");
+      request.setAttribute("resetKey", resetKey);
+
+      String pass = request.getParameter("pass");
+      String confirmPass = request.getParameter("confirmPass");
+
+      // Check if passwords matches
+      if (!pass.equals(confirmPass)) { // Passwords has to match error
+         request.setAttribute("errorMessage", "Please type the same password twice!");
+         request.getRequestDispatcher("/reset-password.jsp").forward(request, response);
+
+      } else if (!VerifyData.isValidPass(pass)) {
+         // Not a valid password
+         request.setAttribute("errorMessage", "Password has to be atleast 6 characters");
+         request.getRequestDispatcher("/reset-password.jsp").forward(request, response);
+
+      } else { // Change password
+         // Get user id from reset key
+         int userID = d.getUserIdFromKey(resetKey);
+
+         if (userID == -1) {
+            // Invalid reset key (this should never happen)!!!
+            request.setAttribute("errorMessage", "Invalid reset key (this should never happen)!!!");
+
+         } else {
+            // Change password
+            d.changeUserPass(userID, pass);
+            request.setAttribute("message", "Password successfully changed!");
+         }
+
+         request.getRequestDispatcher("/activate-reset-user-result.jsp").forward(request, response);
+      }
    }
 }
