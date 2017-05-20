@@ -15,11 +15,8 @@ public class Logout extends HttpServlet {
    Data d = new Data();
 
    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-      // Get user session id
-      String session = request.getSession().getId();
-
-      // Delete session from database
-      d.deleteSession(session);
+      // Give the user a new session id
+      request.changeSessionId();
 
       // Forward user to default dropdown page
       request.getRequestDispatcher("/dropdown.jsp").forward(request, response);
