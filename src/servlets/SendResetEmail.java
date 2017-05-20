@@ -26,7 +26,7 @@ public class SendResetEmail extends HttpServlet {
 
       if (userID == -1) {
          // No user has that email
-         request.setAttribute("errorMessage", "E-mail is not registered!");
+         request.setAttribute("errorMessage", "No user registered with that e-mail!");
 
       } else { // User exist, send email to reset password
          //send activation email
