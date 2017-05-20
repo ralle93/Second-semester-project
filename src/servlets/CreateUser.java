@@ -92,17 +92,20 @@ public class CreateUser extends HttpServlet {
 
          // Create user
          if (action.equals("create")) {
+            // Create user in database
             User user = new User(email, password, name, phoneNumber);
             d.createUser(user);
+
             //send activation email
             RNGString rng = new RNGString("Activation", "link");
             String link = rng.getLink();
             String message = "\n Click this link to be activated on www.pernilleslaekkerier.dk";
             SendGmail.sendToCustomer(user.getEmail(),"Activation Mail", link + message);
+
             //link user and activation key in database
             d.insertActivationLink(link, user);
 
-
+            // Forward user to default dropdown page
             request.getRequestDispatcher("/dropdown.jsp").forward(request, response);
 
          } else { // Edit user
@@ -114,6 +117,7 @@ public class CreateUser extends HttpServlet {
             user = new User(user.getId(), email, user.getPassword(), name, phoneNumber);
             d.editUser(user);
 
+            // Forward user to main page
             request.getRequestDispatcher("/gallery.jsp").forward(request, response);
          }
       }
