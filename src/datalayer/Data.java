@@ -188,14 +188,13 @@ public class Data {
          rs = db.resultQuery(stmt);
 
          if (rs.next()) {
-            Cake cake = new Cake(rs.getInt(1), rs.getInt(2), rs.getString(3), rs.getString(4));
-            return cake;
+            return new Cake(rs.getInt(1), rs.getInt(2), rs.getString(3), rs.getString(4));
          }
 
-         return null;
       } catch(SQLException ex){
          ex.printStackTrace();
       }
+
       return null;
    }
 

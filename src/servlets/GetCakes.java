@@ -16,10 +16,6 @@ public class GetCakes extends HttpServlet {
 
    Data d = new Data();
 
-   protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-   }
-
    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
       ArrayList<Cake> cakes = d.getCakes();
 
