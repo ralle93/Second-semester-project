@@ -17,11 +17,12 @@ public class Data {
    private PreparedStatement stmt;
    private ResultSet rs;
 
-   //Method to create user in user table in database.
-   public boolean createUser(User user) {
+   //Method to create user in user table in database, returns assigned user id.
+   public int createUser(User user) {
       try{
-         String query = "INSERT INTO `mydb`.`users` (`email`, `password`, `is_admin`, `created`, `name`, `phone_nr`)";
-         query += " VALUES (?, ?, ?, ?, ?, ?);";
+         // Add user to users table
+         String query = "INSERT INTO `mydb`.`users` (`email`, `password`, `is_admin`, `created`, `name`, `phone_nr`, `activated`) ";
+         query += "VALUES (?, ?, ?, ?, ?, ?, ?);";
          stmt = conn.prepareStatement(query);
 
          stmt.setString(1, user.getEmail());
@@ -30,12 +31,24 @@ public class Data {
          stmt.setDate(4, Date.valueOf(LocalDate.now()));
          stmt.setString(5, user.getName());
          stmt.setString(6,user.getPhoneNumber());
+         stmt.setBoolean(7, false);
 
-         return db.insertQuery(stmt);
+         db.insertQuery(stmt);
+
+         // Get user id from newly created user
+         query = "SELECT last_insert_id() FROM mydb.users;";
+         stmt = conn.prepareStatement(query);
+
+         rs = db.resultQuery(stmt);
+         if(rs.next()) {
+            return rs.getInt(1);
+         }
+         return -1;
       }catch(SQLException ex){
          ex.printStackTrace();
       }
-      return false;
+
+      return -1;
    }
 
    // Method to edit a user
@@ -68,7 +81,8 @@ public class Data {
          stmt.setString(2, password);
          rs = db.resultQuery(stmt);
          if(rs.next()) {
-            User user = new User(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(6), rs.getString(7));
+            User user = new User(rs.getInt(1), rs.getString(2), rs.getString(3),
+                  rs.getString(6), rs.getString(7), rs.getBoolean(8));
             return user;
          }
          return null;
@@ -94,11 +108,11 @@ public class Data {
 
    }
    // adds activation string and connects a user_id in the database
-   public void insertActivationLink(String activation, User user){
+   public void insertActivationLink(String activation, int userID){
       try {
          String query = "INSERT INTO `mydb`.`activation` (user_id, activation_string) VALUES (?, ?);";
          stmt = conn.prepareStatement(query);
-         stmt.setInt(1, user.getId());
+         stmt.setInt(1, userID);
          stmt.setString(2, activation);
          db.insertQuery(stmt);
 
@@ -106,6 +120,41 @@ public class Data {
          ex.printStackTrace();
       }
    }
+
+   // Get user id from activation/reset pass key
+   public int getUserIdFromKey(String key) {
+      try {
+         String query = "SELECT user_id FROM activation WHERE activation_string = ?";
+         stmt = conn.prepareStatement(query);
+         stmt.setString(1, key);
+
+         rs = db.resultQuery(stmt);
+         if(rs.next()){
+            return rs.getInt(1);
+         }
+
+      }catch(SQLException ex){
+         ex.printStackTrace();
+      }
+
+      return -1;
+   }
+
+   public boolean activateUser(int userID) {
+      try{
+         String query = "UPDATE mydb.users SET activated = true ";
+         query += "WHERE user_id = ?;";
+         stmt = conn.prepareStatement(query);
+
+         stmt.setInt(1, userID);
+
+         return db.insertQuery(stmt);
+      }catch(SQLException ex){
+         ex.printStackTrace();
+      }
+      return false;
+   }
+
    // fetch a user solely based on their ID(primary key in MySQL db)
    public User getUserFromId(int id){
       try {
@@ -202,9 +251,8 @@ public class Data {
 
    public static void main(String[] args)throws SQLException {
       Data d = new Data();
-      Cake c = d.getCakeFromID(2);
 
-      System.out.println(c);
+      System.out.println(d.activateUser(30));
    }
 
 }

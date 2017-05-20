@@ -20,6 +20,11 @@
     </servlet>
 
     <servlet>
+        <servlet-name>ActivateReset</servlet-name>
+        <servlet-class>servlets.ActivateReset</servlet-class>
+    </servlet>
+
+    <servlet>
         <servlet-name>FillEditForm</servlet-name>
         <servlet-class>servlets.FillEditForm</servlet-class>
     </servlet>
@@ -44,6 +49,11 @@
     <servlet-mapping>
         <servlet-name>CreateUser</servlet-name>
         <url-pattern>/CreateUser</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>ActivateReset</servlet-name>
+        <url-pattern>/ActivateReset</url-pattern>
     </servlet-mapping>
 
     <servlet-mapping>

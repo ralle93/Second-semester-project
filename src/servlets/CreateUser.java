@@ -92,18 +92,19 @@ public class CreateUser extends HttpServlet {
 
          // Create user
          if (action.equals("create")) {
-            // Create user in database
+            // Create user in database and retrieve id assigned
             User user = new User(email, password, name, phoneNumber);
-            d.createUser(user);
+            int userID = d.createUser(user);
 
             //send activation email
-            RNGString rng = new RNGString("Activation", "link");
+            RNGString rng = new RNGString("activate");
             String link = rng.getLink();
             String message = "\n Click this link to be activated on www.pernilleslaekkerier.dk";
             SendGmail.sendToCustomer(user.getEmail(),"Activation Mail", link + message);
 
             //link user and activation key in database
-            d.insertActivationLink(link, user);
+            String key = rng.getKey();
+            d.insertActivationLink(key, userID);
 
             // Forward user to default dropdown page
             request.getRequestDispatcher("/dropdown.jsp").forward(request, response);

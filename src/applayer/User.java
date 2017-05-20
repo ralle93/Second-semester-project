@@ -7,6 +7,7 @@ public class User {
    private String name;
    private String phoneNumber;
    private boolean admin;
+   private boolean activated;
 
    public User(String email, String password, String name, String phoneNumber) {
       this.email = email;
@@ -14,6 +15,7 @@ public class User {
       this.name = name;
       this.phoneNumber = phoneNumber;
       this.admin = false;
+      this.activated = true;
    }
 
    public User(int id, String email, String password, String name, String phoneNumber) {
@@ -23,10 +25,21 @@ public class User {
       this.name = name;
       this.phoneNumber = phoneNumber;
       this.admin = false;
+      this.activated = true;
+   }
+
+   public User(int id, String email, String password, String name, String phoneNumber, boolean activated) {
+      this.id = id;
+      this.email = email;
+      this.password = password;
+      this.name = name;
+      this.phoneNumber = phoneNumber;
+      this.admin = false;
+      this.activated = activated;
    }
 
    public String toString() {
-      return "[" + id + ", " + email + ", " + password + ", " + name + ", " + phoneNumber + ", " + admin + "]";
+      return "[" + id + ", " + email + ", " + password + ", " + name + ", " + phoneNumber + ", " + admin + ", " + activated + "]";
    }
 
    public String getEmail() {
@@ -55,5 +68,9 @@ public class User {
 
    public boolean isAdmin() {
       return admin;
+   }
+
+   public boolean isActivated() {
+      return activated;
    }
 }

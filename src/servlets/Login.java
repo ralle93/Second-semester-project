@@ -41,6 +41,9 @@ public class Login extends HttpServlet {
       if (user == null) {
          request.setAttribute("errorMessage", "Invalid email or password!");
          request.getRequestDispatcher("/login.jsp").forward(request, response);
+      } else if (!user.isActivated()) {
+         request.setAttribute("errorMessage", "User not activated!");
+         request.getRequestDispatcher("/login.jsp").forward(request, response);
       } else {
          String session = request.getSession().getId();
          d.httpSessionAdd(user, session);
