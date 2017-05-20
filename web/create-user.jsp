@@ -4,11 +4,12 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Create user test</title>
+    <title>Create user</title>
+    <link rel="stylesheet" type="text/css" href="css/mainstylesheet.css">
 </head>
 <body>
 
-    <h1>Create user:</h1>
+    <h1>Create user</h1>
 
     <form action="/CreateUser" method="post">
         E-mail: <input type="text" name="email" width="30"/>

@@ -3,6 +3,7 @@
 <html>
 <head>
     <title>Edit User</title>
+    <link rel="stylesheet" type="text/css" href="css/mainstylesheet.css">
 </head>
 <body>
 

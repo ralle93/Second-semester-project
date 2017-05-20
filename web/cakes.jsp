@@ -9,7 +9,7 @@
 </head>
 <body>
 
-    <h1>Kager:</h1>
+    <h1>Kager</h1>
 
     <div class="products-table">
     <%
