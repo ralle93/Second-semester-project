@@ -15,7 +15,7 @@
 
     ${loggedInUser}<br>
     <a href="FillEditForm" target="index-iframe">Edit user</a><br>
-    <a href="#"onclick="window.open('dropdown.jsp', 'dropdown-iframe');window.open('gallery.jsp', 'index-iframe');">Log out</a>
+    <a href="#" onclick="window.open('/Logout', 'dropdown-iframe');window.open('gallery.jsp', 'index-iframe');">Log out</a>
 
 </body>
 </html>

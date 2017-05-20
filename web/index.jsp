@@ -20,7 +20,7 @@
   <div id="dropdown">
     <a id="dropbtn">Profil</a>
     <div id="dropdown-content">
-      <iframe width="250px" height="350px" name="dropdown-iframe" id="dropdown-iframe" src="dropdown.jsp"></iframe>
+      <iframe width="250px" height="350px" name="dropdown-iframe" id="dropdown-iframe" src="/Login"></iframe>
     </div>
   </div>
 </div>

@@ -122,6 +122,7 @@ public class Data {
       }
       return null;
    }
+
    //method to fetch a user from their current http session id.
    public User fetchUserFromSession(String httpSession){
       try {
@@ -137,6 +138,20 @@ public class Data {
       }
       return null;
    }
+
+   // Method to remove session from database
+   public void deleteSession(String httpSession) {
+      try {
+         String query = "DELETE FROM http_requests WHERE request = ?";
+         stmt = conn.prepareStatement(query);
+         stmt.setString(1, httpSession);
+
+         db.insertQuery(stmt);
+      }catch(SQLException ex){
+         ex.printStackTrace();
+      }
+   }
+
    //method to create order in db
    public boolean createOrder(User user){
       try{

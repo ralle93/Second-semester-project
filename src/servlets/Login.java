@@ -15,6 +15,23 @@ public class Login extends HttpServlet {
 
    private Data d = new Data();
 
+   protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+      // Check if user is allready logged in
+      String session = request.getSession().getId();
+      User user = d.fetchUserFromSession(session);
+
+      if (user == null) {
+         // Not logged in forward user to default dropdown page
+         request.getRequestDispatcher("/dropdown.jsp").forward(request, response);
+
+      } else {
+
+         // Logged in, set loggedInUser value and forward to logged in dropdown page
+         request.setAttribute("loggedInUser", user.getEmail());
+         request.getRequestDispatcher("/dropdown-loggedin.jsp").forward(request, response);
+      }
+   }
+
    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
       String email = request.getParameter("email");
       String password = request.getParameter("password");
