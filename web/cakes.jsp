@@ -21,7 +21,7 @@
             out.print("<form action=\"/ShoppingCart\" method=\"post\">\n" +
                     "<input type=\"hidden\" name=\"cakeID\" value=\"" + c.getId() + "\"/>" +
                     "Antal: <input type=\"number\" name=\"amount\" value=\"1\" width=\"10\"/>" +
-                    "<input type=\"submit\" value=\"Køb kage\" />\n" +
+                    "<input type=\"submit\" value=\"Tilføj til kurv\" />\n" +
                     "</form>");
         }
     %>
