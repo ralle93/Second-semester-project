@@ -1,9 +1,5 @@
 package applayer;
 
-import javax.servlet.http.HttpSession;
-import javax.sound.sampled.Line;
-import java.util.HashMap;
-
 /**
  * Created by tommytroest on 19/05/2017.
  */
