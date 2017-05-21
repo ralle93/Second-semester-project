@@ -72,7 +72,13 @@ public class CreateUser extends HttpServlet {
 
       // Check for errors
       if (userEmailCheck != null) {
-         request.setAttribute("errorMessage", "E-mail is allready registered");
+         // Find out what user is logged in
+         String session = request.getSession().getId();
+         User user = d.fetchUserFromSession(session);
+
+         if (user == null || user.getId() != userEmailCheck.getId()) {
+            request.setAttribute("errorMessage", "E-mail is allready registered");
+         }
       } else if (!VerifyData.isValidEmail(email)) {
          request.setAttribute("errorMessage", "Invalid e-mail");
       } else if (action.equals("create") && !VerifyData.isValidPass(password)) {
@@ -116,7 +122,7 @@ public class CreateUser extends HttpServlet {
             request.getRequestDispatcher("/dropdown.jsp").forward(request, response);
 
          } else { // Edit user
-            // Find out first what user is logged in
+            // Find out what user is logged in
             String session = request.getSession().getId();
             User user = d.fetchUserFromSession(session);
 
