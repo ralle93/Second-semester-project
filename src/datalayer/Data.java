@@ -124,13 +124,30 @@ public class Data {
       return false;
 
    }
+
    // adds activation string and connects a user_id in the database
+   // replaces if one with the same user_id allready exists
    public void insertActivationLink(String activation, int userID){
       try {
-         String query = "INSERT INTO `mydb`.`activation` (user_id, activation_string) VALUES (?, ?);";
+         String query = "INSERT INTO `mydb`.`activation` (user_id, activation_string) VALUES (?, ?) ";
+         query += "ON DUPLICATE KEY UPDATE activation_string = VALUES(activation_string);";
          stmt = conn.prepareStatement(query);
+
          stmt.setInt(1, userID);
          stmt.setString(2, activation);
+         db.insertQuery(stmt);
+
+      }catch(SQLException ex){
+         ex.printStackTrace();
+      }
+   }
+
+   public void removeActivationLink(int userID) {
+      try {
+         String query = "DELETE FROM `mydb`.`activation` WHERE user_id = ?;";
+         stmt = conn.prepareStatement(query);
+
+         stmt.setInt(1, userID);
          db.insertQuery(stmt);
 
       }catch(SQLException ex){

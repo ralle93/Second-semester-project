@@ -43,6 +43,10 @@ public class ActivateReset extends HttpServlet {
       } else {
          // Activating user
          d.activateUser(userID);
+
+         // Remove activation key from database
+         d.removeActivationLink(userID);
+
          request.setAttribute("message", "User activated!");
       }
 
@@ -98,6 +102,10 @@ public class ActivateReset extends HttpServlet {
          } else {
             // Change password
             d.changeUserPass(userID, pass);
+
+            // Remove activation key from database
+            d.removeActivationLink(userID);
+
             request.setAttribute("message", "Password successfully changed!");
          }
 
