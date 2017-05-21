@@ -68,27 +68,40 @@ public class Cart {
       return list;
    }
 
+   private void printListItem(int index) {
+      String cakeName = list[index].getCake().getName();
+      int amount = list[index].getAmount();
+      int price = list[index].getPrice();
+      String cakeDescription = list[index].getNotes();
+
+      System.out.println(cakeName);
+      System.out.println(amount);
+      System.out.println(price);
+      System.out.println(cakeDescription);
+   }
+
    // TESTING.
    public static void main(String[] args) {
       Cake testCake1 = new Cake(1,250,"TestKage","Den smager af fisk.");
       Cake testCake2 = new Cake(2,250,"TestCake2","Den smager også af fisk");
+      Cake testCake3 = new Cake(3,300,"testCake3","Dette er en kage som smager lidt af Æsel.");
 
       LineItem testItem1 = new LineItem(testCake1, 2, "none");
       LineItem testItem2 = new LineItem(testCake2, 1,"Fisk");
+      LineItem testItem3 = new LineItem(testCake3, 3,"Kan ikke tåle Æsel");
 
       Cart testCart = new Cart();
       System.out.println("ADD");
       testCart.addItem(testItem1);
       testCart.addItem(testItem2);
-      System.out.println("GET LIST");
-      System.out.println(testCart.getList());
-      System.out.println("DELETE ITEM");
-      testCart.deleteItem(0);
-      System.out.println("GET LIST");
-      System.out.println(testCart.getList());
+      testCart.addItem(testItem3);
+      testCart.printListItem(0);
+      testCart.printListItem(1);
+      testCart.printListItem(2);
       System.out.println("CLEAR");
       testCart.clearCart();
       System.out.println("Current Cart: " + testCart.getList());
+
    }
 
 }
