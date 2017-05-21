@@ -29,7 +29,7 @@ public class SendResetEmail extends HttpServlet {
          request.setAttribute("errorMessage", "No user registered with that e-mail!");
 
       } else { // User exist, send email to reset password
-         //send activation email
+         // Send reset password email
          RNGString rng = new RNGString("reset");
          String link = rng.getLink();
          String message = "\n Click this link to reset your password on www.pernilleslaekkerier.dk";
