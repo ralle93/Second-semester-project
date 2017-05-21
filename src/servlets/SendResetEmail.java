@@ -2,6 +2,7 @@ package servlets;
 
 import applayer.RNGString;
 import applayer.SendGmail;
+import applayer.User;
 import datalayer.Data;
 
 import javax.servlet.ServletException;
@@ -22,11 +23,15 @@ public class SendResetEmail extends HttpServlet {
       String email = request.getParameter("email");
 
       // Find out if a user has that email
-      int userID = d.getUserIdFromEmail(email);
+      User user = d.getUserFromEmail(email);
 
-      if (userID == -1) {
+      if (user == null) {
          // No user has that email
          request.setAttribute("errorMessage", "No user registered with that e-mail!");
+
+      } else if (!user.isActivated()) {
+         // Tell user to activate user first
+         request.setAttribute("errorMessage", "User is not activated");
 
       } else { // User exist, send email to reset password
          // Send reset password email
@@ -37,7 +42,7 @@ public class SendResetEmail extends HttpServlet {
 
          //link user and activation key in database
          String key = rng.getKey();
-         d.insertActivationLink(key, userID);
+         d.insertActivationLink(key, user.getId());
 
          request.setAttribute("message", "E-mail sent with link to reset password!");
       }

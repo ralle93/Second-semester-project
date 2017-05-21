@@ -10,5 +10,7 @@
     <a href="login.jsp">Login</a><br>
     <a href="create-user.jsp">Opret ny Bruger</a>
 
+    <p style="color: green;">${message}</p>
+
 </body>
 </html>

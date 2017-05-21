@@ -207,21 +207,23 @@ public class Data {
    }
 
    // Method to get userID from email address
-   public int getUserIdFromEmail(String email){
-      try {
-         String query = "SELECT user_id FROM users WHERE email = ?";
+   public User getUserFromEmail(String email){
+      try{
+         String query ="SELECT * FROM users WHERE email = ?;";
          stmt = conn.prepareStatement(query);
-         stmt.setString(1, email);
 
+         stmt.setString(1, email);
          rs = db.resultQuery(stmt);
-         if(rs.next()){
-            return rs.getInt(1);
+         if(rs.next()) {
+            User user = new User(rs.getInt(1), rs.getString(2), rs.getString(3),
+                  rs.getString(6), rs.getString(7), rs.getBoolean(8));
+            return user;
          }
-      }catch(SQLException ex){
+         return null;
+      } catch(SQLException ex){
          ex.printStackTrace();
       }
-
-      return -1;
+      return null;
    }
 
    //method to fetch a user from their current http session id.

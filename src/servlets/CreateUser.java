@@ -67,9 +67,14 @@ public class CreateUser extends HttpServlet {
       String phoneNumber = request.getParameter("number");
       action = request.getParameter("action");
 
+      // Check if email is allready registered
+      User userEmailCheck = d.getUserFromEmail(email);
+
       // Check for errors
-      if (!VerifyData.isValidEmail(email)) {
-         request.setAttribute("errorMessage", "Invalid email");
+      if (userEmailCheck != null) {
+         request.setAttribute("errorMessage", "E-mail is allready registered");
+      } else if (!VerifyData.isValidEmail(email)) {
+         request.setAttribute("errorMessage", "Invalid e-mail");
       } else if (action.equals("create") && !VerifyData.isValidPass(password)) {
          request.setAttribute("errorMessage", "Password must be atleast 6 characters long");
       } else if (!VerifyData.isValidName(name)) {
@@ -107,6 +112,7 @@ public class CreateUser extends HttpServlet {
             d.insertActivationLink(key, userID);
 
             // Forward user to default dropdown page
+            request.setAttribute("message", "User created, check e-mail for activation link!");
             request.getRequestDispatcher("/dropdown.jsp").forward(request, response);
 
          } else { // Edit user
