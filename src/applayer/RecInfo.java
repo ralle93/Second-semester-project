@@ -3,11 +3,13 @@ package applayer;
 class RecInfo {
    private static int receiptID = 1;
    private static int maxOrderSize = 5;
-   private static String author = "Pernille Jensen";
+   private static String owner = "Pernille A. Jensen";
    private static String title = "Kage Kvittering";
-   private static String creator = "Pernilles Kager";
+   private static String company = "Pernille's Lækkerier";
    private static String subject = "Kage Bestilling";
    private static String logoPath = "data/ReceiptData/Logo.png";
+   private static String email = "pernilleslaekkerier@gmail.com";
+   private static String phone = "+45 22379163";
 
    static int getReceiptID() {
       return receiptID;
@@ -21,12 +23,12 @@ class RecInfo {
       return maxOrderSize;
    }
 
-   static String getAuthor() {
-      return author;
+   static String getOwner() {
+      return owner;
    }
 
-   static void setAuthor(String author) {
-      RecInfo.author = author;
+   static void setOwner(String owner) {
+      RecInfo.owner = owner;
    }
 
    static String getTitle() {
@@ -37,12 +39,12 @@ class RecInfo {
       RecInfo.title = title;
    }
 
-   static String getCreator() {
-      return creator;
+   static String getCompany() {
+      return company;
    }
 
-   static void setCreator(String creator) {
-      RecInfo.creator = creator;
+   static void setCompany(String company) {
+      RecInfo.company = company;
    }
 
    static String getSubject() {
@@ -59,5 +61,21 @@ class RecInfo {
 
    static void setLogoPath(String logoPath) {
       RecInfo.logoPath = logoPath;
+   }
+
+   public static String getEmail() {
+      return email;
+   }
+
+   public static void setEmail(String email) {
+      RecInfo.email = email;
+   }
+
+   public static String getPhone() {
+      return phone;
+   }
+
+   public static void setPhone(String phone) {
+      RecInfo.phone = phone;
    }
 }
