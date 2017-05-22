@@ -11,15 +11,15 @@ public class LineItem {
       this.price = cake.getPrice() * amount;
    }
 
-   Cake getCake() {
+   public Cake getCake() {
       return cake;
    }
 
-   int getPrice() {
+   public int getPrice() {
       return price;
    }
 
-   int getAmount() {
+   public int getAmount() {
       return amount;
    }
 }
