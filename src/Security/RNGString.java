@@ -8,11 +8,6 @@ public class RNGString {
    private final String DOMAIN_SERVLET_URL = "http://localhost:8080/ActivateReset";
    private final String charsToUse = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
 
-   public static void main(String[] args) {
-      /*RNGString rng = new RNGString("Activation", "link");
-
-      SendGmail.sendToCustomer("mikk7506@stud.kea.dk","Activation Mail", rng.getLink());*/
-   }
    public RNGString(String parameterName){
       this.key = generateString();
       this.link = DOMAIN_SERVLET_URL + "?" + parameterName + "=" + key;

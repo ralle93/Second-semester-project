@@ -258,7 +258,7 @@ public class Data {
       return false;
    }
 
-   public void fetchOrder(){
+   public void createOrder(){
 
    }
    public void fetchAllOrders(){
