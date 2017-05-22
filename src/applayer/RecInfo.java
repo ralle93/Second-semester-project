@@ -11,7 +11,9 @@ class RecInfo {
    private static String cvrNumber = "(Indsæt CVR nummer her)"; //TODO
    private static String address = "Lindebo 17 st. 0098, 2680 Taastrup";
    private static String email = "pernilleslaekkerier@gmail.com";
-   private static String phone = "+45 22379163";
+   private static String phone = "22379163";
+   private static String accountNumber = "XXXX-XXXX-XXXX";
+   private static String regNumber = "XXXX";
 
    static int getReceiptID() {
       return receiptID;
@@ -91,5 +93,21 @@ class RecInfo {
 
    public static void setPhone(String phone) {
       RecInfo.phone = phone;
+   }
+
+   public static String getAccountNumber() {
+      return accountNumber;
+   }
+
+   public static void setAccountNumber(String accountNumber) {
+      RecInfo.accountNumber = accountNumber;
+   }
+
+   public static String getRegNumber() {
+      return regNumber;
+   }
+
+   public static void setRegNumber(String regNumber) {
+      RecInfo.regNumber = regNumber;
    }
 }
