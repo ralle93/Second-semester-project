@@ -1,4 +1,4 @@
-package applayer;
+package Security;
 import java.util.Random;
 
 public class RNGString {

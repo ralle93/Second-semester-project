@@ -1,15 +1,21 @@
 package applayer;
 
+import java.time.LocalDateTime;
+
 /**
  * Created by tommytroest on 19/05/2017.
  */
 public class Cart {
 
    private LineItem[] list = new LineItem[RecInfo.getMaxOrderSize()];
+   private int userID;
+   private LocalDateTime creationTime;
    private int totalPrice = 0;
 
    // Constructor for Cart
-   public Cart() {
+   public Cart(int userID) {
+      this.userID = userID;
+      this.creationTime = LocalDateTime.now();
       this.totalPrice = totalPrice;
    }
 
@@ -78,6 +84,10 @@ public class Cart {
       System.out.println(price);
    }
 
+   public int getUserID() {
+      return userID;
+   }
+
    // TESTING.
    public static void main(String[] args) {
       Cake testCake1 = new Cake(1,250,"TestKage","Den smager af fisk.");
@@ -88,7 +98,7 @@ public class Cart {
       LineItem testItem2 = new LineItem(testCake2, 1);
       LineItem testItem3 = new LineItem(testCake3, 3);
 
-      Cart testCart = new Cart();
+      /*Cart testCart = new Cart();
       System.out.println("ADD");
       testCart.addItem(testItem1);
       testCart.addItem(testItem2);
@@ -98,7 +108,7 @@ public class Cart {
       testCart.printListItem(2);
       System.out.println("CLEAR");
       testCart.clearCart();
-      System.out.println("Current Cart: " + testCart.getList());
+      System.out.println("Current Cart: " + testCart.getList());*/
 
    }
 
