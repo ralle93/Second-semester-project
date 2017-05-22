@@ -342,6 +342,14 @@ h1 {
     border-bottom-right-radius: 15px;
 }
 
+#cart-iframe {
+    background-color: #aeaad1;
+    color: white;
+    border-style: hidden;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+}
+
 #login-label {
     color: white;
     font-family: monospace;

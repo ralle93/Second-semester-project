@@ -29,7 +29,6 @@
                     out.print("<p>Indkøbskurven er tom.</p>");
                 };
             %>
-            <button id="login-button"><a href="/dropdown-loggedin.jsp" id="button-anchor">Back</a></button>
         </div>
     </body>
 </html>

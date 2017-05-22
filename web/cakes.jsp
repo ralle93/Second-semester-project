@@ -10,9 +10,16 @@
 <body>
 
     <h1>Kager</h1>
+    <p style="color: red;">${errorMessage}</p>
 
     <div class="products-table">
     <%
+        // Refresh cart if necessary
+        if (request.getAttribute("refreshCart") != null) {
+            out.print("<script>window.open('/ShoppingCart', 'cart-iframe');</script>");
+        }
+
+        // Load cakes
         ArrayList<Cake> cakes = (ArrayList<Cake>)request.getAttribute("cakes");
 
         for (Cake c : cakes) {

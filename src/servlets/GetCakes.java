@@ -17,6 +17,14 @@ public class GetCakes extends HttpServlet {
    Data d = new Data();
 
    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+      updateCakeDisplay(request, response);
+   }
+
+   protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+      updateCakeDisplay(request, response);
+   }
+
+   private void updateCakeDisplay(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
       ArrayList<Cake> cakes = d.getCakes();
 
       request.setAttribute("cakes", cakes);

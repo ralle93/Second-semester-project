@@ -23,6 +23,12 @@
       <iframe width="250px" height="350px" name="dropdown-iframe" id="dropdown-iframe" src="/Login" scrolling="no"></iframe>
     </div>
   </div>
+    <div id="dropdown">
+        <a id="dropbtn">Indkøbskurv</a>
+        <div id="dropdown-content">
+            <iframe width="250px" height="350px" name="cart-iframe" id="cart-iframe" src="/ShoppingCart" scrolling="no"></iframe>
+        </div>
+    </div>
 </div>
 
 <iframe class="main-iframe" name="index-iframe" id="iframe" width="100%" height="600px" src="gallery.jsp"></iframe>
