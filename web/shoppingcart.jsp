@@ -21,7 +21,9 @@
                 Cart cart = (Cart)request.getAttribute("cart");
                 if (cart != null) {
                     for (LineItem item : cart.getList()) {
-                       out.print("<p>" + item.toString() + "</p>");
+                       if (item != null) {
+                           out.print("<p>" + item.toString() + "</p>");
+                       }
                     }
                 } else {
                     out.print("<p>Indkøbskurven er tom.</p>");
