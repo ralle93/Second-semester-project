@@ -16,6 +16,7 @@
 }
 
 .top-menu-bar {
+    min-width: 800;
     background-color: #aeaad1;
     overflow: visible;
     white-space: nowrap;
@@ -39,7 +40,7 @@
     text-align: center;
     padding: 5px;
     text-decoration: none;
-    width: 200px;
+    width: 25%;
     font-family: monospace;
     font-size: 16px;
 }
@@ -341,13 +342,12 @@ h1 {
     border-bottom-right-radius: 15px;
 }
 
-
-
 #login-label {
     color: white;
     font-family: monospace;
     font-size: 16px;
     background-color: #aeaad1;
+    width: 100%;
 }
 
 #form-label {
@@ -402,4 +402,8 @@ h1 {
 
 #buttons-div {
     padding-top: 50px;
+}
+
+#dropdown-button {
+    width:100%;
 }

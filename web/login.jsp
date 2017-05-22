@@ -21,8 +21,8 @@
     <p style="color: red;">${errorMessage}</p>
 
     <div id="buttons-div">
-        <button id="login-button"><a href="/send-reset-email.jsp" id="button-anchor">Forgot password<a></a></button>
-        <button id="login-button"> <a href="/dropdown.jsp" id="button-anchor">Back</button>
+        <button id="login-button"><a href="/send-reset-email.jsp" id="button-anchor">Forgot password</a></button>
+        <button id="login-button"><a href="/dropdown.jsp" id="button-anchor">Back</a></button>
     </div>
 
 </body>

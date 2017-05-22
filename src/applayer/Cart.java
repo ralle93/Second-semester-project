@@ -45,7 +45,7 @@ public class Cart {
    }
 
    // Rearrange Method for Cart.
-   private void rearrangeList() {
+   public void rearrangeList() {
       for (int i = 0; i < list.length; i++) {
          if (list[i] == null) {
             if ( list[i] != null && i < list.length) {
