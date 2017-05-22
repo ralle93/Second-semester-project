@@ -31,11 +31,14 @@ public class ShoppingCart extends HttpServlet {
          int cartIndex = getCartIndex(user);
 
          String action = request.getParameter("action");
-         int cakeID = Integer.parseInt(request.getParameter("cakeID"));
-         int amount = Integer.parseInt(request.getParameter("amount"));
 
          if (action.equals("add")) {
+            int cakeID = Integer.parseInt(request.getParameter("cakeID"));
+            int amount = Integer.parseInt(request.getParameter("amount"));
+
             addItem(cartIndex, cakeID, amount);
+         } else if (action.equals("delete")) {
+            int index = Integer.parseInt(request.getParameter("index"));
          }
 
          request.setAttribute("cart", carts.get(cartIndex));
@@ -48,6 +51,10 @@ public class ShoppingCart extends HttpServlet {
       Cake cake = d.getCakeFromID(cakeID);
       LineItem lineItem = new LineItem(cake, amount);
       carts.get(cartIndex).addItem(lineItem);
+   }
+
+   private void deleteItem(int cartIndex, int index) {
+      carts.get(cartIndex).deleteItem(index);
    }
 
    private int getCartIndex(User user) {
