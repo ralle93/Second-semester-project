@@ -14,6 +14,7 @@ public class Logout extends HttpServlet {
       // Give the user a new session id
       request.changeSessionId();
 
+
       // Forward user to default dropdown page
       request.getRequestDispatcher("/dropdown.jsp").forward(request, response);
    }

@@ -34,7 +34,7 @@ public class RNGString {
       Random r = new Random();
       randomInt = r.nextInt(charsToUse.length());
 
-      if(randomInt -1 == -1 ) return randomInt;
+      if(randomInt == 0 ) return randomInt;
 
       return randomInt -1;
    }
