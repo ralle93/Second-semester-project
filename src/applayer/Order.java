@@ -6,10 +6,12 @@ class Order {
    private LineItem[] list = new LineItem[RecInfo.getMaxOrderSize()];
    private int total;
    private Date deliveryDate;
+   private String note;
 
-   Order(Date deliveryDate) {
+   Order(Date deliveryDate, String note) {
       this.total = 0;
       this.deliveryDate = deliveryDate;
+      this.note = note;
    }
 
    void add(LineItem lineItem) {
@@ -56,5 +58,9 @@ class Order {
 
    Date getDeliveryDate() {
       return deliveryDate;
+   }
+
+   String getNote() {
+      return note;
    }
 }

@@ -4,13 +4,11 @@ class LineItem {
    private Cake cake;
    private int amount;
    private int price;
-   private String notes;
 
-   LineItem(Cake cake, int amount, String notes) {
+   LineItem(Cake cake, int amount) {
       this.cake = cake;
       this.amount = amount;
       this.price = cake.getPrice() * amount;
-      this.notes = notes;
    }
 
    Cake getCake() {
@@ -23,9 +21,5 @@ class LineItem {
 
    int getAmount() {
       return amount;
-   }
-
-   String getNotes() {
-      return notes;
    }
 }

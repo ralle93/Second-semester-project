@@ -72,12 +72,10 @@ public class Cart {
       String cakeName = list[index].getCake().getName();
       int amount = list[index].getAmount();
       int price = list[index].getPrice();
-      String cakeDescription = list[index].getNotes();
 
       System.out.println(cakeName);
       System.out.println(amount);
       System.out.println(price);
-      System.out.println(cakeDescription);
    }
 
    // TESTING.
@@ -86,9 +84,9 @@ public class Cart {
       Cake testCake2 = new Cake(2,250,"TestCake2","Den smager også af fisk");
       Cake testCake3 = new Cake(3,300,"testCake3","Dette er en kage som smager lidt af Æsel.");
 
-      LineItem testItem1 = new LineItem(testCake1, 2, "none");
-      LineItem testItem2 = new LineItem(testCake2, 1,"Fisk");
-      LineItem testItem3 = new LineItem(testCake3, 3,"Kan ikke tåle Æsel");
+      LineItem testItem1 = new LineItem(testCake1, 2);
+      LineItem testItem2 = new LineItem(testCake2, 1);
+      LineItem testItem3 = new LineItem(testCake3, 3);
 
       Cart testCart = new Cart();
       System.out.println("ADD");

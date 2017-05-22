@@ -23,7 +23,7 @@ class ReceiptCreator {
    private int beginInfoX = 30;
    private int beginInfoY = 600;
    private int beginOrderListY = 400;
-   private int lineSpace = 50;
+   private int lineSpace = 40;
    private int amountColumn = 300;
    private int priceColumn = 400;
    private int totalColumn = 500;
@@ -69,7 +69,14 @@ class ReceiptCreator {
          contentStream.beginText();
          contentStream.setFont(PDType1Font.TIMES_ROMAN, 12);
          contentStream.newLineAtOffset(beginInfoX, beginInfoY);
-         String text = "Buyer Info";
+         String title = "Køber Information:";
+         contentStream.showText(title);
+         contentStream.endText();
+
+         contentStream.beginText();
+         contentStream.setFont(PDType1Font.TIMES_ROMAN, 12);
+         contentStream.newLineAtOffset(beginInfoX, beginInfoY);
+         String text = "Køber Information:";
          contentStream.showText(text);
          contentStream.endText();
       } catch (IOException e) {
@@ -159,19 +166,6 @@ class ReceiptCreator {
       }
    }
 
-   private void itemNote(int i) {
-      try {
-         contentStream.beginText();
-         contentStream.setFont(PDType1Font.TIMES_ITALIC, 10);
-         contentStream.newLineAtOffset(beginInfoX, (beginOrderListY - 20) - (i * lineSpace));
-         String text = order.getLineItem(i).getNotes();
-         contentStream.showText(text);
-         contentStream.endText();
-      } catch (IOException e) {
-         e.printStackTrace();
-      }
-   }
-
    private void itemAmount(int i) {
       try {
          contentStream.beginText();
@@ -218,7 +212,7 @@ class ReceiptCreator {
       try {
          contentStream.beginText();
          contentStream.setFont(PDType1Font.TIMES_BOLD, 14);
-         contentStream.newLineAtOffset(beginInfoX + beginInfoX, beginOrderListY - totalLine);
+         contentStream.newLineAtOffset(beginInfoX, beginOrderListY - totalLine);
          String totalText = "Total:";
          contentStream.showText(totalText);
          contentStream.endText();
@@ -254,7 +248,6 @@ class ReceiptCreator {
          if (order.getLineItem(i) != null) {
             itemName(i);
             itemDesc(i);
-            itemNote(i);
             itemAmount(i);
             itemPrice(i);
             itemTotal(i);
