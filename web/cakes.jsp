@@ -22,6 +22,7 @@
             out.print("Beskrivelse: " + c.getDescription() + "<br>");
             out.print("Pris: " + c.getPrice() + "<br>");
             out.print("<form action=\"/ShoppingCart\" method=\"post\">" +
+                    "<input type=\"hidden\" name=\"action\" value=\"add\"/>" +
                     "<input type=\"hidden\" name=\"cakeID\" value=\"" + c.getId() + "\"/>" +
                     "Antal: <input type=\"number\" name=\"amount\" value=\"1\" width=\"10\"/><br>" +
                     "<input type=\"submit\" value=\"Tilføj til kurv\" button id=\"add-button\"/>" +
