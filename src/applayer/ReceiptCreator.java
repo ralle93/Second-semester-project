@@ -9,6 +9,7 @@ import org.apache.pdfbox.pdmodel.graphics.image.PDImageXObject;
 
 import java.io.IOException;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Calendar;
 
@@ -34,6 +35,7 @@ class ReceiptCreator {
    private int totalLine = RecInfo.getMaxOrderSize() * orderLineSpace;
    private int vatLine = totalLine + 20;
 
+   private DateTimeFormatter form = DateTimeFormatter.ofPattern("dd-MM-yyyy");
    private String priceEnding = ",- kr.";
 
    ReceiptCreator(Order order, User user) {
@@ -103,7 +105,7 @@ class ReceiptCreator {
          contentStream.beginText();
          contentStream.setFont(PDType1Font.TIMES_ROMAN, 12);
          contentStream.newLineAtOffset(beginInfoX,beginInfoY - 3 * infoLineSpace);
-         String phone = "Telefon: " + user.getPhoneNumber();
+         String phone = "Telefon: " + "+45 " + user.getPhoneNumber();
          contentStream.showText(phone);
          contentStream.endText();
       } catch (IOException e) {
@@ -123,7 +125,7 @@ class ReceiptCreator {
          contentStream.beginText();
          contentStream.setFont(PDType1Font.TIMES_ROMAN, 12);
          contentStream.newLineAtOffset(beginInfoX + amountColumn,beginInfoY + 5 * infoLineSpace);
-         String date = "Faktura Udstedt: " + LocalDate.now();
+         String date = "Faktura Udstedt: " + (LocalDate.now()).format(form);
          contentStream.showText(date);
          contentStream.endText();
       } catch (IOException e) {
@@ -353,7 +355,7 @@ class ReceiptCreator {
       try {
          contentStream.beginText();
          contentStream.setFont(PDType1Font.TIMES_ROMAN, 12);
-         contentStream.newLineAtOffset(beginInfoX, beginOrderListY - (60 + vatLine));
+         contentStream.newLineAtOffset(beginInfoX, beginOrderListY - (40 + vatLine));
          String title = "Eventuelle Noter:";
          contentStream.showText(title);
          contentStream.endText();
@@ -361,7 +363,7 @@ class ReceiptCreator {
          contentStream.beginText();
          contentStream.setFont(PDType1Font.TIMES_ITALIC, 12);
          contentStream.setLeading(20);
-         contentStream.newLineAtOffset(beginInfoX, beginOrderListY - (80 + vatLine));
+         contentStream.newLineAtOffset(beginInfoX, beginOrderListY - (60 + vatLine));
 
          ArrayList<String> list = readNote();
 
@@ -377,13 +379,27 @@ class ReceiptCreator {
       }
    }
 
-   private void deliveryDate() {
+   private void PaymentInfo() {
       try {
+         contentStream.beginText();
+         contentStream.setFont(PDType1Font.TIMES_ROMAN, 12);
+         contentStream.newLineAtOffset(beginInfoX, beginInfoX + 40);
+         String info = "Betaling foregår enten kontant, igennem MobilePay til: " + RecInfo.getPhone() + ", eller ved bank overførsel:";
+         contentStream.showText(info);
+         contentStream.endText();
+
+         contentStream.beginText();
+         contentStream.setFont(PDType1Font.TIMES_ROMAN, 12);
+         contentStream.newLineAtOffset(beginInfoX, beginInfoX + 20);
+         String bankInfo = "Konto Nummer: " + RecInfo.getAccountNumber() + "     Registerings Nummer: " + RecInfo.getRegNumber();
+         contentStream.showText(bankInfo);
+         contentStream.endText();
+
          contentStream.beginText();
          contentStream.setFont(PDType1Font.TIMES_BOLD, 12);
          contentStream.newLineAtOffset(beginInfoX, beginInfoX);
-         String text = "Levering / afhentnings dato samt seneste betalingsdato: " + order.getDeliveryDate();
-         contentStream.showText(text);
+         String date = "Levering / afhentnings dato samt seneste betalingsdato: " + (order.getDeliveryDate()).format(form);
+         contentStream.showText(date);
          contentStream.endText();
       } catch (IOException e) {
          e.printStackTrace();
@@ -403,7 +419,7 @@ class ReceiptCreator {
 
       calcTotal();
       noteField();
-      deliveryDate();
+      PaymentInfo();
    }
 
    private PDDocumentInformation addInformation(PDDocument document) {
