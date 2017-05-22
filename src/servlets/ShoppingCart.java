@@ -39,6 +39,7 @@ public class ShoppingCart extends HttpServlet {
             addItem(cartIndex, cakeID, amount);
          } else if (action.equals("delete")) {
             int index = Integer.parseInt(request.getParameter("index"));
+            deleteItem(cartIndex, index);
          }
 
          request.setAttribute("cart", carts.get(cartIndex));
