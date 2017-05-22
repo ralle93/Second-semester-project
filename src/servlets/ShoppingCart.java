@@ -38,7 +38,7 @@ public class ShoppingCart extends HttpServlet {
             addItem(cartIndex, cakeID, amount);
          }
 
-         request.getRequestDispatcher("/shoppingcart.jsp").forward();
+         request.getRequestDispatcher("/shoppingcart.jsp").forward(request, response);
       }
    }
 
