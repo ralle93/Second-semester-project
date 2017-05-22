@@ -7,16 +7,15 @@ import java.sql.Statement;
 // Singleton class in charge of getting connection to db and fetch/pulling data
 public final class DbConnect {
 
-   public Connection conn;
+   Connection conn;
    private ResultSet rs;
-   public Statement stmt;
-   public static DbConnect db;
+   private static DbConnect db;
 
    private DbConnect() {
       String DBURL = "jdbc:mysql://mydbinstance.c71ud1joo1ez.eu-central-1.rds.amazonaws.com:3306/mydb?useSSL=false";
       String driver = "com.mysql.jdbc.Driver";
       String usern = "SSP";
-      String pass = "123456";
+      String pass = "#&7@+D*}7!qbJ_d";
       try {
          Class.forName(driver).newInstance();
          this.conn = DriverManager.getConnection(DBURL,usern,pass);
