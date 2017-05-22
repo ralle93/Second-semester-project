@@ -8,6 +8,7 @@ import org.apache.pdfbox.pdmodel.font.PDType1Font;
 import org.apache.pdfbox.pdmodel.graphics.image.PDImageXObject;
 
 import java.io.IOException;
+import java.time.LocalDate;
 import java.util.Calendar;
 
 class ReceiptCreator {
@@ -21,9 +22,11 @@ class ReceiptCreator {
     * IN PIXELS: 792 height / 612 width
     **/
    private int beginInfoX = 30;
-   private int beginInfoY = 600;
-   private int beginOrderListY = 400;
-   private int lineSpace = 40;
+   private int beginInfoY = 630;
+   private int infoLineSpace = 20;
+
+   private int beginOrderListY = 500;
+   private int orderLineSpace = 40;
    private int amountColumn = 300;
    private int priceColumn = 400;
    private int totalColumn = 500;
@@ -67,7 +70,7 @@ class ReceiptCreator {
    private void addUserInfo() {
       try {
          contentStream.beginText();
-         contentStream.setFont(PDType1Font.TIMES_ROMAN, 12);
+         contentStream.setFont(PDType1Font.TIMES_BOLD, 12);
          contentStream.newLineAtOffset(beginInfoX, beginInfoY);
          String title = "Køber Information:";
          contentStream.showText(title);
@@ -75,9 +78,23 @@ class ReceiptCreator {
 
          contentStream.beginText();
          contentStream.setFont(PDType1Font.TIMES_ROMAN, 12);
-         contentStream.newLineAtOffset(beginInfoX, beginInfoY);
-         String text = "Køber Information:";
-         contentStream.showText(text);
+         contentStream.newLineAtOffset(beginInfoX,beginInfoY - infoLineSpace);
+         String name = "Navn: " + user.getName();
+         contentStream.showText(name);
+         contentStream.endText();
+
+         contentStream.beginText();
+         contentStream.setFont(PDType1Font.TIMES_ROMAN, 12);
+         contentStream.newLineAtOffset(beginInfoX,beginInfoY - 2 * infoLineSpace);
+         String email = "E-mail: " + user.getEmail();
+         contentStream.showText(email);
+         contentStream.endText();
+
+         contentStream.beginText();
+         contentStream.setFont(PDType1Font.TIMES_ROMAN, 12);
+         contentStream.newLineAtOffset(beginInfoX,beginInfoY - 3 * infoLineSpace);
+         String phone = "Telefon: " + user.getPhoneNumber();
+         contentStream.showText(phone);
          contentStream.endText();
       } catch (IOException e) {
          e.printStackTrace();
@@ -87,18 +104,62 @@ class ReceiptCreator {
    private void addSellerInfo() {
       try {
          contentStream.beginText();
+         contentStream.setFont(PDType1Font.TIMES_BOLD, 12);
+         contentStream.newLineAtOffset(beginInfoX + amountColumn,beginInfoY + 2 * infoLineSpace);
+         String title = "Firma Information:";
+         contentStream.showText(title);
+         contentStream.endText();
+
+         contentStream.beginText();
+         contentStream.setFont(PDType1Font.TIMES_ROMAN, 12);
+         contentStream.newLineAtOffset(beginInfoX + amountColumn,beginInfoY + infoLineSpace);
+         String company = "Firma: " + RecInfo.getCompany();
+         contentStream.showText(company);
+         contentStream.endText();
+
+         contentStream.beginText();
          contentStream.setFont(PDType1Font.TIMES_ROMAN, 12);
          contentStream.newLineAtOffset(beginInfoX + amountColumn, beginInfoY);
-         String text = "Seller Info";
-         contentStream.showText(text);
+         String name = "Navn: " + RecInfo.getOwner();
+         contentStream.showText(name);
+         contentStream.endText();
+
+         contentStream.beginText();
+         contentStream.setFont(PDType1Font.TIMES_ROMAN, 12);
+         contentStream.newLineAtOffset(beginInfoX + amountColumn,beginInfoY - infoLineSpace);
+         String email = "E-mail: " + RecInfo.getEmail();
+         contentStream.showText(email);
+         contentStream.endText();
+
+         contentStream.beginText();
+         contentStream.setFont(PDType1Font.TIMES_ROMAN, 12);
+         contentStream.newLineAtOffset(beginInfoX + amountColumn,beginInfoY - 2 * infoLineSpace);
+         String phone = "Telefon: " + RecInfo.getPhone();
+         contentStream.showText(phone);
+         contentStream.endText();
+
+         contentStream.beginText();
+         contentStream.setFont(PDType1Font.TIMES_ROMAN, 12);
+         contentStream.newLineAtOffset(beginInfoX + amountColumn,beginInfoY - 3 * infoLineSpace);
+         String date = "Afsendt Dato: " + LocalDate.now();
+         contentStream.showText(date);
          contentStream.endText();
       } catch (IOException e) {
          e.printStackTrace();
       }
    }
 
+   private void drawLine() {
+      try {
+         contentStream.addRect(30,551,552,1);
+         contentStream.fill();
+      } catch (IOException e) {
+         e.printStackTrace();
+      }
+   }
+
    private void orderOverview() {
-      int offset = 50;
+      int offset = 30;
 
       try {
          contentStream.beginText();
@@ -137,6 +198,7 @@ class ReceiptCreator {
       addLogo();
       addUserInfo();
       addSellerInfo();
+      drawLine();
       orderOverview();
    }
 
@@ -144,7 +206,7 @@ class ReceiptCreator {
       try {
          contentStream.beginText();
          contentStream.setFont(PDType1Font.TIMES_ROMAN, 12);
-         contentStream.newLineAtOffset(beginInfoX, beginOrderListY - (i * lineSpace));
+         contentStream.newLineAtOffset(beginInfoX, beginOrderListY - (i * orderLineSpace));
          String text = order.getLineItem(i).getCake().getName();
          contentStream.showText(text);
          contentStream.endText();
@@ -156,8 +218,8 @@ class ReceiptCreator {
    private void itemDesc(int i) {
       try {
          contentStream.beginText();
-         contentStream.setFont(PDType1Font.TIMES_ROMAN, 10);
-         contentStream.newLineAtOffset(beginInfoX, (beginOrderListY - 10) - (i * lineSpace));
+         contentStream.setFont(PDType1Font.TIMES_ITALIC, 10);
+         contentStream.newLineAtOffset(beginInfoX, (beginOrderListY - 10) - (i * orderLineSpace));
          String text = order.getLineItem(i).getCake().getDescription();
          contentStream.showText(text);
          contentStream.endText();
@@ -170,7 +232,7 @@ class ReceiptCreator {
       try {
          contentStream.beginText();
          contentStream.setFont(PDType1Font.TIMES_ROMAN, 12);
-         contentStream.newLineAtOffset(beginInfoX + amountColumn, beginOrderListY - (i * lineSpace));
+         contentStream.newLineAtOffset(beginInfoX + amountColumn, beginOrderListY - (i * orderLineSpace));
          String text = order.getLineItem(i).getAmount() + "";
          contentStream.showText(text);
          contentStream.endText();
@@ -183,7 +245,7 @@ class ReceiptCreator {
       try {
          contentStream.beginText();
          contentStream.setFont(PDType1Font.TIMES_ROMAN, 12);
-         contentStream.newLineAtOffset(beginInfoX + priceColumn, beginOrderListY - (i * lineSpace));
+         contentStream.newLineAtOffset(beginInfoX + priceColumn, beginOrderListY - (i * orderLineSpace));
          String text = order.getLineItem(i).getCake().getPrice() + priceEnding;
          contentStream.showText(text);
          contentStream.endText();
@@ -196,7 +258,7 @@ class ReceiptCreator {
       try {
          contentStream.beginText();
          contentStream.setFont(PDType1Font.TIMES_ROMAN, 12);
-         contentStream.newLineAtOffset(beginInfoX + totalColumn, beginOrderListY - (i * lineSpace));
+         contentStream.newLineAtOffset(beginInfoX + totalColumn, beginOrderListY - (i * orderLineSpace));
          String text = order.getLineItem(i).getPrice() + priceEnding;
          contentStream.showText(text);
          contentStream.endText();
@@ -206,7 +268,7 @@ class ReceiptCreator {
    }
 
    private void calcTotal() {
-      int totalLine = RecInfo.getMaxOrderSize() * lineSpace;
+      int totalLine = RecInfo.getMaxOrderSize() * orderLineSpace;
       int vatLine = totalLine + 20;
 
       try {
@@ -260,9 +322,9 @@ class ReceiptCreator {
    private PDDocumentInformation addInformation(PDDocument document) {
       PDDocumentInformation pdd = document.getDocumentInformation();
 
-      pdd.setAuthor(RecInfo.getAuthor());
+      pdd.setAuthor(RecInfo.getOwner());
       pdd.setTitle(RecInfo.getTitle());
-      pdd.setCreator(RecInfo.getCreator());
+      pdd.setCreator(RecInfo.getCompany());
       pdd.setSubject(RecInfo.getSubject());
       Calendar date = Calendar.getInstance();
       pdd.setCreationDate(date);
