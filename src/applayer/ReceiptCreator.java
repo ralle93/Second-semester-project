@@ -114,22 +114,15 @@ class ReceiptCreator {
    private void addReceiptInfo() {
       try {
          contentStream.beginText();
-         contentStream.setFont(PDType1Font.TIMES_BOLD, 12);
-         contentStream.newLineAtOffset(beginInfoX + amountColumn,beginInfoY + 3 * infoLineSpace);
-         String title = "Faktura Information:";
-         contentStream.showText(title);
-         contentStream.endText();
-
-         contentStream.beginText();
          contentStream.setFont(PDType1Font.TIMES_ROMAN, 12);
-         contentStream.newLineAtOffset(beginInfoX + amountColumn,beginInfoY + 2 * infoLineSpace);
+         contentStream.newLineAtOffset(beginInfoX + amountColumn,beginInfoY + 6 * infoLineSpace);
          String number = "Faktura Nummer: " + getID();
          contentStream.showText(number);
          contentStream.endText();
 
          contentStream.beginText();
-         contentStream.setFont(PDType1Font.TIMES_BOLD, 12);
-         contentStream.newLineAtOffset(beginInfoX + amountColumn,beginInfoY - 3 * infoLineSpace);
+         contentStream.setFont(PDType1Font.TIMES_ROMAN, 12);
+         contentStream.newLineAtOffset(beginInfoX + amountColumn,beginInfoY + 5 * infoLineSpace);
          String date = "Faktura Udstedt: " + LocalDate.now();
          contentStream.showText(date);
          contentStream.endText();
@@ -142,9 +135,16 @@ class ReceiptCreator {
       try {
          contentStream.beginText();
          contentStream.setFont(PDType1Font.TIMES_BOLD, 12);
-         contentStream.newLineAtOffset(beginInfoX + amountColumn,beginInfoY + infoLineSpace);
+         contentStream.newLineAtOffset(beginInfoX + amountColumn,beginInfoY + 2 * infoLineSpace);
          String title = "Firma Information:";
          contentStream.showText(title);
+         contentStream.endText();
+
+         contentStream.beginText();
+         contentStream.setFont(PDType1Font.TIMES_ROMAN, 12);
+         contentStream.newLineAtOffset(beginInfoX + amountColumn,beginInfoY + infoLineSpace);
+         String cvrNumber = "CVR-Nummer: " + RecInfo.getCvrNumber();
+         contentStream.showText(cvrNumber);
          contentStream.endText();
 
          contentStream.beginText();
@@ -157,7 +157,7 @@ class ReceiptCreator {
          contentStream.beginText();
          contentStream.setFont(PDType1Font.TIMES_ROMAN, 12);
          contentStream.newLineAtOffset(beginInfoX + amountColumn,beginInfoY - infoLineSpace);
-         String name = "Addresse: " + RecInfo.getOwner();
+         String name = "Addresse: " + RecInfo.getAddress();
          contentStream.showText(name);
          contentStream.endText();
 
@@ -228,6 +228,7 @@ class ReceiptCreator {
       addLogo();
       addUserInfo();
       addSellerInfo();
+      addReceiptInfo();
       drawLine();
       orderOverview();
    }
