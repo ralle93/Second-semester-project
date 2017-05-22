@@ -1,6 +1,6 @@
 package applayer;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 
 // TIL tests af pdfBox funktioner
@@ -13,7 +13,11 @@ public class ReceiptTest {
    }
 
    private static Order testOrder() {
-      Order ol = new Order(new Date(2017,5,31),"");
+      Order ol = new Order(
+            LocalDate.of(2017,5,31),
+            "X-vej i Y-by 9001",
+            "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
+      );
 
       Cake cake1 = new Cake(1,25,"TestKage1","Dette er en Test 1 beskrivelse");
       Cake cake2 = new Cake(2,30,"TestKage2","Dette er en Test 2 beskrivelse");

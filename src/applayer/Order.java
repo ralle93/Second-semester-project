@@ -1,16 +1,18 @@
 package applayer;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 class Order {
    private LineItem[] list = new LineItem[RecInfo.getMaxOrderSize()];
    private int total;
-   private Date deliveryDate;
+   private LocalDate deliveryDate;
+   private String address;
    private String note;
 
-   Order(Date deliveryDate, String note) {
+   Order(LocalDate deliveryDate, String address, String note) {
       this.total = 0;
       this.deliveryDate = deliveryDate;
+      this.address = address;
       this.note = note;
    }
 
@@ -56,8 +58,12 @@ class Order {
       return total;
    }
 
-   Date getDeliveryDate() {
+   LocalDate getDeliveryDate() {
       return deliveryDate;
+   }
+
+   String getAddress() {
+      return address;
    }
 
    String getNote() {

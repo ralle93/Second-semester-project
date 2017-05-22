@@ -8,6 +8,7 @@ class RecInfo {
    private static String company = "Pernille's Lækkerier";
    private static String subject = "Kage Bestilling";
    private static String logoPath = "data/ReceiptData/Logo.png";
+   private static String address = "Lindebo 17 st. 0098, 2680 Taastrup";
    private static String email = "pernilleslaekkerier@gmail.com";
    private static String phone = "+45 22379163";
 
