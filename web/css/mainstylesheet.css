@@ -328,11 +328,78 @@ h1 {
     position: relative;
     left: 0;
     right: 0;
-    height: 1000px;
+    height: 1100px;
     border-style: hidden;
     width: 100%;
 }
 
 #dropdown-iframe {
+    background-color: #aeaad1;
+    color: white;
+    border-style: hidden;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+}
+
+
+
+#login-label {
+    color: white;
+    font-family: monospace;
+    font-size: 16px;
+    background-color: #aeaad1;
+}
+
+#form-label {
+    color: #aeaad1;
+    font-family: monospace;
+    font-size: 16px;
     background-color: white;
+}
+
+#form-textfield {
+    width: 100%;
+    margin-bottom: 5px;
+    height: 30px;
+    font-family: monospace;
+    font-size: 16px;
+    color: #aeaad1;
+    background-color: white;
+    border-radius: 8px;
+    border-width: 1px;
+    border-color: #aeaad1;
+    border-style: solid;
+}
+
+#login-button, #dropdown-button {
+    font-family: monospace;
+    font-size: 16px;
+    width: 100%;
+    color: white;
+    background-color: #aeaad1;
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 15px;
+    border-color: white;
+}
+
+#button-anchor {
+    font-family: monospace;
+    font-size: 16px;
+    width: 100%;
+    color: white;
+    text-decoration: none;
+}
+
+#login-anchor {
+    width: 100%;
+    background-color: #aeaad1;
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 15px;
+    border-color: white;
+}
+
+#buttons-div {
+    padding-top: 50px;
 }

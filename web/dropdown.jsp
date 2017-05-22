@@ -7,8 +7,8 @@
 </head>
 <body>
 
-    <a href="login.jsp">Login</a><br>
-    <a href="create-user.jsp">Opret ny Bruger</a>
+    <button id="dropdown-button"><a href="login.jsp" id="button-anchor">Login</a></button><br>
+    <button id="dropdown-button"><a href="create-user.jsp" id="button-anchor">Opret ny Bruger</a></button>
 
     <p style="color: green;">${message}</p>
 
