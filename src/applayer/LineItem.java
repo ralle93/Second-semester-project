@@ -1,11 +1,11 @@
 package applayer;
 
-class LineItem {
+public class LineItem {
    private Cake cake;
    private int amount;
    private int price;
 
-   LineItem(Cake cake, int amount) {
+   public LineItem(Cake cake, int amount) {
       this.cake = cake;
       this.amount = amount;
       this.price = cake.getPrice() * amount;

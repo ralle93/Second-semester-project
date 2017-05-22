@@ -1,6 +1,8 @@
 package servlets;
 
+import applayer.Cake;
 import applayer.Cart;
+import applayer.LineItem;
 import applayer.User;
 import datalayer.Data;
 
@@ -27,7 +29,23 @@ public class ShoppingCart extends HttpServlet {
 
       if (user != null) {
          int cartIndex = getCartIndex(user);
+
+         String action = request.getParameter("action");
+         int cakeID = Integer.parseInt(request.getParameter("cakeID"));
+         int amount = Integer.parseInt(request.getParameter("amount"));
+
+         if (action.equals("add")) {
+            addItem(cartIndex, cakeID, amount);
+         }
+
+         request.getRequestDispatcher("/shoppingcart.jsp").forward();
       }
+   }
+
+   private void addItem (int cartIndex, int cakeID, int amount) {
+      Cake cake = d.getCakeFromID(cakeID);
+      LineItem lineItem = new LineItem(cake, amount);
+      carts.get(cartIndex).addItem(lineItem);
    }
 
    private int getCartIndex(User user) {
