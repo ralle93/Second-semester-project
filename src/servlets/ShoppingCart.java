@@ -43,7 +43,6 @@ public class ShoppingCart extends HttpServlet {
          }
 
          request.setAttribute("cart", carts.get(cartIndex));
-         carts.get(cartIndex).printListItem(0);
          request.getRequestDispatcher("/shoppingcart.jsp").forward(request, response);
       }
    }
