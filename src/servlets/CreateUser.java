@@ -1,5 +1,6 @@
 package servlets;
 
+import Security.Hash;
 import Security.RNGString;
 import Security.SendGmail;
 import applayer.VerifyData;
@@ -104,7 +105,7 @@ public class CreateUser extends HttpServlet {
          // Create user
          if (action.equals("create")) {
             // Create user in database and retrieve id assigned
-            User user = new User(email, password, name, phoneNumber);
+            User user = new User(email, Hash.hashPW(password), name, phoneNumber);
             int userID = d.createUser(user);
 
             //send activation email

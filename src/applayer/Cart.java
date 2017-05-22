@@ -20,7 +20,7 @@ public class Cart {
    }
 
    // Add Items method to Cart
-   private void addItem(LineItem lineItem) {
+   public void addItem(LineItem lineItem) {
       for (int i = 0; i <= list.length; i++) {
          if (list[i] == null) {
             list[i] = lineItem;
@@ -32,7 +32,7 @@ public class Cart {
    }
 
    // Delete Existing item from Cart.
-   private void deleteItem(int indexLine) {
+   public void deleteItem(int indexLine) {
       for (int i = 0; i < list.length; i++) {
          if (list[i] != null && i == indexLine) {
             totalPrice -= list[i].getPrice();
@@ -45,7 +45,7 @@ public class Cart {
    }
 
    // Rearrange Method for Cart.
-   private void rearrangeList() {
+   public void rearrangeList() {
       for (int i = 0; i < list.length; i++) {
          if (list[i] == null) {
             if ( list[i] != null && i < list.length) {
@@ -57,14 +57,14 @@ public class Cart {
    }
 
    // ClearCart Method.
-   private void clearCart() {
+   public void clearCart() {
       for (int i = 0; i < list.length; i++) {
          list[i] = null;
       }
    }
 
    // getList Method for Cart.
-   private LineItem[] getList() {
+   public LineItem[] getList() {
       for (LineItem aList : list) {
          if (aList != null) {
             System.out.println(aList.getCake());
@@ -74,7 +74,7 @@ public class Cart {
       return list;
    }
 
-   private void printListItem(int index) {
+   public void printListItem(int index) {
       String cakeName = list[index].getCake().getName();
       int amount = list[index].getAmount();
       int price = list[index].getPrice();

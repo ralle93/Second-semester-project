@@ -1,5 +1,6 @@
 package datalayer;
 
+import Security.Hash;
 import applayer.Cake;
 import applayer.User;
 
@@ -26,7 +27,7 @@ public class Data {
          stmt = conn.prepareStatement(query);
 
          stmt.setString(1, user.getEmail());
-         stmt.setString(2, user.getPassword());
+         stmt.setString(2, Hash.hashPW(user.getPassword()));
          stmt.setBoolean(3, false);
          stmt.setDate(4, Date.valueOf(LocalDate.now()));
          stmt.setString(5, user.getName());
@@ -95,7 +96,7 @@ public class Data {
          stmt = conn.prepareStatement(query);
 
          stmt.setString(1, email);
-         stmt.setString(2, password);
+         stmt.setString(2, Hash.hashPW(password));
          rs = db.resultQuery(stmt);
          if(rs.next()) {
             User user = new User(rs.getInt(1), rs.getString(2), rs.getString(3),
