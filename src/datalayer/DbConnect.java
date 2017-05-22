@@ -4,7 +4,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.Statement;
 
-// Singleton class in charge of getting connection to db and fetch/pulling data
+// Singleton class in charge of getting connection to db and fetching/uploading data
 public final class DbConnect {
 
    Connection conn;
