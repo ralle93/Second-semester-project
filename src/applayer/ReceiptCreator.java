@@ -49,7 +49,6 @@ class ReceiptCreator {
       newReceipt();
    }
 
-   // TODO KAN ÆNDRES TIL AT RETURNERE PDF DOKUMENTET
    private void newReceipt() {
       try {
          contentStream = new PDPageContentStream(doc, page);
