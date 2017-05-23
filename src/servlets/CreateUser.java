@@ -44,7 +44,7 @@ public class CreateUser extends HttpServlet {
          // Check if new password is valid
          if (VerifyData.isValidPass(newPass)) {
             // Change password
-            user.setPassword(newPass);
+            user.setPassword(Hash.hashPW(newPass));
             d.editUser(user);
 
             request.getRequestDispatcher("/gallery.jsp").forward(request, response);
