@@ -14,9 +14,6 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.ArrayList;
 
-/**
- * Created by tommytroest on 21/05/2017.
- */
 @WebServlet(name = "ShoppingCart")
 public class ShoppingCart extends HttpServlet {
 
