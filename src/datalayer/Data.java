@@ -288,7 +288,7 @@ public class Data {
 
    public Cake getCakeFromID(int id) {
       try{
-         String query ="SELECT * FROM mydb.cake ";
+         String query ="SELECT * FROM mydb.cake_list";
          query += "WHERE cake_id = ?;";
 
          stmt = conn.prepareStatement(query);
