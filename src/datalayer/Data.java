@@ -100,7 +100,7 @@ public class Data {
          rs = db.resultQuery(stmt);
          if(rs.next()) {
             User user = new User(rs.getInt(1), rs.getString(2), rs.getString(3),
-                  rs.getString(6), rs.getString(7), rs.getBoolean(8));
+                  rs.getString(4), rs.getString(5), rs.getBoolean(6));
             return user;
          }
          return null;

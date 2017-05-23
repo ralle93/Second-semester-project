@@ -7,6 +7,6 @@ public class Hash {
    }
 
    public static void main(String[] args) {
-      System.out.println(hashPW("test123"));
+      System.out.println(hashPW("lolleren"));
    }
 }
