@@ -20,9 +20,16 @@
             <%
                 Cart cart = (Cart)request.getAttribute("cart");
                 if (cart != null) {
-                    for (LineItem item : cart.getList()) {
-                       if (item != null) {
-                           out.print("<p>" + item.toString() + "</p>");
+                    for (int i = 0; i < cart.getList().length; i++ ) {
+                       if (cart.getList()[i] != null) {
+                           out.print("<p>" + cart.getList()[i].getCake().getName() + "</p>");
+                           out.print("<p>" + cart.getList()[i].getAmount() + "</p>");
+                           out.print("<p>" + cart.getList()[i].getPrice() + "</p>");
+                           out.print("<form action=\"/ShoppingCart\" method=\"post\">" +
+                                   "<input type=\"hidden\" name=\"action\" value=\"delete\"/>" +
+                                   "<input type=\"hidden\" name=\"index\" value=\"" + i + "\"/>" +
+                                   "<input type=\"submit\" value=\"delete\" button id=\"delete-button\"/>" +
+                                   "</form>");
                        }
                     }
                 } else {
