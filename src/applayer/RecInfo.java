@@ -1,6 +1,7 @@
 package applayer;
 
 class RecInfo {
+   // Visse informationer bevidst udladt
    private static int receiptID = 1;//TODO
    private static int maxOrderSize = 5;
    private static String owner = "Pernille A. Jensen";
@@ -8,12 +9,12 @@ class RecInfo {
    private static String company = "Pernille's Lækkerier";
    private static String subject = "Kage Bestilling";
    private static String logoPath = "data/ReceiptData/Logo.png";
-   private static String cvrNumber = "(Indsæt CVR nummer her)"; //TODO
-   private static String address = "Lindebo 17 st. 0098, 2680 Taastrup";
+   private static String cvrNumber = "(Indsæt CVR nummer her)";
+   private static String address = "XXXXXX nr X, XXXX Danmark";
    private static String email = "pernilleslaekkerier@gmail.com";
-   private static String phone = "22379163";
-   private static String accountNumber = "XXXXXXXXXX"; //TODO
-   private static String regNumber = "XXXX";//TODO
+   private static String phone = "XXXXXXXX";
+   private static String accountNumber = "XXXXXXXXXX";
+   private static String regNumber = "XXXX";
 
    static int getReceiptID() {
       return receiptID;

@@ -104,7 +104,7 @@ class ReceiptCreator {
          contentStream.beginText();
          contentStream.setFont(PDType1Font.TIMES_ROMAN, 12);
          contentStream.newLineAtOffset(beginInfoX,beginInfoY - 3 * infoLineSpace);
-         String phone = "Telefon: " + "+45 " + user.getPhoneNumber();
+         String phone = "Telefon: " + user.getPhoneNumber();
          contentStream.showText(phone);
          contentStream.endText();
       } catch (IOException e) {
@@ -172,7 +172,7 @@ class ReceiptCreator {
          contentStream.beginText();
          contentStream.setFont(PDType1Font.TIMES_ROMAN, 12);
          contentStream.newLineAtOffset(beginInfoX + amountColumn,beginInfoY  - 3 * infoLineSpace);
-         String phone = "Telefon: " + RecInfo.getPhone();
+         String phone = "Telefon: +45 " + RecInfo.getPhone();
          contentStream.showText(phone);
          contentStream.endText();
       } catch (IOException e) {
