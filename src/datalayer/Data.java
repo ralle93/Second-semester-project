@@ -145,7 +145,7 @@ public class Data {
 
    public void removeActivationLink(int userID) {
       try {
-         String query = "DELETE FROM `mydb`.`activation_reset_keys` WHERE user_id = ?;";
+         String query = "DELETE FROM `mydb`.`activate_reset_keys` WHERE user_id = ?;";
          stmt = conn.prepareStatement(query);
 
          stmt.setInt(1, userID);
@@ -159,7 +159,7 @@ public class Data {
    // Get user id from activation/reset pass key
    public int getUserIdFromKey(String key) {
       try {
-         String query = "SELECT user_id FROM activation_reset_keys WHERE key_string = ?";
+         String query = "SELECT user_id FROM activate_reset_keys WHERE key_string = ?";
          stmt = conn.prepareStatement(query);
          stmt.setString(1, key);
 
