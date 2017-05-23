@@ -40,7 +40,11 @@ public class ShoppingCart extends HttpServlet {
             int cakeID = Integer.parseInt(request.getParameter("cakeID"));
             int amount = Integer.parseInt(request.getParameter("amount"));
 
-            addItem(cartIndex, cakeID, amount);
+            String error = addItem(cartIndex, cakeID, amount);
+
+            if (error != null) {
+               request.setAttribute("errorMessage", error);
+            }
 
             request.setAttribute("refreshCart", true);
             request.getRequestDispatcher("/GetCakes").forward(request, response);
@@ -71,10 +75,10 @@ public class ShoppingCart extends HttpServlet {
       request.getRequestDispatcher("/shoppingcart.jsp").forward(request, response);
    }
 
-   private void addItem (int cartIndex, int cakeID, int amount) {
+   private String addItem (int cartIndex, int cakeID, int amount) {
       Cake cake = d.getCakeFromID(cakeID);
       LineItem lineItem = new LineItem(cake, amount);
-      carts.get(cartIndex).addItem(lineItem);
+      return carts.get(cartIndex).addItem(lineItem);
    }
 
    private void deleteItem(int cartIndex, int index) {

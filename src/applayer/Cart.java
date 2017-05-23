@@ -20,19 +20,20 @@ public class Cart {
    }
 
    // Add Items method to Cart
-   public void addItem(LineItem lineItem) {
+   public String addItem(LineItem lineItem) {
       for (int i = 0; i < list.length; i++) {
          if (list[i] == null) {
             list[i] = lineItem;
             totalPrice += lineItem.getPrice();
-            return;
+            return null;
          } else if (list[i].getCake().getId() == lineItem.getCake().getId()) {
             list[i].setAmount(list[i].getAmount() + lineItem.getAmount());
             totalPrice += lineItem.getPrice();
-            return;
+            return null;
          }
       }
-      System.out.println("Cannot add any more items to basket.");
+
+      return "Kan ikke tilføje flere slags kager til kurv";
    }
 
    // Delete Existing item from Cart.
