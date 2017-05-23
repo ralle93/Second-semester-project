@@ -109,7 +109,6 @@ public class Cart {
       System.out.println("CLEAR");
       testCart.clearCart();
       System.out.println("Current Cart: " + testCart.getList());*/
-
    }
 
 }

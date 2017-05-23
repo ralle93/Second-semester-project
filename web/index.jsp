@@ -26,7 +26,7 @@
     <div id="dropdown">
         <a id="dropbtn">Indkøbskurv</a>
         <div id="dropdown-content">
-            <iframe width="250px" height="350px" name="cart-iframe" id="cart-iframe" src="/ShoppingCart" scrolling="no"></iframe>
+            <iframe width="250px" height="350px" name="cart-iframe" id="cart-iframe" src="/ShoppingCart" scrolling="yes"></iframe>
         </div>
     </div>
 </div>

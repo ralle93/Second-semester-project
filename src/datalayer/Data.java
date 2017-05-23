@@ -287,7 +287,7 @@ public class Data {
 
    public Cake getCakeFromID(int id) {
       try{
-         String query ="SELECT * FROM mydb.cake_list";
+         String query ="SELECT * FROM mydb.cake_list ";
          query += "WHERE cake_id = " + id + ";";
 
          stmt = conn.prepareStatement(query);
@@ -300,7 +300,6 @@ public class Data {
       } catch(SQLException ex){
          ex.printStackTrace();
       }
-
       return null;
    }
 
