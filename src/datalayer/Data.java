@@ -289,10 +289,9 @@ public class Data {
    public Cake getCakeFromID(int id) {
       try{
          String query ="SELECT * FROM mydb.cake_list";
-         query += "WHERE cake_id = ?;";
+         query += "WHERE cake_id = " + id + ";";
 
          stmt = conn.prepareStatement(query);
-         stmt.setInt(1, id);
          rs = db.resultQuery(stmt);
 
          if (rs.next()) {
