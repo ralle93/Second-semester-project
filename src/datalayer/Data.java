@@ -177,12 +177,11 @@ public class Data {
 
    public boolean activateUser(int userID) {
       try{
-         String query = "UPDATE mydb.users SET activated = ? ";
+         String query = "UPDATE mydb.users SET activated = true ";
          query += "WHERE user_id = ?;";
          stmt = conn.prepareStatement(query);
 
-         stmt.setBoolean(1,true);
-         stmt.setInt(2, userID);
+         stmt.setInt(1, userID);
 
          return db.insertQuery(stmt);
       }catch(SQLException ex){
@@ -199,7 +198,7 @@ public class Data {
          stmt.setInt(1,id);
          rs = db.resultQuery(stmt);
          if(rs.next()){
-            User user = new User(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(6), rs.getString(7));
+            User user = new User(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5));
             return user;
          }
       }catch(SQLException ex){
@@ -218,7 +217,7 @@ public class Data {
          rs = db.resultQuery(stmt);
          if(rs.next()) {
             User user = new User(rs.getInt(1), rs.getString(2), rs.getString(3),
-                  rs.getString(6), rs.getString(7), rs.getBoolean(8));
+                  rs.getString(4), rs.getString(5), rs.getBoolean(6));
             return user;
          }
          return null;

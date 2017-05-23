@@ -34,8 +34,8 @@ public class User {
       this.password = password;
       this.name = name;
       this.phoneNumber = phoneNumber;
-      this.admin = false;
       this.activated = activated;
+      this.admin = false;
    }
 
    public String toString() {
