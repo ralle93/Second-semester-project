@@ -42,7 +42,7 @@
                     out.print("<fieldset>");
                     out.print("<label>Total Pris: " + totalPrice + "</label>");
                     out.print("</fieldset>");
-                    out.print("<form>" +
+                    out.print("<form action=\"/ShoppingCart\" method=\"post\">" +
                             "<input type=\"submit\" name=\"action\" value=\"order\" id=\"order\"/>" +
                             "</form>");
                 } else {
