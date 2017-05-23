@@ -10,6 +10,7 @@
 <html>
 <head>
     <title>Bestil kager</title>
+    <link rel="stylesheet" type="text/css" href="css/mainstylesheet.css">
 </head>
 <body>
 
@@ -35,6 +36,7 @@
         Adresse: <br><input type="text" name="address" width="30"/><br>
         Kommentarer til bestilling: <br><textarea name="notes" rows="5" cols="50"></textarea><br>
         Leverings dato: <br><input type="date" name="deliveryDate"/><br>
+        <input type="hidden" name="action" value="order"/>
         <input type="submit" value="Bestil kager"/>
     </form>
     <p style="color: red">${errorMessage}</p>

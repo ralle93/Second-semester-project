@@ -1,6 +1,7 @@
 package servlets;
 
 import applayer.Cart;
+import applayer.Order;
 import applayer.User;
 import applayer.VerifyData;
 import datalayer.Data;
@@ -13,22 +14,41 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.time.LocalDate;
 import java.time.format.DateTimeParseException;
+import java.util.ArrayList;
 
 @WebServlet(name = "OrderCakes")
 public class OrderCakes extends HttpServlet {
 
-   Data d = new Data();
+   private Data d = new Data();
+   private ArrayList<Order> orders = new ArrayList<>();
 
    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
       // Get user that is logged in
       String session = request.getSession().getId();
       User user = d.fetchUserFromSession(session);
 
+      String action = request.getParameter("action");
+      if (action.equals("order")) {
+         orderCakes(user, request, response);
+      } else if (action.equals("confirmOrder")) {
+         confirmCakeOrder(user, request, response);
+      }
+   }
+
+   protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+      // Get user that is logged in
+      String session = request.getSession().getId();
+      User user = d.fetchUserFromSession(session);
+
+      returnWithCart(user, request, response);
+   }
+
+   private void orderCakes(User user, HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
       // Get input from form
       String address = request.getParameter("address");
       String notes = request.getParameter("notes");
-      LocalDate deliveryDate;
 
+      LocalDate deliveryDate;
       try {
          deliveryDate = LocalDate.parse(request.getParameter("deliveryDate"));
       } catch (DateTimeParseException ex) {
@@ -43,20 +63,64 @@ public class OrderCakes extends HttpServlet {
          errorMessage = "Venligst vælg en dato der er minimum en uge fra nuværende dato!";
       }
 
+      // If error return to order page with error
       if (errorMessage != null) {
          request.setAttribute("errorMessage", errorMessage);
          returnWithCart(user, request, response);
-      } else {
-         // TODO: Confirm order and add to database
+
+      } else { // If no error, add order to arraylist and forward to confirm order page
+         Cart cart = ShoppingCart.getCart(user);
+         Order order = new Order(user.getId(), cart.getList(), address, notes, deliveryDate);
+         int orderIndex = getOrderIndex(user);
+
+         // Remove order from list if user allready has one
+         if (orderIndex != -1) {
+            orders.remove(orderIndex);
+         }
+
+         // Add new order to list
+         orders.add(order);
+
+         // Forward to confirm order page with order object
+         request.setAttribute("order", order);
+         request.getRequestDispatcher("/confirm-order.jsp").forward(request, response);
       }
    }
 
-   protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-      // Get user that is logged in
-      String session = request.getSession().getId();
-      User user = d.fetchUserFromSession(session);
+   private void confirmCakeOrder(User user, HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+      Order order = orders.get(getOrderIndex(user));
 
-      returnWithCart(user, request, response);
+      // Tjek om kunden har bekræftet betingelserne
+      if (request.getParameter("terms") == null) {
+         // Forward with order and error message
+         request.setAttribute("order", order);
+
+         request.setAttribute("errorMessage", "Venligst bekræft handelsbetingelserne!");
+         request.getRequestDispatcher("/confirm-order.jsp").forward(request, response);
+
+      } else { // Complete order
+         // TODO: Add order to database
+
+         // TODO: Send email confirmation
+
+         // Remove order from orders array
+         orders.remove(getOrderIndex(user));
+
+         // Forward user to a page that confirms the order
+         // TODO: Clear shopping cart from the forwarded page
+         request.setAttribute("message", "Bestillingen er modtaget!");
+         request.getRequestDispatcher("/activate-reset-user-result.jsp").forward(request, response);
+      }
+   }
+
+   private int getOrderIndex(User user) {
+      for (int i = 0; i < orders.size(); i++) {
+         if (orders.get(i).getUserID() == user.getId()) {
+            return i;
+         }
+      }
+
+      return -1;
    }
 
    private void returnWithCart(User user, HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

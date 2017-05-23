@@ -4,7 +4,7 @@ import datalayer.Data;
 
 import java.time.LocalDate;
 
-class Order {
+public class Order {
    private LineItem[] list = new LineItem[RecInfo.getMaxOrderSize()];
    private int userID;
    private int orderID;
@@ -13,13 +13,28 @@ class Order {
    private String address;
    private String note;
 
-   Order(int userID, LocalDate deliveryDate, String address, String note) {
+   public Order(int userID, LocalDate deliveryDate, String address, String note) {
       this.userID = userID;
       this.orderID = new Data().getNewOrderID(); // TODO
       this.total = 0;
       this.deliveryDate = deliveryDate;
       this.address = address;
       this.note = note;
+   }
+
+   public Order(int userID, LineItem[] list, String address, String note, LocalDate deliveryDate) {
+      this.userID = userID;
+      this.list = list;
+      this.address = address;
+      this.note = note;
+      this.deliveryDate = deliveryDate;
+
+      this.total = 0;
+      for (LineItem item : this.list) {
+         if (item != null) {
+            this.total += item.getPrice();
+         }
+      }
    }
 
    void add(LineItem lineItem) {
@@ -64,23 +79,27 @@ class Order {
       return orderID;
    }
 
+   public LineItem[] getList() {
+      return list;
+   }
+
    LineItem getLineItem(int index) {
       return list[index];
    }
 
-   int getTotal() {
+   public int getTotal() {
       return total;
    }
 
-   LocalDate getDeliveryDate() {
+   public LocalDate getDeliveryDate() {
       return deliveryDate;
    }
 
-   String getAddress() {
+   public String getAddress() {
       return address;
    }
 
-   String getNote() {
+   public String getNote() {
       return note;
    }
 }
