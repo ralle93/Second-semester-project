@@ -130,7 +130,7 @@ public class Data {
    // replaces if one with the same user_id allready exists
    public void insertActivationLink(String activation, int userID){
       try {
-         String query = "INSERT INTO `mydb`.`activate_reset_keys` (user_id, activation_string) VALUES (?, ?) ";
+         String query = "INSERT INTO `mydb`.`activate_reset_keys` (user_id, key_string) VALUES (?, ?) ";
          query += "ON DUPLICATE KEY UPDATE key_string = VALUES(key_string);";
          stmt = conn.prepareStatement(query);
 
