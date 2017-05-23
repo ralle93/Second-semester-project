@@ -92,6 +92,10 @@ public class Cart {
       return userID;
    }
 
+   public int getTotalPrice() {
+      return totalPrice;
+   }
+
    // TESTING.
    public static void main(String[] args) {
       Cake testCake1 = new Cake(1,250,"TestKage","Den smager af fisk.");
