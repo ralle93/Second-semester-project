@@ -36,17 +36,16 @@
                                    "<input type=\"submit\" value=\"delete\" button id=\"delete-button\"/>" +
                                    "</form>");
                            out.print("</fieldset>");
-                           totalPrice += cart.getList()[i].getPrice();
+                           totalPrice += cart.getTotalPrice();
                        }
                     }
                     out.print("<fieldset>");
                     out.print("<label>Total Pris: " + totalPrice + "</label>");
                     out.print("</fieldset>");
                     out.print("<form action=\"/ShoppingCart\" method=\"post\">" +
-                            "<input type=\"submit\" name=\"action\" value=\"order\" id=\"order\"/>" +
+                            "<input type=\"submit\" name=\"action\" value=\"clear\" id=\"clear-button\"/>" +
+                            "<input type=\"submit\" name=\"action\" value=\"order\" id=\"order-button\"/>" +
                             "</form>");
-                } else {
-                    out.print("<p>Indkøbskurven er tom.</p>");
                 };
             %>
         </div>

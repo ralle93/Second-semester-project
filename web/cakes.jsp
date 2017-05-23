@@ -10,7 +10,7 @@
 <body>
 
     <h1>Kager</h1>
-    <p style="color: red;">${errorMessage}</p>
+    <label style="color: red;">${errorMessage}</label>
 
     <div class="products-table">
     <%
