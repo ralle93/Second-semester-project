@@ -4,12 +4,14 @@ import java.time.LocalDate;
 
 class Order {
    private LineItem[] list = new LineItem[RecInfo.getMaxOrderSize()];
+   private int userID;
    private int total;
    private LocalDate deliveryDate;
    private String address;
    private String note;
 
-   Order(LocalDate deliveryDate, String address, String note) {
+   Order(int userID, LocalDate deliveryDate, String address, String note) {
+      this.userID = userID;
       this.total = 0;
       this.deliveryDate = deliveryDate;
       this.address = address;
@@ -48,6 +50,10 @@ class Order {
             }
          }
       }
+   }
+
+   public int getUserID() {
+      return userID;
    }
 
    LineItem getLineItem(int index) {
