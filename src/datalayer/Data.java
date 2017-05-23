@@ -27,7 +27,7 @@ public class Data {
          stmt = conn.prepareStatement(query);
 
          stmt.setString(1, user.getEmail());
-         stmt.setString(2, Hash.hashPW(user.getPassword()));
+         stmt.setString(2, user.getPassword());
          stmt.setBoolean(3, false);
          stmt.setDate(4, Date.valueOf(LocalDate.now()));
          stmt.setString(5, user.getName());
