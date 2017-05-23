@@ -70,15 +70,21 @@ public class ShoppingCart extends HttpServlet {
       if (user != null) {
          int cartIndex = getCartIndex(user);
          request.setAttribute("cart", carts.get(cartIndex));
+      } else {
+         request.setAttribute("errorMessage", "Log venlist ind eller opret en bruger for at bestille kager!");
       }
 
       request.getRequestDispatcher("/shoppingcart.jsp").forward(request, response);
    }
 
    private String addItem (int cartIndex, int cakeID, int amount) {
-      Cake cake = d.getCakeFromID(cakeID);
-      LineItem lineItem = new LineItem(cake, amount);
-      return carts.get(cartIndex).addItem(lineItem);
+      if (amount > 0) {
+         Cake cake = d.getCakeFromID(cakeID);
+         LineItem lineItem = new LineItem(cake, amount);
+         return carts.get(cartIndex).addItem(lineItem);
+      } else {
+         return "Vælg venligst et antal højere end 0!";
+      }
    }
 
    private void deleteItem(int cartIndex, int index) {

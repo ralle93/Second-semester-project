@@ -28,6 +28,7 @@ public class Login extends HttpServlet {
 
          // Logged in, set loggedInUser value and forward to logged in dropdown page
          request.setAttribute("loggedInUser", user.getEmail());
+         request.setAttribute("refreshCart", true);
          request.getRequestDispatcher("/dropdown-loggedin.jsp").forward(request, response);
       }
    }
@@ -48,6 +49,7 @@ public class Login extends HttpServlet {
          String session = request.getSession().getId();
          d.httpSessionAdd(user, session);
          request.setAttribute("loggedInUser", user.getEmail());
+         request.setAttribute("refreshCart", true);
          request.getRequestDispatcher("/dropdown-loggedin.jsp").forward(request, response);
       }
    }

@@ -19,6 +19,7 @@
     <body>
         <div class="shopping-cart">
             <h1>Indkøbskurv</h1>
+            <label style="color: red;">${errorMessage}</label>
 
             <%
                 Cart cart = (Cart)request.getAttribute("cart");

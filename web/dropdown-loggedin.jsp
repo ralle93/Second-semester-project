@@ -12,6 +12,13 @@
     <link rel="stylesheet" type="text/css" href="css/mainstylesheet.css">
 </head>
 <body>
+    <%
+        // Refresh cart if necessary
+        if (request.getAttribute("refreshCart") != null) {
+            out.print("<script>window.open('/ShoppingCart', 'cart-iframe');</script>");
+        }
+    %>
+
     ${loggedInUser}<br>
     <a href="FillEditForm" target="index-iframe" id="button-anchor">Edit user</a><br>
     <a href="#" onclick="window.open('/Logout', 'dropdown-iframe');window.open('gallery.jsp', 'index-iframe');window.open('/ShoppingCart', 'cart-iframe');" id="button-anchor">Log out</a>

@@ -35,10 +35,6 @@ public class CreateUser extends HttpServlet {
       String currentPass = request.getParameter("currentPass");
       String newPass = request.getParameter("newPass");
 
-      // Hash current and new pass
-      currentPass = Hash.hashPW(currentPass);
-      newPass = Hash.hashPW(newPass);
-
       // Get session and user info
       String session = request.getSession().getId();
       User user = d.fetchUserFromSession(session);
@@ -133,7 +129,7 @@ public class CreateUser extends HttpServlet {
             User user = d.fetchUserFromSession(session);
 
             // Construct new user object and update the database
-            user = new User(user.getId(), email, user.getPassword(), name, phoneNumber);
+            user = new User(user.getId(), email, Hash.hashPW(user.getPassword()), name, phoneNumber);
             d.editUser(user);
 
             // Forward user to main page

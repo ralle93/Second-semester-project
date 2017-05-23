@@ -1,5 +1,6 @@
 package servlets;
 
+import Security.Hash;
 import applayer.VerifyData;
 import datalayer.Data;
 
@@ -78,6 +79,7 @@ public class ActivateReset extends HttpServlet {
       String resetKey = request.getParameter("resetKey");
       request.setAttribute("resetKey", resetKey);
 
+      // Get passwords from form
       String pass = request.getParameter("pass");
       String confirmPass = request.getParameter("confirmPass");
 
@@ -100,7 +102,8 @@ public class ActivateReset extends HttpServlet {
             request.setAttribute("errorMessage", "Invalid reset key (this should never happen)!!!");
 
          } else {
-            // Change password
+            // Hash the new password and change it
+            pass = Hash.hashPW(pass);
             d.changeUserPass(userID, pass);
 
             // Remove activation key from database
