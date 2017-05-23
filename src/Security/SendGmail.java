@@ -11,6 +11,7 @@ import javax.mail.*;
 import javax.mail.internet.*;
 
 public class SendGmail {
+
    final static String username = "pernilleslaekkerier@gmail.com";
    final static String password = "Abcdefg123456789";
    public static void sendToCustomer(String recipientEmail, String title, String message){
@@ -35,7 +36,6 @@ public class SendGmail {
       } catch(MessagingException ex ){
          ex.printStackTrace();
       }
-
    }
 
    public static void sendWithAttach( String recipientEmail, String title, String message, String pdfFilePath) {

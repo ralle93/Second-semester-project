@@ -112,7 +112,7 @@ public class Data {
 
    public boolean httpSessionAdd(User user, String session){
       try {
-         String query = "INSERT INTO `mydb`.`http_requests` (`user_id`, `request`) VALUES (?, ?);";
+         String query = "INSERT INTO `mydb`.`http_session` (`user_id`, `session`) VALUES (?, ?);";
          stmt = conn.prepareStatement(query);
 
          stmt.setInt(1,user.getId());
@@ -130,8 +130,8 @@ public class Data {
    // replaces if one with the same user_id allready exists
    public void insertActivationLink(String activation, int userID){
       try {
-         String query = "INSERT INTO `mydb`.`activation` (user_id, activation_string) VALUES (?, ?) ";
-         query += "ON DUPLICATE KEY UPDATE activation_string = VALUES(activation_string);";
+         String query = "INSERT INTO `mydb`.`activation_reset_keys` (user_id, activation_string) VALUES (?, ?) ";
+         query += "ON DUPLICATE KEY UPDATE key_string = VALUES(key_string);";
          stmt = conn.prepareStatement(query);
 
          stmt.setInt(1, userID);
@@ -145,7 +145,7 @@ public class Data {
 
    public void removeActivationLink(int userID) {
       try {
-         String query = "DELETE FROM `mydb`.`activation` WHERE user_id = ?;";
+         String query = "DELETE FROM `mydb`.`activation_reset_keys` WHERE user_id = ?;";
          stmt = conn.prepareStatement(query);
 
          stmt.setInt(1, userID);
@@ -159,7 +159,7 @@ public class Data {
    // Get user id from activation/reset pass key
    public int getUserIdFromKey(String key) {
       try {
-         String query = "SELECT user_id FROM activation WHERE activation_string = ?";
+         String query = "SELECT user_id FROM activation_reset_keys WHERE key_string = ?";
          stmt = conn.prepareStatement(query);
          stmt.setString(1, key);
 
@@ -177,11 +177,12 @@ public class Data {
 
    public boolean activateUser(int userID) {
       try{
-         String query = "UPDATE mydb.users SET activated = true ";
+         String query = "UPDATE mydb.users SET activated = ? ";
          query += "WHERE user_id = ?;";
          stmt = conn.prepareStatement(query);
 
-         stmt.setInt(1, userID);
+         stmt.setBoolean(1,true);
+         stmt.setInt(2, userID);
 
          return db.insertQuery(stmt);
       }catch(SQLException ex){
@@ -230,7 +231,7 @@ public class Data {
    //method to fetch a user from their current http session id.
    public User fetchUserFromSession(String httpSession){
       try {
-         String query = "SELECT * FROM http_requests WHERE request = ?";
+         String query = "SELECT * FROM http_session WHERE session_string = ?";
          stmt = conn.prepareStatement(query);
          stmt.setString(1, httpSession);
          rs = db.resultQuery(stmt);
@@ -243,7 +244,7 @@ public class Data {
       return null;
    }
 
-   //method to create order in db
+   //method to create order in db NOT DONE
    public boolean createOrder(User user){
       try{
          String query = "INSERT INTO order (`user_id` , `created`) VALUES (?, ?);";
@@ -288,9 +289,10 @@ public class Data {
    public Cake getCakeFromID(int id) {
       try{
          String query ="SELECT * FROM mydb.cake ";
-         query += "WHERE cake_id = " + id + ";";
+         query += "WHERE cake_id = ?;";
 
          stmt = conn.prepareStatement(query);
+         stmt.setInt(1, id);
          rs = db.resultQuery(stmt);
 
          if (rs.next()) {
