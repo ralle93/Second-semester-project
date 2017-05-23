@@ -21,9 +21,13 @@ public class Cart {
 
    // Add Items method to Cart
    public void addItem(LineItem lineItem) {
-      for (int i = 0; i <= list.length; i++) {
+      for (int i = 0; i < list.length; i++) {
          if (list[i] == null) {
             list[i] = lineItem;
+            totalPrice += lineItem.getPrice();
+            return;
+         } else if (list[i].getCake().getId() == lineItem.getCake().getId()) {
+            list[i].setAmount(list[i].getAmount() + lineItem.getAmount());
             totalPrice += lineItem.getPrice();
             return;
          }
