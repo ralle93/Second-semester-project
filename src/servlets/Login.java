@@ -40,10 +40,10 @@ public class Login extends HttpServlet {
       User user = d.logInCheck(email, password);
 
       if (user == null) {
-         request.setAttribute("errorMessage", "Invalid email or password!");
+         request.setAttribute("errorMessage", "Ugyldig e-mail eller password!");
          request.getRequestDispatcher("/login.jsp").forward(request, response);
       } else if (!user.isActivated()) {
-         request.setAttribute("errorMessage", "User not activated!");
+         request.setAttribute("errorMessage", "Bruger er ikke aktiveret endnu. Tjek e-mail for aktiveringslink!");
          request.getRequestDispatcher("/login.jsp").forward(request, response);
       } else {
          String session = request.getSession().getId();

@@ -8,7 +8,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
     <head>
-        <title>Pernille's Kager</title>
+        <title>Pernille's Lækkerier</title>
         <link rel="stylesheet" type="text/css" href="css/mainstylesheet.css">
     </head>
 

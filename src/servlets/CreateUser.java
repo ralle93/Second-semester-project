@@ -50,12 +50,12 @@ public class CreateUser extends HttpServlet {
             request.getRequestDispatcher("/gallery.jsp").forward(request, response);
 
          } else { // Return user with new pass error
-            request.setAttribute("passError", "New password must be atleast 6 characters long");
+            request.setAttribute("passError", "Nyt password skal være på mindst 6 tegn!");
             request.getRequestDispatcher("/FillEditForm").forward(request, response);
          }
 
       } else { // Return user with current pass error
-         request.setAttribute("passError", "Incorrect current password entered");
+         request.setAttribute("passError", "Forkert nuværende password indtastet!");
          request.getRequestDispatcher("/FillEditForm").forward(request, response);
       }
    }
@@ -78,17 +78,17 @@ public class CreateUser extends HttpServlet {
          User user = d.fetchUserFromSession(session);
 
          if (user == null || user.getId() != userEmailCheck.getId()) {
-            request.setAttribute("errorMessage", "E-mail is allready registered");
+            request.setAttribute("errorMessage", "E-mail er allerede registreret!");
          }
       }
       if (!VerifyData.isValidEmail(email)) {
-         request.setAttribute("errorMessage", "Invalid e-mail");
+         request.setAttribute("errorMessage", "Ugyldig e-mail!");
       } else if (action.equals("create") && !VerifyData.isValidPass(password)) {
-         request.setAttribute("errorMessage", "Password must be atleast 6 characters long");
+         request.setAttribute("errorMessage", "Password skal være på mindst 6 tegn!");
       } else if (!VerifyData.isValidName(name)) {
-         request.setAttribute("errorMessage", "Please enter both a first and last name");
+         request.setAttribute("errorMessage", "Venligst indtast både et for- og efternavn!");
       } else if (!VerifyData.isValidNumber(phoneNumber)) {
-         request.setAttribute("errorMessage", "Please enter a phone number");
+         request.setAttribute("errorMessage", "Venligst indtast et telefon nummer!");
       }
 
       // Return to create/edit user page with error message
@@ -112,15 +112,15 @@ public class CreateUser extends HttpServlet {
             //send activation email
             RNGString rng = new RNGString("activate");
             String link = rng.getLink();
-            String message = "\n Click this link to be activated on www.pernilleslaekkerier.dk";
-            SendGmail.sendToCustomer(user.getEmail(),"Activation Mail", link + message);
+            String message = "\n Tryk på dette link for at aktivere bruger på www.pernilleslaekkerier.dk";
+            SendGmail.sendToCustomer(user.getEmail(),"Aktiverings Mail", link + message);
 
             //link user and activation key in database
             String key = rng.getKey();
             d.insertActivationLink(key, userID);
 
             // Forward user to default dropdown page
-            request.setAttribute("message", "User created, check e-mail for activation link!");
+            request.setAttribute("message", "Bruger er oprettet, tjek e-mail for aktiveringslink!");
             request.getRequestDispatcher("/dropdown.jsp").forward(request, response);
 
          } else { // Edit user

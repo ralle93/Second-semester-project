@@ -20,7 +20,7 @@
     %>
 
     ${loggedInUser}<br>
-    <a href="FillEditForm" target="index-iframe" id="button-anchor">Edit user</a><br>
-    <a href="#" onclick="window.open('/Logout', 'dropdown-iframe');window.open('gallery.jsp', 'index-iframe');window.open('/ShoppingCart', 'cart-iframe');" id="button-anchor">Log out</a>
+    <a href="FillEditForm" target="index-iframe" id="button-anchor">Rediger bruger oplysninger</a><br>
+    <a href="#" onclick="window.open('/Logout', 'dropdown-iframe');window.open('gallery.jsp', 'index-iframe');window.open('/ShoppingCart', 'cart-iframe');" id="button-anchor">Log ud</a>
 </body>
 </html>

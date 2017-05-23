@@ -4,7 +4,7 @@
 
 <html>
 <head>
-    <title>Cakes</title>
+    <title>Kager</title>
     <link rel="stylesheet" type="text/css" href="css/mainstylesheet.css">
 </head>
 <body>

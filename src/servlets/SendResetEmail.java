@@ -27,24 +27,24 @@ public class SendResetEmail extends HttpServlet {
 
       if (user == null) {
          // No user has that email
-         request.setAttribute("errorMessage", "No user registered with that e-mail!");
+         request.setAttribute("errorMessage", "Ingen bruger er registreret med den e-mail!");
 
       } else if (!user.isActivated()) {
          // Tell user to activate user first
-         request.setAttribute("errorMessage", "User is not activated");
+         request.setAttribute("errorMessage", "Bruger er ikke aktiveret!");
 
       } else { // User exist, send email to reset password
          // Send reset password email
          RNGString rng = new RNGString("reset");
          String link = rng.getLink();
-         String message = "\n Click this link to reset your password on www.pernilleslaekkerier.dk";
-         SendGmail.sendToCustomer(email,"Reset password mail", link + message);
+         String message = "\n Tryk på dette link for at nulstille dit kodeord på www.pernilleslaekkerier.dk";
+         SendGmail.sendToCustomer(email,"Nulstil kodeord mail", link + message);
 
          //link user and activation key in database
          String key = rng.getKey();
          d.insertActivationLink(key, user.getId());
 
-         request.setAttribute("message", "E-mail sent with link to reset password!");
+         request.setAttribute("message", "E-mail er sendt med link til at nulstille kodeord!");
       }
 
       request.getRequestDispatcher("/send-reset-email.jsp").forward(request, response);

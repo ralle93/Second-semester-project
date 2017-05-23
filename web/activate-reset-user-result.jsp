@@ -2,7 +2,7 @@
 
 <html>
 <head>
-    <title>Activation Page</title>
+    <title>Pernille's Lækkerier</title>
     <link rel="stylesheet" type="text/css" href="css/mainstylesheet.css">
 </head>
 <body>
@@ -11,7 +11,7 @@
     <h1><p style="color: green;">${message}</p></h1>
     <br><br>
 
-    <h1><a href="/index.jsp">Click here to return to homepage</a></h1>
+    <h1><a href="/index.jsp">Tryk her for at returnere til forsiden</a></h1>
 
 </body>
 </html>

@@ -39,7 +39,7 @@ public class ActivateReset extends HttpServlet {
 
       if (userID == -1) {
          // Invalid link
-         request.setAttribute("errorMessage", "Invalid activation link!");
+         request.setAttribute("errorMessage", "Ugyldigt aktiveringslink!");
 
       } else {
          // Activating user
@@ -48,7 +48,7 @@ public class ActivateReset extends HttpServlet {
          // Remove activation key from database
          d.removeActivationLink(userID);
 
-         request.setAttribute("message", "User activated!");
+         request.setAttribute("message", "Bruger er aktiveret!");
       }
 
       // Forward to activate user results page
@@ -64,7 +64,7 @@ public class ActivateReset extends HttpServlet {
 
       if (userID == -1) {
          // Invalid link
-         request.setAttribute("errorMessage", "Invalid reset password link!");
+         request.setAttribute("errorMessage", "Ugyldigt password nulstillings link!");
          request.getRequestDispatcher("/activate-reset-user-result.jsp").forward(request, response);
 
       } else {
@@ -85,12 +85,12 @@ public class ActivateReset extends HttpServlet {
 
       // Check if passwords matches
       if (!pass.equals(confirmPass)) { // Passwords has to match error
-         request.setAttribute("errorMessage", "Please type the same password twice!");
+         request.setAttribute("errorMessage", "Indtast det samme kodeord to gange!");
          request.getRequestDispatcher("/reset-password.jsp").forward(request, response);
 
       } else if (!VerifyData.isValidPass(pass)) {
          // Not a valid password
-         request.setAttribute("errorMessage", "Password has to be atleast 6 characters");
+         request.setAttribute("errorMessage", "Password skal være mindst 6 tegn!");
          request.getRequestDispatcher("/reset-password.jsp").forward(request, response);
 
       } else { // Change password
@@ -99,7 +99,7 @@ public class ActivateReset extends HttpServlet {
 
          if (userID == -1) {
             // Invalid reset key (this should never happen)!!!
-            request.setAttribute("errorMessage", "Invalid reset key (this should never happen)!!!");
+            request.setAttribute("errorMessage", "Ugyldig reset link, dette burde aldrig ske!!!");
 
          } else {
             // Hash the new password and change it
@@ -109,7 +109,7 @@ public class ActivateReset extends HttpServlet {
             // Remove activation key from database
             d.removeActivationLink(userID);
 
-            request.setAttribute("message", "Password successfully changed!");
+            request.setAttribute("message", "Password er ændret!");
          }
 
          request.getRequestDispatcher("/activate-reset-user-result.jsp").forward(request, response);
