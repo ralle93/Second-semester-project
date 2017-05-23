@@ -21,7 +21,7 @@ import java.util.ArrayList;
 public class ShoppingCart extends HttpServlet {
 
    Data d = new Data();
-   ArrayList<Cart> carts = new ArrayList<>();
+   static ArrayList<Cart> carts = new ArrayList<>();
 
    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
       updateCartDisplay(request, response);
@@ -48,14 +48,17 @@ public class ShoppingCart extends HttpServlet {
 
             request.setAttribute("refreshCart", true);
             request.getRequestDispatcher("/GetCakes").forward(request, response);
+
          } else if (action.equals("delete")) {
             int index = Integer.parseInt(request.getParameter("index"));
             deleteItem(cartIndex, index);
 
             updateCartDisplay(request, response);
+
          } else if (action.equals("clear")) {
             carts.get(cartIndex).clearCart();
             updateCartDisplay(request, response);
+
          }
       } else {
          request.setAttribute("errorMessage", "Log venlist ind eller opret en bruger for at bestille kager!");
@@ -91,7 +94,7 @@ public class ShoppingCart extends HttpServlet {
       carts.get(cartIndex).deleteItem(index);
    }
 
-   private int getCartIndex(User user) {
+   private static int getCartIndex(User user) {
       for (int i = 0; i < carts.size(); i++) {
          if (carts.get(i).getUserID() == user.getId()) {
             return i;
@@ -101,5 +104,9 @@ public class ShoppingCart extends HttpServlet {
       Cart cart = new Cart(user.getId());
       carts.add(cart);
       return carts.size() - 1;
+   }
+
+   public static Cart getCart(User user) {
+      return carts.get(getCartIndex(user));
    }
 }

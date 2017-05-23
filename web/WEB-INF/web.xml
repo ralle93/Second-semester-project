@@ -44,6 +44,11 @@
         <servlet-class>servlets.ShoppingCart</servlet-class>
     </servlet>
 
+    <servlet>
+        <servlet-name>OrderCakes</servlet-name>
+        <servlet-class>servlets.OrderCakes</servlet-class>
+    </servlet>
+
 
 
     <servlet-mapping>
@@ -84,6 +89,11 @@
     <servlet-mapping>
         <servlet-name>ShoppingCart</servlet-name>
         <url-pattern>/ShoppingCart</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>OrderCakes</servlet-name>
+        <url-pattern>/OrderCakes</url-pattern>
     </servlet-mapping>
 
 </web-app>

@@ -44,8 +44,9 @@
                     out.print("<label>Total Pris: " + totalPrice + "</label>");
                     out.print("</fieldset>");
                     out.print("<form action=\"/ShoppingCart\" method=\"post\">" +
-                            "<input type=\"submit\" name=\"action\" value=\"clear\" id=\"clear-button\"/>" +
-                            "<input type=\"submit\" name=\"action\" value=\"order\" id=\"order-button\"/>" +
+                            "<input type=\"submit\" name=\"action\" value=\"clear\" id=\"clear-button\"/></form>");
+                    out.print("<form method=\"get\" action=\"/OrderCakes\" target=\"index-iframe\">\n" +
+                            "    <button type=\"submit\">Bestil kager</button>\n" +
                             "</form>");
                 };
             %>

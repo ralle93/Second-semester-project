@@ -97,6 +97,10 @@ public class Cart {
       return totalPrice;
    }
 
+   public boolean isEmpty() {
+      return list[0] == null;
+   }
+
    // TESTING.
    public static void main(String[] args) {
       Cake testCake1 = new Cake(1,250,"TestKage","Den smager af fisk.");

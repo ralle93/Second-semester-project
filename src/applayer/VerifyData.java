@@ -1,5 +1,7 @@
 package applayer;
 
+import java.time.LocalDate;
+
 public class VerifyData {
 
    // Method to determine if the user has entered a valid looking e-mail address
@@ -51,5 +53,18 @@ public class VerifyData {
          return false;
       }
       return true;
+   }
+
+   // Method to check for valid address
+   public static boolean isValidAddress(String address) {
+      return !address.isEmpty();
+   }
+
+   private static final int TIME_FOR_DELIVERY = 7;
+
+   public static boolean isValidDeliveryDate(LocalDate date) {
+      LocalDate possibleDeliveryDate = LocalDate.now().plusDays(TIME_FOR_DELIVERY - 1);
+
+      return date.isAfter(possibleDeliveryDate);
    }
 }
