@@ -268,7 +268,7 @@ public class Data {
 
    public ArrayList<Cake> getCakes() {
       try{
-         String query ="SELECT * FROM mydb.cake;";
+         String query ="SELECT * FROM mydb.cake_list;";
          stmt = conn.prepareStatement(query);
 
          rs = db.resultQuery(stmt);
