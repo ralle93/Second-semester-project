@@ -2,7 +2,6 @@ package applayer;
 
 class RecInfo {
    // Visse informationer bevidst udladt
-   private static int receiptID = 1;//TODO
    private static int maxOrderSize = 5;
    private static String owner = "Pernille A. Jensen";
    private static String title = "Kage Kvittering";
@@ -15,10 +14,6 @@ class RecInfo {
    private static String phone = "XXXXXXXX";
    private static String accountNumber = "XXXXXXXXXX";
    private static String regNumber = "XXXX";
-
-   static int getReceiptID() {
-      return receiptID;
-   }
 
    static int getMaxOrderSize() {
       return maxOrderSize;

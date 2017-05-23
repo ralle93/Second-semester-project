@@ -243,6 +243,26 @@ public class Data {
       return null;
    }
 
+   // method that gets a new order number
+   public int getNewOrderID() {
+      int id = 1;
+
+      try {
+         String query = "SELECT MAX(order_id) as maxId FROM mydb.`order`";
+         stmt = conn.prepareStatement(query);
+
+         rs = db.resultQuery(stmt);
+         while(rs.next()) {
+            id = rs.getInt("maxId");
+            id += 1;
+         }
+      } catch(SQLException ex){
+         ex.printStackTrace();
+      }
+
+      return id;
+   }
+
    //method to create order in db NOT DONE
    public boolean createOrder(User user){
       try{

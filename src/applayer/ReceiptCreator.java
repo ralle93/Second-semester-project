@@ -112,6 +112,11 @@ class ReceiptCreator {
       }
    }
 
+   private String getID() {
+      int number = order.getOrderID();
+      return String.format("%06d", number);
+   }
+
    private void addReceiptInfo() {
       try {
          contentStream.beginText();
@@ -432,11 +437,6 @@ class ReceiptCreator {
       pdd.setCreationDate(date);
 
       return pdd;
-   }
-
-   private String getID() {
-      int number = RecInfo.getReceiptID();
-      return String.format("%06d", number);
    }
 
    private void saveDocument() {

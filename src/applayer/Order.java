@@ -1,10 +1,13 @@
 package applayer;
 
+import datalayer.Data;
+
 import java.time.LocalDate;
 
 class Order {
    private LineItem[] list = new LineItem[RecInfo.getMaxOrderSize()];
    private int userID;
+   private int orderID;
    private int total;
    private LocalDate deliveryDate;
    private String address;
@@ -12,6 +15,7 @@ class Order {
 
    Order(int userID, LocalDate deliveryDate, String address, String note) {
       this.userID = userID;
+      this.orderID = new Data().getNewOrderID(); // TODO
       this.total = 0;
       this.deliveryDate = deliveryDate;
       this.address = address;
@@ -54,6 +58,10 @@ class Order {
 
    public int getUserID() {
       return userID;
+   }
+
+   public int getOrderID() {
+      return orderID;
    }
 
    LineItem getLineItem(int index) {
