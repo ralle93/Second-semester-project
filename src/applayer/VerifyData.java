@@ -46,6 +46,10 @@ public class VerifyData {
 
    // Method to check if the user entered a valid phone number
    public static boolean isValidNumber(String phoneNumber) {
-      return !phoneNumber.isEmpty();
+      if (phoneNumber == null || phoneNumber.isEmpty() || phoneNumber.equals(""))
+      {
+         return false;
+      }
+      return true;
    }
 }

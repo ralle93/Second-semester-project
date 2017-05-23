@@ -35,6 +35,10 @@ public class CreateUser extends HttpServlet {
       String currentPass = request.getParameter("currentPass");
       String newPass = request.getParameter("newPass");
 
+      // Hash current and new pass
+      currentPass = Hash.hashPW(currentPass);
+      newPass = Hash.hashPW(newPass);
+
       // Get session and user info
       String session = request.getSession().getId();
       User user = d.fetchUserFromSession(session);
@@ -44,7 +48,7 @@ public class CreateUser extends HttpServlet {
          // Check if new password is valid
          if (VerifyData.isValidPass(newPass)) {
             // Change password
-            user.setPassword(Hash.hashPW(newPass));
+            user.setPassword(newPass);
             d.editUser(user);
 
             request.getRequestDispatcher("/gallery.jsp").forward(request, response);
@@ -80,7 +84,8 @@ public class CreateUser extends HttpServlet {
          if (user == null || user.getId() != userEmailCheck.getId()) {
             request.setAttribute("errorMessage", "E-mail is allready registered");
          }
-      } else if (!VerifyData.isValidEmail(email)) {
+      }
+      if (!VerifyData.isValidEmail(email)) {
          request.setAttribute("errorMessage", "Invalid e-mail");
       } else if (action.equals("create") && !VerifyData.isValidPass(password)) {
          request.setAttribute("errorMessage", "Password must be atleast 6 characters long");

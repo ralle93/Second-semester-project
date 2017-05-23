@@ -49,6 +49,9 @@ public class ShoppingCart extends HttpServlet {
             deleteItem(cartIndex, index);
 
             updateCartDisplay(request, response);
+         } else if (action.equals("clear")) {
+            carts.get(cartIndex).clearCart();
+            updateCartDisplay(request, response);
          }
       } else {
          request.setAttribute("errorMessage", "Log venlist ind eller opret en bruger for at bestille kager!");
