@@ -42,14 +42,13 @@
                     out.print("<fieldset>");
                     out.print("<label>Total Pris: " + totalPrice + "</label>");
                     out.print("</fieldset>");
+                    out.print("<form>" +
+                            "<input type=\"submit\" name=\"action\" value=\"order\" id=\"order\"/>" +
+                            "</form>");
                 } else {
                     out.print("<p>Indkøbskurven er tom.</p>");
                 };
             %>
-
-
-
-
         </div>
     </body>
 </html>
