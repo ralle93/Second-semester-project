@@ -112,7 +112,7 @@ public class Data {
 
    public boolean httpSessionAdd(User user, String session){
       try {
-         String query = "INSERT INTO `mydb`.`http_session` (`user_id`, `session`) VALUES (?, ?);";
+         String query = "INSERT INTO `mydb`.`http_session` (`user_id`, `session_string`) VALUES (?, ?);";
          stmt = conn.prepareStatement(query);
 
          stmt.setInt(1,user.getId());
