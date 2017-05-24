@@ -66,7 +66,7 @@ public class ReceiptCreator {
    private void addLogo() {
       try {
          PDImageXObject pdImage = PDImageXObject.createFromFile(RecInfo.getLogoPath(), doc);
-         contentStream.drawImage(pdImage, 30, 670, 240, 100);
+         contentStream.drawImage(pdImage, 30, 670, 280, 100);
       } catch (IOException e) {
          e.printStackTrace();
          System.out.println("ERROR: LOGO MISSING");

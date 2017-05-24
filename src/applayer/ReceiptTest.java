@@ -1,7 +1,5 @@
 package applayer;
 
-import datalayer.Data;
-
 import java.time.LocalDate;
 
 
@@ -11,7 +9,7 @@ public class ReceiptTest {
       Order order = testOrder();
       User user = new User("test@mail.com","1234","Bent Hansen","88888888");
 
-      new Data().createOrder(order);
+      //new Data().createOrder(order);
       ReceiptCreator rc = new ReceiptCreator(order, user);
       System.out.println(rc.newReceipt());
    }
