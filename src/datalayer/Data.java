@@ -308,7 +308,7 @@ public class Data {
 
    private void createOrderForLineItem(Order order) throws SQLException {
       for (int i = 0; i < order.getListLength(); i++) {
-         String query = "INSERT INTO mydb.`order_line_item` (`order_id`, `quantity`, `price`) VALUES (?, ?, ?);";
+         String query = "INSERT INTO mydb.`order_line_item` (`order_id`, `amount`, `price`) VALUES (?, ?, ?);";
          stmt = conn.prepareStatement(query);
          stmt.setInt(1, order.getOrderID());
          stmt.setInt(2, order.getList()[i].getAmount());
