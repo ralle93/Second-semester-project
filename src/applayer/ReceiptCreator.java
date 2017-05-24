@@ -45,20 +45,22 @@ public class ReceiptCreator {
 
       this.order = order;
       this.user = user;
-
-      newReceipt();
    }
 
-   private void newReceipt() {
+   public String newReceipt() {
+      String path = "";
+
       try {
          contentStream = new PDPageContentStream(doc, page);
          formatData();
          formatOrder();
          contentStream.close();
-         saveDocument();
+         path = saveDocument();
       } catch (IOException e) {
          e.printStackTrace();
       }
+
+      return path;
    }
 
    private void addLogo() {
@@ -439,14 +441,18 @@ public class ReceiptCreator {
       return pdd;
    }
 
-   private void saveDocument() {
+   private String saveDocument() {
+      String path = "data/Kvitteringer/KageKvittering" + getID() + ".pdf";
+
       try {
          doc.setDocumentInformation(addInformation(doc));
-         doc.save("data/Kvitteringer/KageKvittering" + getID() + ".pdf");
+         doc.save(path);
          doc.close();
       } catch (IOException e) {
          e.printStackTrace();
          System.out.println("ERROR: FILE ERROR");
       }
+
+      return path;
    }
 }
