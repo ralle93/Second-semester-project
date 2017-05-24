@@ -1,7 +1,7 @@
 package servlets;
 
-import Security.RNGString;
-import Security.SendGmail;
+import security.RNGString;
+import security.SendGmail;
 import applayer.User;
 import datalayer.Data;
 

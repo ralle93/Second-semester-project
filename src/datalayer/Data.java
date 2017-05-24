@@ -1,6 +1,6 @@
 package datalayer;
 
-import Security.Hash;
+import security.Hash;
 import applayer.Cake;
 import applayer.User;
 

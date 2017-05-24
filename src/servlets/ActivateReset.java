@@ -1,6 +1,6 @@
 package servlets;
 
-import Security.Hash;
+import security.Hash;
 import applayer.VerifyData;
 import datalayer.Data;
 

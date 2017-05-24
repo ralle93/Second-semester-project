@@ -1,4 +1,4 @@
-package Security;
+package security;
 import java.util.Random;
 
 public class RNGString {

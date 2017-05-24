@@ -1,4 +1,4 @@
-package Security;
+package security;
 
 public class Hash {
 
