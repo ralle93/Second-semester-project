@@ -2,6 +2,7 @@ package servlets;
 
 import applayer.*;
 import datalayer.Data;
+import security.SendGmail;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -101,17 +102,19 @@ public class OrderCakes extends HttpServlet {
 
          // Create reciept
          ReceiptCreator rc = new ReceiptCreator(order, user);
+         String pdfFilePath = rc.newReceipt();
 
-         // Send email with reciept to customer
-
+         // Send email with receipt to customer
+         String title = "Kvitering for bestilling hos Pernilles Lækkerier";
+         String message = "Tak for din bestilling hos Pernilles Lækkerier.\n Vedhæftet er din kvitering.";
+         SendGmail.sendWithAttach(user.getEmail(), title, message, pdfFilePath);
 
          // Remove order from orders array
          orders.remove(getOrderIndex(user));
 
-         // Forward user to a page that confirms the order
-         // TODO: Clear shopping cart from the forwarded page
+         // Forward user to a page that confirms the order and clears the shopping cart
          request.setAttribute("message", "Bestillingen er modtaget!");
-         request.getRequestDispatcher("/activate-reset-user-result.jsp").forward(request, response);
+         request.getRequestDispatcher("/order-recieved.jsp").forward(request, response);
       }
    }
 
