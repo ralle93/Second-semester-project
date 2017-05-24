@@ -46,7 +46,6 @@ public class Cart {
             return;
          }
       }
-      System.out.println("No such item in the cart");
    }
 
    // Rearrange Method for Cart.
@@ -76,7 +75,6 @@ public class Cart {
             System.out.println(aList.getCake());
          }
       }
-      System.out.println("End of the list.");
       return list;
    }
 

@@ -114,7 +114,7 @@ public class OrderCakes extends HttpServlet {
 
          // Forward user to a page that confirms the order and clears the shopping cart
          ShoppingCart.clearCart(user);
-         request.setAttribute("message", "Bestillingen er modtaget!<br>En kvitering er sendt til din e-mail.");
+         request.setAttribute("message", "Bestillingen er modtaget!<br>En kvittering er sendt til din e-mail.");
          request.getRequestDispatcher("/order-recieved.jsp").forward(request, response);
       }
    }
