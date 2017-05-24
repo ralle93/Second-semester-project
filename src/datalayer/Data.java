@@ -1,5 +1,6 @@
 package datalayer;
 
+import applayer.Order;
 import security.Hash;
 import applayer.Cake;
 import applayer.User;
@@ -263,24 +264,86 @@ public class Data {
       return id;
    }
 
-   //method to create order in db NOT DONE
-   public boolean createOrder(User user){
+   public int temp(User user) {
       try{
-         String query = "INSERT INTO order (`user_id` , `created`) VALUES (?, ?);";
+         // Add user to users table
+         String query = "INSERT INTO `mydb`.`users` (`email`, `password`, `is_admin`, `created`, `name`, `phone_nr`, `activated`) ";
+         query += "VALUES (?, ?, ?, ?, ?, ?, ?);";
          stmt = conn.prepareStatement(query);
-         stmt.setInt(1, user.getId());
-         stmt.setDate(2,Date.valueOf(LocalDate.now()));
+
+         stmt.setString(1, user.getEmail());
+         stmt.setString(2, user.getPassword());
+         stmt.setBoolean(3, false);
+         stmt.setDate(4, Date.valueOf(LocalDate.now()));
+         stmt.setString(5, user.getName());
+         stmt.setString(6,user.getPhoneNumber());
+         stmt.setBoolean(7, false);
+
          db.insertQuery(stmt);
 
+
+         return -1;
       }catch(SQLException ex){
          ex.printStackTrace();
       }
-      return false;
+
+      return -1;
    }
 
-   public void createOrder(){
+   private void createOrderForOrder(Order order) throws SQLException {
+      String query = "INSERT INTO mydb.`order` (`user_id`, `delivery_date`, `total_price`) VALUES (?, ?, ?);";
+      stmt = conn.prepareStatement(query);
+      stmt.setInt(1, order.getUserID());
+      stmt.setDate(2, Date.valueOf(order.getDeliveryDate()));
+      stmt.setInt(3, order.getTotal());
+      db.insertQuery(stmt);
 
+      query = "SELECT last_insert_id() FROM mydb.`order`;";
+      stmt = conn.prepareStatement(query);
+      rs = db.resultQuery(stmt);
+      if (rs.next()) {
+         order.setOrderID(rs.getInt(1));
+      }
    }
+
+   private void createOrderForLineItem(Order order) throws SQLException {
+      for (int i = 0; i < order.getListLength(); i++) {
+         String query = "INSERT INTO mydb.`order_line_item` (`order_id`, `quantity`, `price`) VALUES (?, ?, ?);";
+         stmt = conn.prepareStatement(query);
+         stmt.setInt(1, order.getOrderID());
+         stmt.setInt(2, order.getList()[i].getAmount());
+         stmt.setInt(3, order.getList()[i].getPrice());
+         db.insertQuery(stmt);
+
+         query = "SELECT last_insert_id() FROM mydb.`order_line_item`;";
+         stmt = conn.prepareStatement(query);
+         rs = db.resultQuery(stmt);
+         if (rs.next()) {
+            createOrderForCake(order.getList()[i].getCake(), rs.getInt(1));
+         }
+      }
+   }
+
+   private void createOrderForCake(Cake cake, int orderLineItemID) throws SQLException {
+      String query = "INSERT INTO mydb.`order_cake` (`order_line_item_id`, `name`, `price`, `description`) VALUES (?, ?, ?, ?);";
+      stmt = conn.prepareStatement(query);
+      stmt.setInt(1, orderLineItemID);
+      stmt.setString(2, cake.getName());
+      stmt.setInt(3, cake.getPrice());
+      stmt.setString(4, cake.getDescription());
+      db.insertQuery(stmt);
+   }
+
+   //method to create order in db
+   public void createOrder(Order order){
+      try {
+         createOrderForOrder(order);
+         createOrderForLineItem(order);
+      } catch(SQLException ex){
+         ex.printStackTrace();
+      }
+   }
+
    public void fetchAllOrders(){
 
    }

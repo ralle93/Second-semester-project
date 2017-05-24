@@ -15,7 +15,7 @@ public class Order {
 
    public Order(int userID, LocalDate deliveryDate, String address, String note) {
       this.userID = userID;
-      this.orderID = new Data().getNewOrderID(); // TODO
+      this.orderID = 0;
       this.total = 0;
       this.deliveryDate = deliveryDate;
       this.address = address;
@@ -79,6 +79,10 @@ public class Order {
       return orderID;
    }
 
+   public void setOrderID(int id) {
+      this.orderID = id;
+   }
+
    public LineItem[] getList() {
       return list;
    }
@@ -101,5 +105,17 @@ public class Order {
 
    public String getNote() {
       return note;
+   }
+
+   public int getListLength() {
+      int length = 0;
+
+      for (LineItem aList : list) {
+         if (aList != null) {
+            length += 1;
+         }
+      }
+
+      return length;
    }
 }
