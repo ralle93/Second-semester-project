@@ -106,4 +106,9 @@ public class ShoppingCart extends HttpServlet {
    public static Cart getCart(User user) {
       return carts.get(getCartIndex(user));
    }
+
+   public static void clearCart(User user) {
+      int index = getCartIndex(user);
+      carts.get(index).clearCart();
+   }
 }
