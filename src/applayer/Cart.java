@@ -10,13 +10,13 @@ public class Cart {
    private LineItem[] list = new LineItem[RecInfo.getMaxOrderSize()];
    private int userID;
    private LocalDateTime creationTime;
-   private int totalPrice = 0;
+   private int totalPrice;
 
    // Constructor for Cart
    public Cart(int userID) {
       this.userID = userID;
       this.creationTime = LocalDateTime.now();
-      this.totalPrice = totalPrice;
+      this.totalPrice = 0;
    }
 
    // Add Items method to Cart
@@ -66,6 +66,7 @@ public class Cart {
       for (int i = 0; i < list.length; i++) {
          list[i] = null;
       }
+      totalPrice = 0;
    }
 
    // getList Method for Cart.

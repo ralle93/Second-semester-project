@@ -25,5 +25,6 @@ public class LineItem {
 
    public void setAmount(int amount) {
       this.amount = amount;
+      this.price = cake.getPrice() * amount;
    }
 }
