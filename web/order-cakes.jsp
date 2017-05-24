@@ -16,26 +16,35 @@
 
     <h1>Bestil kager</h1><br>
 
+    <table id="order-table">
+        <tr>
+            <th>Navn:</th>
+            <th>Pris per styk:</th>
+            <th>Antal:</th>
+            <th>Pris:</th>
+        </tr>
     <%
         Cart cart = (Cart)request.getAttribute("cart");
 
         for (LineItem item : cart.getList()) {
            if (item != null) {
-               out.print("Navn: " + item.getCake().getName() + "<br>");
-               out.print("Pris per styk: " + item.getCake().getPrice() + "<br>");
-               out.print("Antal: " + item.getAmount() + "<br>");
-               out.print("Pris: " + item.getPrice() + "<br>");
-               out.print("<br>");
+               out.print("<tr>\n" +
+                       "            <td>" + item.getCake().getName() + "</td>\n" +
+                       "            <td>" + item.getCake().getPrice() + "</td>\n" +
+                       "            <td>" + item.getAmount() + "</td>\n" +
+                       "            <td>" + item.getPrice() + "</td>\n" +
+                       "        </tr>");
            }
         }
 
+        out.print("</table><br>");
         out.print("Pris ialt: " + cart.getTotalPrice() + "<br><br>");
     %>
 
     <form action="/OrderCakes" method="post">
-        Adresse: <br><input type="text" name="address" width="30"/><br>
-        Kommentarer til bestilling: <br><textarea name="notes" rows="5" cols="50"></textarea><br>
-        Leverings dato: <br><input type="date" name="deliveryDate"/><br>
+        Adresse: <br><textarea name="address" rows="3" cols="50"></textarea><br><br>
+        Kommentarer til bestilling: <br><textarea name="notes" rows="3" cols="50"></textarea><br><br>
+        Leverings dato: <br><input type="date" name="deliveryDate"/><br><br>
         <input type="hidden" name="action" value="order"/>
         <input type="submit" value="Bestil kager"/>
     </form>

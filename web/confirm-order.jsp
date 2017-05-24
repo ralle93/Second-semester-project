@@ -11,19 +11,28 @@
 
     <h1>Bekræft bestilling</h1><br>
 
-    <%
+    <table id="order-table">
+        <tr>
+            <th>Navn:</th>
+            <th>Pris per styk:</th>
+            <th>Antal:</th>
+            <th>Pris:</th>
+        </tr>
+            <%
         Order order = (Order)request.getAttribute("order");
 
         for (LineItem item : order.getList()) {
-            if (item != null) {
-                out.print("Navn: " + item.getCake().getName() + "<br>");
-                out.print("Pris per styk: " + item.getCake().getPrice() + "<br>");
-                out.print("Antal: " + item.getAmount() + "<br>");
-                out.print("Pris: " + item.getPrice() + "<br>");
-                out.print("<br>");
-            }
+           if (item != null) {
+               out.print("<tr>\n" +
+                       "            <td>" + item.getCake().getName() + "</td>\n" +
+                       "            <td>" + item.getCake().getPrice() + "</td>\n" +
+                       "            <td>" + item.getAmount() + "</td>\n" +
+                       "            <td>" + item.getPrice() + "</td>\n" +
+                       "        </tr>");
+           }
         }
 
+        out.print("</table><br>");
         out.print("Pris ialt: " + order.getTotal() + "<br><br>");
         out.print("Leverings addresse:<br>" + order.getAddress() + "<br><br>");
         out.print("Leverings dato:<br>" + order.getDeliveryDate() + "<br><br>");
@@ -31,7 +40,7 @@
     %>
 
     <form action="/OrderCakes" method="post">
-        Jeg accepterer <a href="http://www.google.dk">handelsbetingelserne <br></a><input type="checkbox" name="terms"/>
+        Jeg accepterer <a href="http://www.google.dk">handelsbetingelserne </a><input type="checkbox" name="terms"/><br>
         <input type="hidden" name="action" value="confirmOrder">
         <input type="submit" value="Bekræft bestilling"/>
     </form>
