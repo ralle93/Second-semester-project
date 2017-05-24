@@ -13,7 +13,7 @@ import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Calendar;
 
-class ReceiptCreator {
+public class ReceiptCreator {
    private PDDocument doc;
    private PDPage page;
    private Order order;
@@ -38,7 +38,7 @@ class ReceiptCreator {
    private DateTimeFormatter form = DateTimeFormatter.ofPattern("dd-MM-yyyy");
    private String priceEnding = ",- kr.";
 
-   ReceiptCreator(Order order, User user) {
+   public ReceiptCreator(Order order, User user) {
       doc = new PDDocument();
       page = new PDPage();
       doc.addPage(page);

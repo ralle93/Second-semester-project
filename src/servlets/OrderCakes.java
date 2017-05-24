@@ -1,9 +1,6 @@
 package servlets;
 
-import applayer.Cart;
-import applayer.Order;
-import applayer.User;
-import applayer.VerifyData;
+import applayer.*;
 import datalayer.Data;
 
 import javax.servlet.ServletException;
@@ -99,9 +96,14 @@ public class OrderCakes extends HttpServlet {
          request.getRequestDispatcher("/confirm-order.jsp").forward(request, response);
 
       } else { // Complete order
-         // TODO: Add order to database
+         // Add order to database
+         d.createOrder(order);
 
-         // TODO: Send email confirmation
+         // Create reciept
+         ReceiptCreator rc = new ReceiptCreator(order, user);
+
+         // Send email with reciept to customer
+
 
          // Remove order from orders array
          orders.remove(getOrderIndex(user));
