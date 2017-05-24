@@ -7,7 +7,7 @@ class RecInfo {
    private static String title = "Kage Kvittering";
    private static String company = "Pernille's Lækkerier";
    private static String subject = "Kage Bestilling";
-   private static String logoPath = "web/images/logo.png";
+   private static String logoPath = "logo.png"; //web/images/logo.png //data/ReceiptData/Logo.png
    private static String cvrNumber = "(Indsæt CVR nummer her)";
    private static String address = "XXXXXX nr X, XXXX Danmark";
    private static String email = "pernilleslaekkerier@gmail.com";
