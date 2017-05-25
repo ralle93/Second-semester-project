@@ -443,7 +443,7 @@ public class ReceiptCreator {
 
    private String saveDocument() {
       //String path = "data/Kvitteringer/KageKvittering" + getID() + ".pdf";
-      String path = "KageKvittering" + getID() + ".pdf";
+      String path = "Kvitteringer/KageKvittering" + getID() + ".pdf";
 
       try {
          doc.setDocumentInformation(addInformation(doc));
