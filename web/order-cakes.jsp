@@ -55,7 +55,7 @@
                 </tr>
                 <tr>
                     <td><label for="date">Leverings dato:</label></td>
-                    <td><input type="datetime" name="deliveryDate" id="date" placeholder="YYYY-MM-DD"/></td>
+                    <td><input type="date" name="deliveryDate" id="date" placeholder="YYYY-MM-DD"/></td>
                 </tr>
             </table>
             <br>
