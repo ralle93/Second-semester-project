@@ -2,20 +2,16 @@
 <html>
 
 <head>
-  <title>Pernille's Kager</title>
+  <title>Pernille's Lækkerier</title>
   <link rel="stylesheet" type="text/css" href="css/mainstylesheet.css">
 </head>
 
 <body>
 <div class="top-menu-bar">
-  <div id="logo">
-    <img src="images/logo.png" alt="logo" id="logo-image">
-  </div>
   <div id="navigation-menu">
-    <a href="gallery.jsp" target="index-iframe">Start</a>
+    <a href="gallery.jsp" target="index-iframe" id="logo"><img src="images/logo.png" alt="logo" id="logo-image"></a>
     <a href="/GetCakes" target="index-iframe">Kager</a>
-    <a href="custom-cakes.jsp" target="index-iframe">Byg Selv Kage</a>
-    <a href="about.jsp" target="index-iframe">Om Pernille's Kager</a>
+    <a href="about.jsp" target="index-iframe">Om Pernille's Lækkerier</a>
   </div>
   <div id="dropdown">
     <a id="dropbtn">Profil</a>
