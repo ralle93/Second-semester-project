@@ -1,5 +1,9 @@
 package applayer;
 
+/**
+ *  Lavet af Mikkel Olsen
+ */
+
 public class Cake {
    private int id;
    private int price;
@@ -11,13 +15,6 @@ public class Cake {
       this.price = price;
       this.name = name;
       this.description = description;
-   }
-
-   Cake(CustomCake customCake) {
-      this.id = 0;
-      this.price = customCake.getPrice();
-      this.name = "Byg Selv Kage";
-      this.description = customCake.getComponentsNames();
    }
 
    public String toString() {
@@ -36,10 +33,6 @@ public class Cake {
       return price;
    }
 
-   public void setPrice(int price) {
-      this.price = price;
-   }
-
    public String getName() {
       return name;
    }
@@ -50,9 +43,5 @@ public class Cake {
 
    public String getDescription() {
       return description;
-   }
-
-   public void setDescription(String description) {
-      this.description = description;
    }
 }

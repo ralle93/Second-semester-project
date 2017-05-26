@@ -66,10 +66,6 @@ public class User {
       return id;
    }
 
-   public boolean isAdmin() {
-      return admin;
-   }
-
    public boolean isActivated() {
       return activated;
    }

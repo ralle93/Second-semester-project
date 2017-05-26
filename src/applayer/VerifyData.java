@@ -27,10 +27,7 @@ public class VerifyData {
 
    // Method to check if the user has entered a strong enough password
    public static boolean isValidPass(String password) {
-      if (password.length() < 6) {
-         return false;
-      }
-      return true;
+      return password.length() >= 6;
    }
 
    // Simple method to determine if the user has entered a valid looking name
@@ -48,11 +45,7 @@ public class VerifyData {
 
    // Method to check if the user entered a valid phone number
    public static boolean isValidNumber(String phoneNumber) {
-      if (phoneNumber == null || phoneNumber.isEmpty() || phoneNumber.equals(""))
-      {
-         return false;
-      }
-      return true;
+      return !(phoneNumber == null || phoneNumber.isEmpty() || phoneNumber.equals(""));
    }
 
    // Method to check for valid address

@@ -1,8 +1,10 @@
 package applayer;
 
-import datalayer.Data;
-
 import java.time.LocalDate;
+
+/**
+ *  Lavet af Mikkel Olsen
+ */
 
 public class Order {
    private LineItem[] list = new LineItem[RecInfo.getMaxOrderSize()];
@@ -12,15 +14,6 @@ public class Order {
    private LocalDate deliveryDate;
    private String address;
    private String note;
-
-   public Order(int userID, LocalDate deliveryDate, String address, String note) {
-      this.userID = userID;
-      this.orderID = 0;
-      this.total = 0;
-      this.deliveryDate = deliveryDate;
-      this.address = address;
-      this.note = note;
-   }
 
    public Order(int userID, LineItem[] list, String address, String note, LocalDate deliveryDate) {
       this.userID = userID;
@@ -35,17 +28,6 @@ public class Order {
             this.total += item.getPrice();
          }
       }
-   }
-
-   void add(LineItem lineItem) {
-      for (int i = 0; i < list.length; i++) {
-         if (list[i] == null) {
-            list[i] = lineItem;
-            total += lineItem.getPrice();
-            return;
-         }
-      }
-      System.out.println("LineItem List Full");
    }
 
    public int getUserID() {

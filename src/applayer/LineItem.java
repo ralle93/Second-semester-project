@@ -1,5 +1,9 @@
 package applayer;
 
+/**
+ *  Lavet af Mikkel Olsen
+ */
+
 public class LineItem {
    private Cake cake;
    private int amount;
@@ -23,7 +27,7 @@ public class LineItem {
       return amount;
    }
 
-   public void setAmount(int amount) {
+   void setAmount(int amount) {
       this.amount = amount;
       this.price = cake.getPrice() * amount;
    }
