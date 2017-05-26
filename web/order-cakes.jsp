@@ -42,7 +42,8 @@
     %>
 
     <form action="/OrderCakes" method="post">
-        Adresse: <br><textarea name="address" rows="3" cols="50"></textarea><br><br>
+        <label for="address">Adresse:</label>
+        <textfield name="address" id="address" rows="3" cols="50"></textfield><br><br>
         Kommentarer til bestilling: <br><textarea name="notes" rows="3" cols="50"></textarea><br><br>
         Leverings dato: <br><input type="date" name="deliveryDate"/><br><br>
         <input type="hidden" name="action" value="order"/>
