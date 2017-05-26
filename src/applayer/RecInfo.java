@@ -4,10 +4,10 @@ class RecInfo {
    // Visse informationer bevidst udladt
    private static int maxOrderSize = 5;
    private static String owner = "Pernille A. Jensen";
-   private static String title = "Kage Kvittering";
+   private static String title = "Kage Faktura";
    private static String company = "Pernille's Lækkerier";
    private static String subject = "Kage Bestilling";
-   private static String logoPath = "logo.png"; //web/images/logo.png //data/ReceiptData/Logo.png
+   private static String logoPath = "logo.png";
    private static String cvrNumber = "(Indsæt CVR nummer her)";
    private static String address = "XXXXXX nr X, XXXX Danmark";
    private static String email = "pernilleslaekkerier@gmail.com";
