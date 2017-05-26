@@ -13,6 +13,10 @@ import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Calendar;
 
+/**
+ *  Lavet af Mikkel Olsen
+ */
+
 public class ReceiptCreator {
    private PDDocument doc;
    private PDPage page;
@@ -66,7 +70,7 @@ public class ReceiptCreator {
    private void addLogo() {
       try {
          PDImageXObject pdImage = PDImageXObject.createFromFile(RecInfo.getLogoPath(), doc);
-         contentStream.drawImage(pdImage, 30, 670, 280, 100);
+         contentStream.drawImage(pdImage, 30, 700, 280, 52);
       } catch (IOException e) {
          e.printStackTrace();
          System.out.println("ERROR: LOGO MISSING");
