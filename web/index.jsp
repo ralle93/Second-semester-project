@@ -12,7 +12,7 @@
     <a href="gallery.jsp" target="index-iframe" id="logo"><img src="images/logo.png" alt="logo" id="logo-image"></a>
     <a href="/GetCakes" target="index-iframe">Kager</a>
     <a href="about.jsp" target="index-iframe">Om Pernille's Lækkerier</a>
-  </div>
+
   <div id="dropdown">
     <a id="dropbtn">Profil</a>
     <div id="dropdown-content">
@@ -25,6 +25,7 @@
             <iframe width="250px" height="350px" name="cart-iframe" id="cart-iframe" src="/ShoppingCart" scrolling="yes"></iframe>
         </div>
     </div>
+  </div>
 </div>
 
 <iframe class="main-iframe" name="index-iframe" id="iframe" width="100%" height="600px" src="gallery.jsp"></iframe>

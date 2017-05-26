@@ -1,5 +1,5 @@
 #logo {
-    width: 200px;
+    width: 250px;
     background-color: white;
     border-radius: 20px;
     display: inline-block;
@@ -12,11 +12,12 @@
 
 #navigation-menu {
     display: inline-block;
+    float: left;
     vertical-align: center;
 }
 
 .top-menu-bar {
-    min-width: 800;
+    margin: 10px;
     background-color: #aeaad1;
     overflow: visible;
     white-space: nowrap;
@@ -32,6 +33,7 @@
 }
 
 .top-menu-bar a {
+    width: 400px;
     margin: 25px 20px;
     border: 1px solid white;
     border-radius: 15px;
