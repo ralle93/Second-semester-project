@@ -24,11 +24,11 @@ public class Cart {
       for (int i = 0; i < list.length; i++) {
          if (list[i] == null) {
             list[i] = lineItem;
-            totalPrice += lineItem.getPrice();
+            calcTotalPrice();
             return null;
          } else if (list[i].getCake().getId() == lineItem.getCake().getId()) {
             list[i].setAmount(list[i].getAmount() + lineItem.getAmount());
-            totalPrice += lineItem.getPrice();
+            calcTotalPrice();
             return null;
          }
       }
@@ -40,22 +40,33 @@ public class Cart {
    public void deleteItem(int indexLine) {
       for (int i = 0; i < list.length; i++) {
          if (list[i] != null && i == indexLine) {
-            totalPrice -= list[i].getPrice();
             list[i] = null;
             rearrangeList();
+            calcTotalPrice();
             return;
          }
       }
    }
 
    // Rearrange Method for Cart.
-   public void rearrangeList() {
+   private void rearrangeList() {
       for (int i = 0; i < list.length; i++) {
          if (list[i] == null) {
-            if ( list[i] != null && i < list.length) {
+            if (i + 1 < list.length && list[i + 1] != null) {
                list[i] = list[i + 1];
                list[i + 1] = null;
             }
+         }
+      }
+   }
+
+   // Calculates Carts Total Price.
+   private void calcTotalPrice() {
+      totalPrice = 0;
+
+      for (LineItem aList : list) {
+         if (aList != null) {
+            totalPrice += aList.getPrice();
          }
       }
    }

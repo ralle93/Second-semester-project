@@ -48,29 +48,6 @@ public class Order {
       System.out.println("LineItem List Full");
    }
 
-   void remove(int index) {
-      for (int i = 0; i < list.length; i++) {
-         if (list[i] != null && i == index) {
-            total -= list[i].getPrice();
-            list[i] = null;
-            shiftList();
-            return;
-         }
-      }
-      System.out.println("LineItem Not Found");
-   }
-
-   private void shiftList() {
-      for (int i = 0; i < list.length; i++) {
-         if (list[i] == null) {
-            if (i + 1 < list.length && list[i + 1] != null) {
-               list[i] = list[i + 1];
-               list[i + 1] = null;
-            }
-         }
-      }
-   }
-
    public int getUserID() {
       return userID;
    }
