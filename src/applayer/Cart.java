@@ -27,14 +27,7 @@ public class Cart {
       return list[0] == null;
    }
 
-   // getList Method for Cart.
    public LineItem[] getList() {
-      for (LineItem aList : list) {
-         if (aList != null) {
-            System.out.println(aList.getCake());
-         }
-      }
-
       return list;
    }
 
