@@ -42,12 +42,27 @@
     %>
 
     <form action="/OrderCakes" method="post">
-        <label for="address">Adresse:</label>
-        <textfield name="address" id="address" rows="3" cols="50"></textfield><br><br>
-        Kommentarer til bestilling: <br><textarea name="notes" rows="3" cols="50"></textarea><br><br>
-        Leverings dato: <br><input type="date" name="deliveryDate"/><br><br>
-        <input type="hidden" name="action" value="order"/>
-        <input type="submit" value="Bestil kager"/>
+        <fieldset>
+
+            <table>
+                <tr>
+                    <td><label for="address">Adresse:</label></td>
+                    <td><input type="text" name="address" id="address" rows="3" cols="50" placeholder="Indæst adresse her."></td>
+                </tr>
+                <tr>
+                    <td><label for="note">Kommentarer til bestilling:</label></td>
+                    <td><input type="text" name="notes" rows="3" cols="50" id="note" placeholder="Indsæt evt. kommentarer her."></td>
+                </tr>
+                <tr>
+                    <td><label for="date">Leverings dato:</label></td>
+                    <td><input type="datetime" name="deliveryDate" id="date" placeholder="YYYY-MM-DD"/></td>
+                </tr>
+            </table>
+            <br>
+
+            <input type="hidden" name="action" value="order"/>
+            <input type="submit" value="Bestil kager"/>
+        </fieldset>
     </form>
     <p style="color: red">${errorMessage}</p>
 
