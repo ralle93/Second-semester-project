@@ -11,9 +11,9 @@ import javax.mail.*;
 import javax.mail.internet.*;
 
 public class SendGmail {
+   private final static String username = "pernilleslaekkerier@gmail.com";
+   private final static String password = "Abcdefg123456789";
 
-   final static String username = "pernilleslaekkerier@gmail.com";
-   final static String password = "Abcdefg123456789";
    public static void sendToCustomer(String recipientEmail, String title, String message){
       try {
          Security.addProvider(new com.sun.net.ssl.internal.ssl.Provider());

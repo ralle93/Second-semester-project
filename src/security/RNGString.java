@@ -25,7 +25,7 @@ public class RNGString {
    }
 
    private int getRNG(){
-      int randomInt = 0;
+      int randomInt;
       Random r = new Random();
       randomInt = r.nextInt(charsToUse.length());
 
@@ -41,5 +41,4 @@ public class RNGString {
    public String getLink() {
       return link;
    }
-
 }

@@ -54,7 +54,7 @@ public class Data {
    }
 
    // Method to edit a user
-   public boolean editUser(User user) {
+   public void editUser(User user) {
       try{
          String query = "UPDATE mydb.users SET email = ?, password = ?, name = ?, phone_nr = ? ";
          query += "WHERE user_id = ?;";
@@ -66,15 +66,14 @@ public class Data {
          stmt.setString(4, user.getPhoneNumber());
          stmt.setInt(5, user.getId());
 
-         return db.insertQuery(stmt);
+         db.insertQuery(stmt);
       }catch(SQLException ex){
          ex.printStackTrace();
       }
-      return false;
    }
 
    // Change password from user id
-   public boolean changeUserPass(int id, String password) {
+   public void changeUserPass(int id, String password) {
       try{
          String query = "UPDATE mydb.users SET password = ? ";
          query += "WHERE user_id = ?;";
@@ -83,11 +82,10 @@ public class Data {
          stmt.setString(1, password);
          stmt.setInt(2, id);
 
-         return db.insertQuery(stmt);
+         db.insertQuery(stmt);
       }catch(SQLException ex){
          ex.printStackTrace();
       }
-      return false;
    }
 
    //method to check user credentials
@@ -100,9 +98,8 @@ public class Data {
          stmt.setString(2, Hash.hashPW(password));
          rs = db.resultQuery(stmt);
          if(rs.next()) {
-            User user = new User(rs.getInt(1), rs.getString(2), rs.getString(3),
+            return new User(rs.getInt(1), rs.getString(2), rs.getString(3),
                   rs.getString(4), rs.getString(5), rs.getBoolean(6));
-            return user;
          }
          return null;
       } catch(SQLException ex){
@@ -111,7 +108,7 @@ public class Data {
       return null;
    }
 
-   public boolean httpSessionAdd(User user, String session){
+   public void httpSessionAdd(User user, String session){
       try {
          String query = "INSERT INTO `mydb`.`http_session` (`user_id`, `session_string`) VALUES (?, ?);";
          stmt = conn.prepareStatement(query);
@@ -119,12 +116,10 @@ public class Data {
          stmt.setInt(1,user.getId());
          stmt.setString(2,session);
 
-         return db.insertQuery(stmt);
+         db.insertQuery(stmt);
       }catch(SQLException ex){
          ex.printStackTrace();
       }
-      return false;
-
    }
 
    // adds activation string and connects a user_id in the database
@@ -176,7 +171,7 @@ public class Data {
       return -1;
    }
 
-   public boolean activateUser(int userID) {
+   public void activateUser(int userID) {
       try{
          String query = "UPDATE mydb.users SET activated = true ";
          query += "WHERE user_id = ?;";
@@ -184,23 +179,22 @@ public class Data {
 
          stmt.setInt(1, userID);
 
-         return db.insertQuery(stmt);
+         db.insertQuery(stmt);
       }catch(SQLException ex){
          ex.printStackTrace();
       }
-      return false;
    }
 
    // fetch a user solely based on their ID(primary key in MySQL db)
-   public User getUserFromId(int id){
+   private User getUserFromId(int id){
       try {
          String query = "SELECT * FROM users WHERE user_id = ?";
          stmt = conn.prepareStatement(query);
          stmt.setInt(1,id);
          rs = db.resultQuery(stmt);
          if(rs.next()){
-            User user = new User(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5));
-            return user;
+            return new User(rs.getInt(1), rs.getString(2), rs.getString(3),
+                  rs.getString(4), rs.getString(5));
          }
       }catch(SQLException ex){
          ex.printStackTrace();
@@ -217,9 +211,8 @@ public class Data {
          stmt.setString(1, email);
          rs = db.resultQuery(stmt);
          if(rs.next()) {
-            User user = new User(rs.getInt(1), rs.getString(2), rs.getString(3),
+            return new User(rs.getInt(1), rs.getString(2), rs.getString(3),
                   rs.getString(4), rs.getString(5), rs.getBoolean(6));
-            return user;
          }
          return null;
       } catch(SQLException ex){
@@ -242,52 +235,6 @@ public class Data {
          ex.printStackTrace();
       }
       return null;
-   }
-
-   // method that gets a new order number
-   public int getNewOrderID() {
-      int id = 1;
-
-      try {
-         String query = "SELECT MAX(order_id) as maxId FROM mydb.`order`";
-         stmt = conn.prepareStatement(query);
-
-         rs = db.resultQuery(stmt);
-         while(rs.next()) {
-            id = rs.getInt("maxId");
-            id += 1;
-         }
-      } catch(SQLException ex){
-         ex.printStackTrace();
-      }
-
-      return id;
-   }
-
-   public int temp(User user) {
-      try{
-         // Add user to users table
-         String query = "INSERT INTO `mydb`.`users` (`email`, `password`, `is_admin`, `created`, `name`, `phone_nr`, `activated`) ";
-         query += "VALUES (?, ?, ?, ?, ?, ?, ?);";
-         stmt = conn.prepareStatement(query);
-
-         stmt.setString(1, user.getEmail());
-         stmt.setString(2, user.getPassword());
-         stmt.setBoolean(3, false);
-         stmt.setDate(4, Date.valueOf(LocalDate.now()));
-         stmt.setString(5, user.getName());
-         stmt.setString(6,user.getPhoneNumber());
-         stmt.setBoolean(7, false);
-
-         db.insertQuery(stmt);
-
-
-         return -1;
-      }catch(SQLException ex){
-         ex.printStackTrace();
-      }
-
-      return -1;
    }
 
    private void createOrderForOrder(Order order) throws SQLException {
@@ -344,10 +291,6 @@ public class Data {
       }
    }
 
-   public void fetchAllOrders(){
-
-   }
-
    public ArrayList<Cake> getCakes() {
       try{
          String query ="SELECT * FROM mydb.cake_list;";
@@ -391,5 +334,4 @@ public class Data {
 
       d.changeUserPass(31, "test");
    }
-
 }

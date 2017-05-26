@@ -1,14 +1,12 @@
 package datalayer;
+
 import java.sql.*;
 import java.sql.Connection;
 import java.sql.DriverManager;
-import java.sql.Statement;
 
 // Singleton class in charge of getting connection to db and fetching/uploading data
-public final class DbConnect {
-
+final class DbConnect {
    Connection conn;
-   private ResultSet rs;
    private static DbConnect db;
 
    private DbConnect() {
@@ -21,24 +19,21 @@ public final class DbConnect {
          this.conn = DriverManager.getConnection(DBURL,usern,pass);
       } catch (Exception ex) {
          ex.printStackTrace();
-         System.out.println(ex);
       }
    }
 
-   public static DbConnect getConnection(){
+   static DbConnect getConnection(){
       if(db == null){
          db = new DbConnect();
       }
       return db;
    }
 
-   public ResultSet resultQuery(PreparedStatement stmt) throws SQLException{
-      rs = stmt.executeQuery();
-      return rs;
+   ResultSet resultQuery(PreparedStatement stmt) throws SQLException{
+      return stmt.executeQuery();
    }
 
-   public boolean insertQuery(PreparedStatement stmt) throws SQLException{
-      if(stmt.executeUpdate() > 0) return true;
-      return false;
+   boolean insertQuery(PreparedStatement stmt) throws SQLException{
+      return stmt.executeUpdate() > 0;
    }
 }
