@@ -38,9 +38,9 @@
                                    "<input type=\"submit\" value=\"Fjern\" button id=\"delete-button\"/>" +
                                    "</form>");
                            out.print("</fieldset>");
-                           totalPrice += cart.getTotalPrice();
                        }
                     }
+                    totalPrice += cart.getTotalPrice();
                     out.print("<fieldset>");
                     out.print("<label>Total Pris: " + totalPrice + "</label>");
                     out.print("</fieldset>");
