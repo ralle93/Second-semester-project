@@ -12,8 +12,7 @@ import java.io.IOException;
 
 @WebServlet(name = "FillEditForm")
 public class FillEditForm extends HttpServlet {
-
-   Data d = new Data();
+   private Data d = new Data();
 
    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
       forwardFormData(request, response);

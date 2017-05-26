@@ -12,7 +12,6 @@ import java.io.IOException;
 
 @WebServlet(name = "Login")
 public class Login extends HttpServlet {
-
    private Data d = new Data();
 
    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

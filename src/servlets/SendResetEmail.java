@@ -14,8 +14,7 @@ import java.io.IOException;
 
 @WebServlet(name = "SendResetEmail")
 public class SendResetEmail extends HttpServlet {
-
-   Data d = new Data();
+   private Data d = new Data();
 
    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 

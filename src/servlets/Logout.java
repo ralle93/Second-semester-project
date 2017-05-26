@@ -9,7 +9,6 @@ import java.io.IOException;
 
 @WebServlet(name = "Logout")
 public class Logout extends HttpServlet {
-
    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
       // Give the user a new session id
       request.changeSessionId();

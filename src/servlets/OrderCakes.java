@@ -16,7 +16,6 @@ import java.util.ArrayList;
 
 @WebServlet(name = "OrderCakes")
 public class OrderCakes extends HttpServlet {
-
    private Data d = new Data();
    private ArrayList<Order> orders = new ArrayList<>();
 

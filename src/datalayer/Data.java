@@ -328,10 +328,4 @@ public class Data {
       }
       return null;
    }
-
-   public static void main(String[] args)throws SQLException {
-      Data d = new Data();
-
-      d.changeUserPass(31, "test");
-   }
 }

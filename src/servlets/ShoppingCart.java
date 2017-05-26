@@ -16,9 +16,8 @@ import java.util.ArrayList;
 
 @WebServlet(name = "ShoppingCart")
 public class ShoppingCart extends HttpServlet {
-
-   Data d = new Data();
-   static ArrayList<Cart> carts = new ArrayList<>();
+   private Data d = new Data();
+   private static ArrayList<Cart> carts = new ArrayList<>();
 
    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
       updateCartDisplay(request, response);
@@ -33,29 +32,33 @@ public class ShoppingCart extends HttpServlet {
 
          String action = request.getParameter("action");
 
-         if (action.equals("add")) {
-            int cakeID = Integer.parseInt(request.getParameter("cakeID"));
-            int amount = Integer.parseInt(request.getParameter("amount"));
+         switch (action) {
+            case "add":
+               int cakeID = Integer.parseInt(request.getParameter("cakeID"));
+               int amount = Integer.parseInt(request.getParameter("amount"));
 
-            String error = addItem(cartIndex, cakeID, amount);
+               String error = addItem(cartIndex, cakeID, amount);
 
-            if (error != null) {
-               request.setAttribute("errorMessage", error);
-            }
+               if (error != null) {
+                  request.setAttribute("errorMessage", error);
+               }
 
-            request.setAttribute("refreshCart", true);
-            request.getRequestDispatcher("/GetCakes").forward(request, response);
+               request.setAttribute("refreshCart", true);
+               request.getRequestDispatcher("/GetCakes").forward(request, response);
 
-         } else if (action.equals("delete")) {
-            int index = Integer.parseInt(request.getParameter("index"));
-            deleteItem(cartIndex, index);
+               break;
+            case "delete":
+               int index = Integer.parseInt(request.getParameter("index"));
+               deleteItem(cartIndex, index);
 
-            updateCartDisplay(request, response);
+               updateCartDisplay(request, response);
 
-         } else if (action.equals("clear")) {
-            carts.get(cartIndex).clearCart();
-            updateCartDisplay(request, response);
+               break;
+            case "clear":
+               carts.get(cartIndex).clearCart();
+               updateCartDisplay(request, response);
 
+               break;
          }
       } else {
          request.setAttribute("errorMessage", "Log venlist ind eller opret en bruger for at bestille kager!");
@@ -103,11 +106,11 @@ public class ShoppingCart extends HttpServlet {
       return carts.size() - 1;
    }
 
-   public static Cart getCart(User user) {
+   static Cart getCart(User user) {
       return carts.get(getCartIndex(user));
    }
 
-   public static void clearCart(User user) {
+   static void clearCart(User user) {
       int index = getCartIndex(user);
       carts.get(index).clearCart();
    }

@@ -13,11 +13,9 @@ import java.io.IOException;
 
 @WebServlet(name = "ActivateReset")
 public class ActivateReset extends HttpServlet {
-
-   Data d = new Data();
+   private Data d = new Data();
 
    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
       // Check if the request is to activate user or to reset password
       if (request.getParameter("activate") != null) {
          activateUser(request, response);

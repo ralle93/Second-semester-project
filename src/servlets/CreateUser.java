@@ -16,7 +16,6 @@ import java.io.IOException;
 
 @WebServlet(name = "CreateUser")
 public class CreateUser extends HttpServlet {
-
    private Data d = new Data();
 
    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -26,7 +25,7 @@ public class CreateUser extends HttpServlet {
       if (action.equals("editPass")) {
          editUserPass(request, response);
       } else {
-         createEditUser(action, request, response);
+         createEditUser(request, response);
       }
    }
 
@@ -60,13 +59,13 @@ public class CreateUser extends HttpServlet {
       }
    }
 
-   private void createEditUser(String action, HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+   private void createEditUser(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
       // Get parameters from create/edit user form
       String email = request.getParameter("email");
       String password = request.getParameter("password");
       String name = request.getParameter("name");
       String phoneNumber = request.getParameter("number");
-      action = request.getParameter("action");
+      String action = request.getParameter("action");
 
       // Check if email is allready registered
       User userEmailCheck = d.getUserFromEmail(email);

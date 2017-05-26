@@ -13,8 +13,7 @@ import java.util.ArrayList;
 
 @WebServlet(name = "GetCakes")
 public class GetCakes extends HttpServlet {
-
-   Data d = new Data();
+   private Data d = new Data();
 
    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
       updateCakeDisplay(request, response);
