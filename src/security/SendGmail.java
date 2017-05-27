@@ -10,6 +10,7 @@ import javax.activation.FileDataSource;
 import javax.mail.*;
 import javax.mail.internet.*;
 
+// Class that handles sending e-mails to customers
 public class SendGmail {
    private final static String username = "pernilleslaekkerier@gmail.com";
    private final static String password = "Abcdefg123456789";
