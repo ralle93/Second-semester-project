@@ -264,6 +264,15 @@ public class ReceiptCreator {
          contentStream.setFont(PDType1Font.TIMES_ITALIC, 10);
          contentStream.newLineAtOffset(beginInfoX, (beginOrderListY - 10) - (i * orderLineSpace));
          String text = order.getLineItem(i).getCake().getDescription();
+
+         if (text.length() > 60) {
+            int j = 50;
+            while (text.charAt(j) != ' ') {
+               j++;
+            }
+            text += "...";
+         }
+
          contentStream.showText(text);
          contentStream.endText();
       } catch (IOException e) {
