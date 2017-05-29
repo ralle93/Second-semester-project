@@ -33,7 +33,7 @@
         }
 
         out.print("</table><br>");
-        out.print("Pris ialt: " + order.getTotal() + "<br><br>");
+        out.print("Pris ialt: " + order.getTotalPrice() + "<br><br>");
         out.print("Leverings addresse:<br>" + order.getAddress() + "<br><br>");
         out.print("Leverings dato:<br>" + order.getDeliveryDate() + "<br><br>");
         out.print("Kommentarer til levering:<br>" + order.getNote() + "<br><br>");

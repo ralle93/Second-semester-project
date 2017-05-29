@@ -332,7 +332,7 @@ public class ReceiptCreator {
          contentStream.beginText();
          contentStream.setFont(PDType1Font.TIMES_BOLD, 14);
          contentStream.newLineAtOffset(beginInfoX + totalColumn, beginOrderListY - totalLine);
-         String total = order.getTotal() + priceEnding;
+         String total = order.getTotalPrice() + priceEnding;
          contentStream.showText(total);
          contentStream.endText();
 
@@ -346,7 +346,7 @@ public class ReceiptCreator {
          contentStream.beginText();
          contentStream.setFont(PDType1Font.TIMES_ITALIC, 12);
          contentStream.newLineAtOffset(beginInfoX + totalColumn, beginOrderListY - vatLine);
-         double calcVAT = Math.round(((double) order.getTotal() * 0.25) * 100.0) / 100.0;
+         double calcVAT = Math.round(((double) order.getTotalPrice() * 0.25) * 100.0) / 100.0;
          String vat = calcVAT + " kr.";
          contentStream.showText(vat);
          contentStream.endText();

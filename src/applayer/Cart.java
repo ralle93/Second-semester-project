@@ -15,6 +15,18 @@ public class Cart {
       this.totalPrice = 0;
    }
 
+   Cart(int userID, LineItem[] list) {
+      this.userID = userID;
+      this.list = list;
+
+      this.totalPrice = 0;
+      for (LineItem item : this.list) {
+         if (item != null) {
+            this.totalPrice += item.getPrice();
+         }
+      }
+   }
+
    public int getUserID() {
       return userID;
    }
@@ -29,6 +41,22 @@ public class Cart {
 
    public LineItem[] getList() {
       return list;
+   }
+
+   LineItem getLineItem(int index) {
+      return list[index];
+   }
+
+   public int getListLength() {
+      int length = 0;
+
+      for (LineItem aList : list) {
+         if (aList != null) {
+            length += 1;
+         }
+      }
+
+      return length;
    }
 
    // Add Items method to Cart

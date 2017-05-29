@@ -246,7 +246,7 @@ public class Data {
       stmt = conn.prepareStatement(query);
       stmt.setInt(1, order.getUserID());
       stmt.setDate(2, Date.valueOf(order.getDeliveryDate()));
-      stmt.setInt(3, order.getTotal());
+      stmt.setInt(3, order.getTotalPrice());
       db.insertQuery(stmt);
 
       query = "SELECT last_insert_id() FROM mydb.`order`;";
