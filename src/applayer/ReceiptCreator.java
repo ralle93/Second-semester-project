@@ -27,20 +27,20 @@ public class ReceiptCreator {
    /** DIMENSIONS OF PDF DOCUMENTS
     * IN PIXELS: 792 height / 612 width
     **/
-   private int beginInfoX = 30;
-   private int beginInfoY = 630;
-   private int infoLineSpace = 20;
+   private final int BEGIN_INFO_X = 30;
+   private final int BEGIN_INFO_Y = 630;
+   private final int INFO_LINE_SPACE = 20;
 
-   private int beginOrderListY = 500;
-   private int orderLineSpace = 40;
-   private int amountColumn = 300;
-   private int priceColumn = 400;
-   private int totalColumn = 500;
-   private int totalLine = RecInfo.getMaxOrderSize() * orderLineSpace;
-   private int vatLine = totalLine + 20;
+   private final int BEGIN_ORDER_LIST_Y = 500;
+   private final int ORDER_LINE_SPACE = 40;
+   private final int AMOUNT_COLUMN = 300;
+   private final int PRICE_COLUMN = 400;
+   private final int TOTAL_COLUMN = 500;
+   private final int TOTAL_LINE = RecInfo.getMaxOrderSize() * ORDER_LINE_SPACE;
+   private final int VAT_LINE = TOTAL_LINE + 20;
+   private final String PRICE_ENDING = ",- kr.";
 
    private DateTimeFormatter form = DateTimeFormatter.ofPattern("dd-MM-yyyy");
-   private String priceEnding = ",- kr.";
 
    public ReceiptCreator(Order order, User user) {
       doc = new PDDocument();
@@ -81,35 +81,35 @@ public class ReceiptCreator {
       try {
          contentStream.beginText();
          contentStream.setFont(PDType1Font.TIMES_BOLD, 12);
-         contentStream.newLineAtOffset(beginInfoX, beginInfoY + infoLineSpace);
+         contentStream.newLineAtOffset(BEGIN_INFO_X, BEGIN_INFO_Y + INFO_LINE_SPACE);
          String title = "Køber Information:";
          contentStream.showText(title);
          contentStream.endText();
 
          contentStream.beginText();
          contentStream.setFont(PDType1Font.TIMES_ROMAN, 12);
-         contentStream.newLineAtOffset(beginInfoX,beginInfoY );
+         contentStream.newLineAtOffset(BEGIN_INFO_X, BEGIN_INFO_Y);
          String name = "Navn: " + user.getName();
          contentStream.showText(name);
          contentStream.endText();
 
          contentStream.beginText();
          contentStream.setFont(PDType1Font.TIMES_ROMAN, 12);
-         contentStream.newLineAtOffset(beginInfoX,beginInfoY - infoLineSpace);
+         contentStream.newLineAtOffset(BEGIN_INFO_X, BEGIN_INFO_Y - INFO_LINE_SPACE);
          String address = "Addresse: " + order.getAddress();
          contentStream.showText(address);
          contentStream.endText();
 
          contentStream.beginText();
          contentStream.setFont(PDType1Font.TIMES_ROMAN, 12);
-         contentStream.newLineAtOffset(beginInfoX,beginInfoY - 2 * infoLineSpace);
+         contentStream.newLineAtOffset(BEGIN_INFO_X, BEGIN_INFO_Y - 2 * INFO_LINE_SPACE);
          String email = "E-mail: " + user.getEmail();
          contentStream.showText(email);
          contentStream.endText();
 
          contentStream.beginText();
          contentStream.setFont(PDType1Font.TIMES_ROMAN, 12);
-         contentStream.newLineAtOffset(beginInfoX,beginInfoY - 3 * infoLineSpace);
+         contentStream.newLineAtOffset(BEGIN_INFO_X, BEGIN_INFO_Y - 3 * INFO_LINE_SPACE);
          String phone = "Telefon: " + user.getPhoneNumber();
          contentStream.showText(phone);
          contentStream.endText();
@@ -127,14 +127,14 @@ public class ReceiptCreator {
       try {
          contentStream.beginText();
          contentStream.setFont(PDType1Font.TIMES_ROMAN, 12);
-         contentStream.newLineAtOffset(beginInfoX + amountColumn,beginInfoY + 6 * infoLineSpace);
+         contentStream.newLineAtOffset(BEGIN_INFO_X + AMOUNT_COLUMN, BEGIN_INFO_Y + 6 * INFO_LINE_SPACE);
          String number = "Faktura Nummer: " + getID();
          contentStream.showText(number);
          contentStream.endText();
 
          contentStream.beginText();
          contentStream.setFont(PDType1Font.TIMES_ROMAN, 12);
-         contentStream.newLineAtOffset(beginInfoX + amountColumn,beginInfoY + 5 * infoLineSpace);
+         contentStream.newLineAtOffset(BEGIN_INFO_X + AMOUNT_COLUMN, BEGIN_INFO_Y + 5 * INFO_LINE_SPACE);
          String date = "Faktura Udstedt: " + (LocalDate.now()).format(form);
          contentStream.showText(date);
          contentStream.endText();
@@ -147,42 +147,42 @@ public class ReceiptCreator {
       try {
          contentStream.beginText();
          contentStream.setFont(PDType1Font.TIMES_BOLD, 12);
-         contentStream.newLineAtOffset(beginInfoX + amountColumn,beginInfoY + 2 * infoLineSpace);
+         contentStream.newLineAtOffset(BEGIN_INFO_X + AMOUNT_COLUMN, BEGIN_INFO_Y + 2 * INFO_LINE_SPACE);
          String title = "Firma Information:";
          contentStream.showText(title);
          contentStream.endText();
 
          contentStream.beginText();
          contentStream.setFont(PDType1Font.TIMES_ROMAN, 12);
-         contentStream.newLineAtOffset(beginInfoX + amountColumn,beginInfoY + infoLineSpace);
+         contentStream.newLineAtOffset(BEGIN_INFO_X + AMOUNT_COLUMN, BEGIN_INFO_Y + INFO_LINE_SPACE);
          String cvrNumber = "CVR-Nummer: " + RecInfo.getCvrNumber();
          contentStream.showText(cvrNumber);
          contentStream.endText();
 
          contentStream.beginText();
          contentStream.setFont(PDType1Font.TIMES_ROMAN, 12);
-         contentStream.newLineAtOffset(beginInfoX + amountColumn,beginInfoY);
+         contentStream.newLineAtOffset(BEGIN_INFO_X + AMOUNT_COLUMN, BEGIN_INFO_Y);
          String company = "Firma: " + RecInfo.getCompany();
          contentStream.showText(company);
          contentStream.endText();
 
          contentStream.beginText();
          contentStream.setFont(PDType1Font.TIMES_ROMAN, 12);
-         contentStream.newLineAtOffset(beginInfoX + amountColumn,beginInfoY - infoLineSpace);
+         contentStream.newLineAtOffset(BEGIN_INFO_X + AMOUNT_COLUMN, BEGIN_INFO_Y - INFO_LINE_SPACE);
          String name = "Addresse: " + RecInfo.getAddress();
          contentStream.showText(name);
          contentStream.endText();
 
          contentStream.beginText();
          contentStream.setFont(PDType1Font.TIMES_ROMAN, 12);
-         contentStream.newLineAtOffset(beginInfoX + amountColumn,beginInfoY - 2 * infoLineSpace);
+         contentStream.newLineAtOffset(BEGIN_INFO_X + AMOUNT_COLUMN, BEGIN_INFO_Y - 2 * INFO_LINE_SPACE);
          String email = "E-mail: " + RecInfo.getEmail();
          contentStream.showText(email);
          contentStream.endText();
 
          contentStream.beginText();
          contentStream.setFont(PDType1Font.TIMES_ROMAN, 12);
-         contentStream.newLineAtOffset(beginInfoX + amountColumn,beginInfoY  - 3 * infoLineSpace);
+         contentStream.newLineAtOffset(BEGIN_INFO_X + AMOUNT_COLUMN, BEGIN_INFO_Y - 3 * INFO_LINE_SPACE);
          String phone = "Telefon: +45 " + RecInfo.getPhone();
          contentStream.showText(phone);
          contentStream.endText();
@@ -206,28 +206,28 @@ public class ReceiptCreator {
       try {
          contentStream.beginText();
          contentStream.setFont(PDType1Font.TIMES_ROMAN, 12);
-         contentStream.newLineAtOffset(beginInfoX,beginOrderListY + offset);
+         contentStream.newLineAtOffset(BEGIN_INFO_X, BEGIN_ORDER_LIST_Y + offset);
          String name = "Kage / Beskrivelse:";
          contentStream.showText(name);
          contentStream.endText();
 
          contentStream.beginText();
          contentStream.setFont(PDType1Font.TIMES_ROMAN, 12);
-         contentStream.newLineAtOffset(beginInfoX + amountColumn,beginOrderListY + offset);
+         contentStream.newLineAtOffset(BEGIN_INFO_X + AMOUNT_COLUMN, BEGIN_ORDER_LIST_Y + offset);
          String amount = "Personer / Antal:";
          contentStream.showText(amount);
          contentStream.endText();
 
          contentStream.beginText();
          contentStream.setFont(PDType1Font.TIMES_ROMAN, 12);
-         contentStream.newLineAtOffset(beginInfoX + priceColumn,beginOrderListY + offset);
+         contentStream.newLineAtOffset(BEGIN_INFO_X + PRICE_COLUMN, BEGIN_ORDER_LIST_Y + offset);
          String price = "Enkelt pris:";
          contentStream.showText(price);
          contentStream.endText();
 
          contentStream.beginText();
          contentStream.setFont(PDType1Font.TIMES_ROMAN, 12);
-         contentStream.newLineAtOffset(beginInfoX + totalColumn,beginOrderListY + offset);
+         contentStream.newLineAtOffset(BEGIN_INFO_X + TOTAL_COLUMN, BEGIN_ORDER_LIST_Y + offset);
          String total = "Total:";
          contentStream.showText(total);
          contentStream.endText();
@@ -249,7 +249,7 @@ public class ReceiptCreator {
       try {
          contentStream.beginText();
          contentStream.setFont(PDType1Font.TIMES_ROMAN, 12);
-         contentStream.newLineAtOffset(beginInfoX, beginOrderListY - (i * orderLineSpace));
+         contentStream.newLineAtOffset(BEGIN_INFO_X, BEGIN_ORDER_LIST_Y - (i * ORDER_LINE_SPACE));
          String text = order.getLineItem(i).getCake().getName();
          contentStream.showText(text);
          contentStream.endText();
@@ -262,7 +262,7 @@ public class ReceiptCreator {
       try {
          contentStream.beginText();
          contentStream.setFont(PDType1Font.TIMES_ITALIC, 10);
-         contentStream.newLineAtOffset(beginInfoX, (beginOrderListY - 10) - (i * orderLineSpace));
+         contentStream.newLineAtOffset(BEGIN_INFO_X, (BEGIN_ORDER_LIST_Y - 10) - (i * ORDER_LINE_SPACE));
          String text = order.getLineItem(i).getCake().getDescription();
 
          if (text.length() > 60) {
@@ -285,7 +285,7 @@ public class ReceiptCreator {
       try {
          contentStream.beginText();
          contentStream.setFont(PDType1Font.TIMES_ROMAN, 12);
-         contentStream.newLineAtOffset(beginInfoX + amountColumn, beginOrderListY - (i * orderLineSpace));
+         contentStream.newLineAtOffset(BEGIN_INFO_X + AMOUNT_COLUMN, BEGIN_ORDER_LIST_Y - (i * ORDER_LINE_SPACE));
          String text = order.getLineItem(i).getAmount() + "";
          contentStream.showText(text);
          contentStream.endText();
@@ -298,8 +298,8 @@ public class ReceiptCreator {
       try {
          contentStream.beginText();
          contentStream.setFont(PDType1Font.TIMES_ROMAN, 12);
-         contentStream.newLineAtOffset(beginInfoX + priceColumn, beginOrderListY - (i * orderLineSpace));
-         String text = order.getLineItem(i).getCake().getPrice() + priceEnding;
+         contentStream.newLineAtOffset(BEGIN_INFO_X + PRICE_COLUMN, BEGIN_ORDER_LIST_Y - (i * ORDER_LINE_SPACE));
+         String text = order.getLineItem(i).getCake().getPrice() + PRICE_ENDING;
          contentStream.showText(text);
          contentStream.endText();
       } catch (IOException e) {
@@ -311,8 +311,8 @@ public class ReceiptCreator {
       try {
          contentStream.beginText();
          contentStream.setFont(PDType1Font.TIMES_ROMAN, 12);
-         contentStream.newLineAtOffset(beginInfoX + totalColumn, beginOrderListY - (i * orderLineSpace));
-         String text = order.getLineItem(i).getPrice() + priceEnding;
+         contentStream.newLineAtOffset(BEGIN_INFO_X + TOTAL_COLUMN, BEGIN_ORDER_LIST_Y - (i * ORDER_LINE_SPACE));
+         String text = order.getLineItem(i).getPrice() + PRICE_ENDING;
          contentStream.showText(text);
          contentStream.endText();
       } catch (IOException e) {
@@ -324,28 +324,28 @@ public class ReceiptCreator {
       try {
          contentStream.beginText();
          contentStream.setFont(PDType1Font.TIMES_BOLD, 14);
-         contentStream.newLineAtOffset(beginInfoX, beginOrderListY - totalLine);
+         contentStream.newLineAtOffset(BEGIN_INFO_X, BEGIN_ORDER_LIST_Y - TOTAL_LINE);
          String totalText = "Total:";
          contentStream.showText(totalText);
          contentStream.endText();
 
          contentStream.beginText();
          contentStream.setFont(PDType1Font.TIMES_BOLD, 14);
-         contentStream.newLineAtOffset(beginInfoX + totalColumn, beginOrderListY - totalLine);
-         String total = order.getTotalPrice() + priceEnding;
+         contentStream.newLineAtOffset(BEGIN_INFO_X + TOTAL_COLUMN, BEGIN_ORDER_LIST_Y - TOTAL_LINE);
+         String total = order.getTotalPrice() + PRICE_ENDING;
          contentStream.showText(total);
          contentStream.endText();
 
          contentStream.beginText();
          contentStream.setFont(PDType1Font.TIMES_ITALIC, 12);
-         contentStream.newLineAtOffset(beginInfoX, beginOrderListY - vatLine);
+         contentStream.newLineAtOffset(BEGIN_INFO_X, BEGIN_ORDER_LIST_Y - VAT_LINE);
          String vatText = "Heraf Moms 25% :";
          contentStream.showText(vatText);
          contentStream.endText();
 
          contentStream.beginText();
          contentStream.setFont(PDType1Font.TIMES_ITALIC, 12);
-         contentStream.newLineAtOffset(beginInfoX + totalColumn, beginOrderListY - vatLine);
+         contentStream.newLineAtOffset(BEGIN_INFO_X + TOTAL_COLUMN, BEGIN_ORDER_LIST_Y - VAT_LINE);
          double calcVAT = Math.round(((double) order.getTotalPrice() * 0.25) * 100.0) / 100.0;
          String vat = calcVAT + " kr.";
          contentStream.showText(vat);
@@ -375,7 +375,7 @@ public class ReceiptCreator {
       try {
          contentStream.beginText();
          contentStream.setFont(PDType1Font.TIMES_ROMAN, 12);
-         contentStream.newLineAtOffset(beginInfoX, beginOrderListY - (40 + vatLine));
+         contentStream.newLineAtOffset(BEGIN_INFO_X, BEGIN_ORDER_LIST_Y - (40 + VAT_LINE));
          String title = "Eventuelle Noter:";
          contentStream.showText(title);
          contentStream.endText();
@@ -383,7 +383,7 @@ public class ReceiptCreator {
          contentStream.beginText();
          contentStream.setFont(PDType1Font.TIMES_ITALIC, 12);
          contentStream.setLeading(20);
-         contentStream.newLineAtOffset(beginInfoX, beginOrderListY - (60 + vatLine));
+         contentStream.newLineAtOffset(BEGIN_INFO_X, BEGIN_ORDER_LIST_Y - (60 + VAT_LINE));
 
          ArrayList<String> list = readNote();
 
@@ -403,21 +403,21 @@ public class ReceiptCreator {
       try {
          contentStream.beginText();
          contentStream.setFont(PDType1Font.TIMES_ROMAN, 12);
-         contentStream.newLineAtOffset(beginInfoX, beginInfoX + 40);
+         contentStream.newLineAtOffset(BEGIN_INFO_X, BEGIN_INFO_X + 40);
          String info = "Betaling foregår enten kontant, igennem MobilePay til: " + RecInfo.getPhone() + ", eller ved bank overførsel:";
          contentStream.showText(info);
          contentStream.endText();
 
          contentStream.beginText();
          contentStream.setFont(PDType1Font.TIMES_ROMAN, 12);
-         contentStream.newLineAtOffset(beginInfoX, beginInfoX + 20);
+         contentStream.newLineAtOffset(BEGIN_INFO_X, BEGIN_INFO_X + 20);
          String bankInfo = "Konto Nummer: " + RecInfo.getAccountNumber() + "     Registerings Nummer: " + RecInfo.getRegNumber();
          contentStream.showText(bankInfo);
          contentStream.endText();
 
          contentStream.beginText();
          contentStream.setFont(PDType1Font.TIMES_BOLD, 12);
-         contentStream.newLineAtOffset(beginInfoX, beginInfoX);
+         contentStream.newLineAtOffset(BEGIN_INFO_X, BEGIN_INFO_X);
          String date = "Levering / afhentnings dato samt seneste betalingsdato: " + (order.getDeliveryDate()).format(form);
          contentStream.showText(date);
          contentStream.endText();

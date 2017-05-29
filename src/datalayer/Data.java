@@ -300,6 +300,7 @@ public class Data {
       }
    }
 
+   //fetches cake information for frontend display
    public ArrayList<Cake> getCakes() {
       try{
          String query ="SELECT * FROM mydb.cake_list;";
@@ -320,6 +321,7 @@ public class Data {
       return null;
    }
 
+   //fetches a cake from it's id in the databasen
    public Cake getCakeFromID(int id) {
       try{
          String query ="SELECT * FROM mydb.cake_list ";

@@ -65,6 +65,7 @@ public class SendGmail {
 
          SMTPTransport t = (SMTPTransport) session.getTransport("smtps");
 
+         //connect to gmail account, send mail and then close the connection
          t.connect("smtp.gmail.com", username, password);
          t.sendMessage(msg, msg.getAllRecipients());
          t.close();
