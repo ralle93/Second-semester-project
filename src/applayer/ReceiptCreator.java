@@ -270,6 +270,7 @@ public class ReceiptCreator {
             while (text.charAt(j) != ' ') {
                j++;
             }
+            text = text.substring(0, j);
             text += "...";
          }
 

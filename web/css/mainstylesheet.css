@@ -391,3 +391,7 @@ h1 {
 #dropdown-button {
     width:100%;
 }
+
+#cake-description {
+    width: 300px;
+}

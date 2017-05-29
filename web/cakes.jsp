@@ -26,7 +26,7 @@
             out.print("<div class=\"product\">");
             out.print("<h3>Navn: " + c.getName() + "</h3>");
             out.print("<img src=\"images/cakes/cake_" + c.getId() + ".jpg\" class=\"product-image\"><br>");
-            out.print("Beskrivelse: " + c.getDescription() + "<br>");
+            out.print("<p id=\"cake-description\">Beskrivelse: " + c.getDescription() + "</p>");
             out.print("Pris: " + c.getPrice() + "<br>");
             out.print("<form action=\"/ShoppingCart\" method=\"post\">" +
                     "<input type=\"hidden\" name=\"action\" value=\"add\"/>" +
