@@ -12,7 +12,7 @@
     <link rel="stylesheet" type="text/css" href="css/mainstylesheet.css">
 </head>
 <body>
-<div class="center-area">
+<div class="center-area" scroll="no">
 
     <div class="slideshow-container">
         <div class="mySlides fade">

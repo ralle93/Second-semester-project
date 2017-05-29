@@ -69,7 +69,7 @@
 .slideshow-container {
     border-radius: 20px;
     border: 2px solid #aeaad1;
-    height: 500px;
+    height: 55%;
     width: 100%;
     position: relative;
     overflow: hidden;
@@ -159,32 +159,6 @@
 @keyframes fade {
     from {opacity: .4}
     to {opacity: 1}
-}
-
-#main-text-area {
-    margin: 25px 100px 50px;
-    position: relative;
-    bottom: auto;
-    left:auto;
-    right: auto;
-    overflow: scroll;
-    border-radius: 15px;
-    border: 1px solid dimgray;
-    padding: 20px;
-    height: 400px;
-}
-
-#main-header {
-    font-family: monospace;
-    font-size: 28px;
-    text-align: center;
-    color: dimgray;
-}
-
-#main-paragraph {
-    font-family: monospace;
-    font-size: 16px;
-    color: dimgray;
 }
 
 .bottom-bar {

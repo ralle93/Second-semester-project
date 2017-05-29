@@ -28,7 +28,7 @@
   </div>
 </div>
 
-<iframe class="main-iframe" name="index-iframe" id="iframe" width="100%" height="600px" src="gallery.jsp"></iframe>
+<iframe class="main-iframe" name="index-iframe" id="iframe" width="100%" height="75%" src="gallery.jsp"></iframe>
 
 </body>
 

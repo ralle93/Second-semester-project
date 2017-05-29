@@ -12,6 +12,7 @@ import java.sql.*;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
+// Class to insert and retrieve data from the database
 public class Data {
 
    private DbConnect db = DbConnect.getConnection();
@@ -108,6 +109,7 @@ public class Data {
       return null;
    }
 
+   // Method to add a session id and user id
    public void httpSessionAdd(User user, String session){
       try {
          String query = "INSERT INTO `mydb`.`http_session` (`user_id`, `session_string`) VALUES (?, ?);";
@@ -139,6 +141,7 @@ public class Data {
       }
    }
 
+   // Method to remove a activation/reset key
    public void removeActivationLink(int userID) {
       try {
          String query = "DELETE FROM `mydb`.`activate_reset_keys` WHERE user_id = ?;";
@@ -171,6 +174,7 @@ public class Data {
       return -1;
    }
 
+   // Method to activate an user
    public void activateUser(int userID) {
       try{
          String query = "UPDATE mydb.users SET activated = true ";

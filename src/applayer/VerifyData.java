@@ -2,6 +2,7 @@ package applayer;
 
 import java.time.LocalDate;
 
+// Class to verifying different user input, like address and phone number
 public class VerifyData {
 
    // Method to determine if the user has entered a valid looking e-mail address

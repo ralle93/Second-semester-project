@@ -1,6 +1,7 @@
 package security;
 import java.util.Random;
 
+// Class that generates random activation/reset keys
 public class RNGString {
 
    private String key;
