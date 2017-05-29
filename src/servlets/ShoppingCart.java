@@ -53,7 +53,7 @@ public class ShoppingCart extends HttpServlet {
                break;
             case "delete":
                int index = Integer.parseInt(request.getParameter("index"));
-               deleteItem(cartIndex, index);
+               carts.get(cartIndex).deleteItem(index);
 
                updateCartDisplay(request, response);
 
@@ -92,10 +92,6 @@ public class ShoppingCart extends HttpServlet {
       } else {
          return "Vælg venligst et antal højere end 0!";
       }
-   }
-
-   private void deleteItem(int cartIndex, int index) {
-      carts.get(cartIndex).deleteItem(index);
    }
 
    private static int getCartIndex(User user) {
