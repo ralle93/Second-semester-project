@@ -14,6 +14,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
+/**
+ *  Made by Søren Diamant Skovgaard
+ */
+
 @WebServlet(name = "CreateUser")
 public class CreateUser extends HttpServlet {
    private Data d = new Data();

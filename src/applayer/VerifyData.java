@@ -2,6 +2,10 @@ package applayer;
 
 import java.time.LocalDate;
 
+/**
+ *  Made by Søren Diamant Skovgaard
+ */
+
 // Class to verifying different user input, like address and phone number
 public class VerifyData {
 

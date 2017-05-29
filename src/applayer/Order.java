@@ -3,7 +3,7 @@ package applayer;
 import java.time.LocalDate;
 
 /**
- *  Lavet af Mikkel Olsen
+ *  Made by Mikkel Olsen & Søren Diamant Skovgaard
  */
 
 public class Order extends Cart {

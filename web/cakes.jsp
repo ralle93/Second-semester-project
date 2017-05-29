@@ -1,3 +1,7 @@
+<%--
+    Made by Søren Diamant Skovgaard
+--%>
+
 <%@ page import="java.util.ArrayList" %>
 <%@ page import="applayer.Cake" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>

@@ -11,6 +11,10 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.ArrayList;
 
+/**
+ *  Made by Søren Diamant Skovgaard
+ */
+
 @WebServlet(name = "GetCakes")
 public class GetCakes extends HttpServlet {
    private Data d = new Data();

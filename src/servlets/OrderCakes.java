@@ -14,6 +14,10 @@ import java.time.LocalDate;
 import java.time.format.DateTimeParseException;
 import java.util.ArrayList;
 
+/**
+ *  Made by Søren Diamant Skovgaard
+ */
+
 @WebServlet(name = "OrderCakes")
 public class OrderCakes extends HttpServlet {
    private Data d = new Data();

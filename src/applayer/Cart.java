@@ -1,7 +1,7 @@
 package applayer;
 
 /**
- *  Lavet af Tommy Troest
+ *  Made by Tommy Troest
  */
 
 public class Cart {

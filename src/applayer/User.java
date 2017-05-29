@@ -1,5 +1,9 @@
 package applayer;
 
+/**
+ *  Made by Søren Diamant Skovgaard
+ */
+
 public class User {
    private int id;
    private String email;

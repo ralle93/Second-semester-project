@@ -1,9 +1,5 @@
 <%--
-  Created by IntelliJ IDEA.
-  User: nitro
-  Date: 5/24/17
-  Time: 11:53 AM
-  To change this template use File | Settings | File Templates.
+    Made by Søren Diamant Skovgaard
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>

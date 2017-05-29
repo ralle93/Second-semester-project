@@ -1,4 +1,6 @@
-
+<%--
+    Made by Søren Diamant Skovgaard
+--%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>

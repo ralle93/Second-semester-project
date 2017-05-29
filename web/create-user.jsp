@@ -1,5 +1,5 @@
 <%--
-  Test class for creating a user
+    Made by Søren Diamant Skovgaard
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>

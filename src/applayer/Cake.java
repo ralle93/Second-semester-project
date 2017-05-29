@@ -1,7 +1,7 @@
 package applayer;
 
 /**
- *  Lavet af Mikkel Olsen
+ *  Made by Mikkel Olsen
  */
 
 public class Cake {

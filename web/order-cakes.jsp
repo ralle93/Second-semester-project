@@ -1,11 +1,8 @@
-<%@ page import="applayer.Cart" %>
-<%@ page import="applayer.LineItem" %><%--
-  Created by IntelliJ IDEA.
-  User: nitro
-  Date: 5/23/17
-  Time: 2:56 PM
-  To change this template use File | Settings | File Templates.
+<%--
+    Made by Søren Diamant Skovgaard
 --%>
+<%@ page import="applayer.Cart" %>
+<%@ page import="applayer.LineItem" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>

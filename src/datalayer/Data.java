@@ -12,6 +12,11 @@ import java.sql.*;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
+/**
+ *  Primary contributor: Rasmus Dreier Thrane
+ *  Secondary contributor: Søren Diamant Skovgaard
+ */
+
 // Class to insert and retrieve data from the database
 public class Data {
 
