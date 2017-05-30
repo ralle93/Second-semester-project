@@ -44,7 +44,7 @@
     %>
 
     <form action="/OrderCakes" method="post">
-        Jeg accepterer <a href="http://www.google.dk">handelsbetingelserne </a><input type="checkbox" name="terms"/><br>
+        Jeg accepterer <a href="/about.jsp">handelsbetingelserne </a><input type="checkbox" name="terms"/><br>
         <input type="hidden" name="action" value="confirmOrder">
         <input type="submit" value="Bekræft bestilling"/>
     </form>

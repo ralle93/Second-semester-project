@@ -38,6 +38,10 @@ public class CreateUser extends HttpServlet {
       String currentPass = request.getParameter("currentPass");
       String newPass = request.getParameter("newPass");
 
+      // Hash current and new pass
+      currentPass = Hash.hashPW(currentPass);
+      newPass = Hash.hashPW(newPass);
+
       // Get session and user info
       String session = request.getSession().getId();
       User user = d.fetchUserFromSession(session);
