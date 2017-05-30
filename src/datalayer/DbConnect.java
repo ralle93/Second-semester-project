@@ -14,13 +14,13 @@ final class DbConnect {
    private static DbConnect db;
 
    private DbConnect() {
-      String DBURL = "jdbc:mysql://mydbinstance.c71ud1joo1ez.eu-central-1.rds.amazonaws.com:3306/mydb?useSSL=false";
-      String driver = "com.mysql.jdbc.Driver";
-      String usern = "SSP";
-      String pass = "#&7@+D*}7!qbJ_d";
+      final String DBURL = "jdbc:mysql://mydbinstance.c71ud1joo1ez.eu-central-1.rds.amazonaws.com:3306/mydb?useSSL=false";
+      final String DRIVER = "com.mysql.jdbc.Driver";
+      final String USERN = "SSP";
+      final String PASS = "#&7@+D*}7!qbJ_d";
       try {
-         Class.forName(driver).newInstance();
-         this.conn = DriverManager.getConnection(DBURL,usern,pass);
+         Class.forName(DRIVER).newInstance();
+         this.conn = DriverManager.getConnection(DBURL,USERN,PASS);
       } catch (Exception ex) {
          ex.printStackTrace();
       }

@@ -11,7 +11,7 @@ public class RNGString {
    private String key;
    private String link;
    private final String DOMAIN_SERVLET_URL = "http://localhost:8080/ActivateReset";
-   private final String charsToUse = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+   private final String CHARS_TO_USE = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
 
    public RNGString(String parameterName){
       this.key = generateString();
@@ -24,7 +24,7 @@ public class RNGString {
       final int STRINGLENGTH = 30;
 
       for(int i = 0; i < STRINGLENGTH; i++){
-         generated += charsToUse.charAt(getRNG());
+         generated += CHARS_TO_USE.charAt(getRNG());
       }
       return generated;
    }
@@ -32,7 +32,7 @@ public class RNGString {
    private int getRNG(){
       int randomInt;
       Random r = new Random();
-      randomInt = r.nextInt(charsToUse.length());
+      randomInt = r.nextInt(CHARS_TO_USE.length());
 
       if(randomInt == 0 ) return randomInt;
 

@@ -15,8 +15,8 @@ import javax.mail.internet.*;
  *
  **/
 public class SendGmail {
-   private final static String username = "pernilleslaekkerier@gmail.com";
-   private final static String password = "Abcdefg123456789";
+   private final static String USERNAME = "pernilleslaekkerier@gmail.com";
+   private final static String PASSWORD = "Abcdefg123456789";
 
    public static void sendToCustomer(String recipientEmail, String title, String message){
       try {
@@ -25,7 +25,7 @@ public class SendGmail {
 
          final MimeMessage msg = new MimeMessage(session);
 
-         msg.setFrom(new InternetAddress(username));
+         msg.setFrom(new InternetAddress(USERNAME));
          msg.setRecipients(Message.RecipientType.TO, InternetAddress.parse(recipientEmail, false));
 
          msg.setSubject(title);
@@ -34,7 +34,7 @@ public class SendGmail {
 
          SMTPTransport t = (SMTPTransport) session.getTransport("smtps");
 
-         t.connect("smtp.gmail.com", username, password);
+         t.connect("smtp.gmail.com", USERNAME, PASSWORD);
          t.sendMessage(msg, msg.getAllRecipients());
          t.close();
       } catch(MessagingException ex ){
@@ -49,7 +49,7 @@ public class SendGmail {
 
          //create msg, msgBody object and set subject, recipient
          final Message msg = new MimeMessage(session);
-         msg.setFrom(new InternetAddress(username));
+         msg.setFrom(new InternetAddress(USERNAME));
          msg.setRecipients(Message.RecipientType.TO, InternetAddress.parse(recipientEmail, false));
          msg.setSubject(title);
          BodyPart msgBody = new MimeBodyPart();
@@ -69,7 +69,7 @@ public class SendGmail {
          SMTPTransport t = (SMTPTransport) session.getTransport("smtps");
 
          //connect to gmail account, send mail and then close the connection
-         t.connect("smtp.gmail.com", username, password);
+         t.connect("smtp.gmail.com", USERNAME, PASSWORD);
          t.sendMessage(msg, msg.getAllRecipients());
          t.close();
       }catch(MessagingException ex){
