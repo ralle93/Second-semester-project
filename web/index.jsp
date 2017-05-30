@@ -1,6 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
-<!-- Made by Tommy Troest -->
+<!-- Made by Tommy Troest & Søren Diamant Skovgaard -->
 <html>
 
 <head>
