@@ -14,7 +14,7 @@ import java.util.ArrayList;
 
 /**
  *  Primary contributor: Rasmus Dreier Thrane
- *  Secondary contributor: Søren Diamant Skovgaard
+ *  Secondary contributor: Søren Diamant Skovgaard & Mikkel Olsen
  */
 
 // Class to insert and retrieve data from the database
