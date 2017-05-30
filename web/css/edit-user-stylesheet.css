@@ -1,0 +1,39 @@
+/* Made by Tommy Troest */
+
+#bios-field, #change-password-field {
+    width: 50%;
+    border-width: 2px;
+    border-style: solid;
+    border-radius: 20px;
+    border-color: #aeaad1;
+    padding: 10px;
+}
+
+#bios-submit-button, #password-submit-button {
+    width: 150px;
+    color: white;
+    font-family: monospace;
+    font-size: 16px;
+    background-color: #aeaad1;
+    border-width: 1px;
+    border-style: solid;
+    border-radius: 20px;
+}
+
+#bios-submit-button:hover, #password-submit-button:hover {
+    background-color: dimgray;
+}
+
+#email-label, #name-label, #phone-label, #current-password-field, #new-password-field {
+    font-size: 16px;
+    font-family: monospace;
+    color: dimgray;
+    width: 600px;
+}
+
+.text {
+    font-size: 16px;
+    font-family: monospace;
+    color: dimgray;
+    width: 600px;
+}
