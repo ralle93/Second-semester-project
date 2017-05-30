@@ -216,25 +216,6 @@
     font-family: monospace;
 }
 
-#product-description-1 {
-    margin: 10px;
-    display: none;
-}
-
-#product-description-2 {
-    display: none;
-    margin: 10px;
-}
-
-#add-button {
-    border: 1px white;
-    border-radius: 15px;
-    background-color: dimgray;
-    color: white;
-    font-size: 16px;
-    font-family: monospace;
-}
-
 .product-image {
     border: 1px solid white;
     border-radius: 15px;
@@ -392,6 +373,3 @@ h1 {
     width:100%;
 }
 
-#cake-description {
-    width: 300px;
-}

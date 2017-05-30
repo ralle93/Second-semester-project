@@ -10,6 +10,7 @@
 <head>
     <title>Kager</title>
     <link rel="stylesheet" type="text/css" href="css/mainstylesheet.css">
+    <link rel="stylesheet" type="text/css" href="css/shoppingcart-css.css">
 </head>
 <body>
 
@@ -28,14 +29,14 @@
 
         for (Cake c : cakes) {
             out.print("<div class=\"product\">");
-            out.print("<h3>Navn: " + c.getName() + "</h3>");
+            out.print("<h2>Navn: " + c.getName() + "</h2>");
             out.print("<img src=\"images/cakes/cake_" + c.getId() + ".jpg\" class=\"product-image\"><br>");
             out.print("<p id=\"cake-description\">Beskrivelse: " + c.getDescription() + "</p>");
-            out.print("Pris: " + c.getPrice() + "<br>");
+            out.print("Pris:" + c.getPrice() + "<br>");
             out.print("<form action=\"/ShoppingCart\" method=\"post\">" +
                     "<input type=\"hidden\" name=\"action\" value=\"add\"/>" +
                     "<input type=\"hidden\" name=\"cakeID\" value=\"" + c.getId() + "\"/>" +
-                    "Antal: <input type=\"number\" name=\"amount\" value=\"1\" min=\"1\" width=\"10\"/><br>" +
+                    "Antal: <input type=\"number\" name=\"amount\" value=\"1\" width=\"10px\"/><br>" +
                     "<input type=\"submit\" value=\"Tilføj til kurv\" button id=\"add-button\"/>" +
                     "</form>");
             out.print("</div>");

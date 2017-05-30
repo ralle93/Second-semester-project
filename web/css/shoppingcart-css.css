@@ -2,3 +2,23 @@ fieldset {
     background-color: white;
     border-radius: 15px;
 }
+
+#cake-description {
+    width: 300px;
+    height: 125px;
+    margin: 10px;
+    font-family: monospace;
+}
+
+#add-button {
+    border: 1px white;
+    border-radius: 15px;
+    background-color: #aeaad1;
+    color: white;
+    font-size: 16px;
+    font-family: monospace;
+}
+
+#add-button:hover {
+    background-color: dimgray;
+}

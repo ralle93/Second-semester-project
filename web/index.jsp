@@ -41,10 +41,4 @@
   </div>
 </footer>
 
-<script>
-    $if (window.location == window.parent.location) {
-        this.window.location = 'index.html';
-    }
-</script>
-
 </html>
