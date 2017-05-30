@@ -2,7 +2,7 @@
  * @Author Tommy Troest.
  */
 
-function galleryRotation {
+function galleryRotation (){
     if (window.location == window.parent.location) {
         this.window.location = 'index.html';
     }

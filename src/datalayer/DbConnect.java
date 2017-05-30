@@ -4,8 +4,11 @@ import java.sql.*;
 import java.sql.Connection;
 import java.sql.DriverManager;
 
-// Singleton class in charge of getting connection to db and fetching/uploading data
-// Made by Rasmus Dreier Thrane
+/**
+ *  Singleton class in charge of getting connection to db and fetching/uploading data
+ *  Made by Rasmus Dreier Thrane
+ */
+
 final class DbConnect {
    Connection conn;
    private static DbConnect db;

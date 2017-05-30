@@ -9,8 +9,11 @@ import javax.activation.DataSource;
 import javax.activation.FileDataSource;
 import javax.mail.*;
 import javax.mail.internet.*;
-
-// Class that handles sending e-mails to customers
+/**
+ * Class that handles sending emails to customers and Pernille
+ * Made by Rasmus Dreier Thrane
+ *
+ **/
 public class SendGmail {
    private final static String username = "pernilleslaekkerier@gmail.com";
    private final static String password = "Abcdefg123456789";
