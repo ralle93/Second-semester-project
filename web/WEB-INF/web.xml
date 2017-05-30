@@ -49,11 +49,6 @@
         <servlet-class>servlets.OrderCakes</servlet-class>
     </servlet>
 
-    <servlet>
-        <servlet-name>Debug</servlet-name>
-        <servlet-class>servlets.Debug</servlet-class>
-    </servlet>
-
 
 
     <servlet-mapping>
@@ -99,11 +94,6 @@
     <servlet-mapping>
         <servlet-name>OrderCakes</servlet-name>
         <url-pattern>/OrderCakes</url-pattern>
-    </servlet-mapping>
-
-    <servlet-mapping>
-        <servlet-name>Debug</servlet-name>
-        <url-pattern>/Debug</url-pattern>
     </servlet-mapping>
 
 </web-app>
