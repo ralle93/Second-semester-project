@@ -1,5 +1,9 @@
 package applayer;
 
+/**
+ *  Made by Mikkel Olsen
+ */
+
 class RecInfo {
    // Visse informationer bevidst udladt
    private static int maxOrderSize = 5;
