@@ -15,7 +15,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 /**
- *  Made by Søren Diamant Skovgaard
+ *  Made by Søren Diamant Skovgaard & Tommy Troest
  */
 
 @WebServlet(name = "ShoppingCart")

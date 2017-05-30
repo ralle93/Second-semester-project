@@ -1,5 +1,5 @@
 <%--
-    Made by Søren Diamant Skovgaard
+    Made by Søren Diamant Skovgaard & Tommy Troest
 --%>
 <%@ page import="applayer.Cart" %>
 <%@ page import="applayer.LineItem" %>

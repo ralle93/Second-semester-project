@@ -1,7 +1,7 @@
 package applayer;
 
 /**
- *  Made by Tommy Troest
+ *  Made by Tommy Troest & Mikkel Olsen
  */
 
 public class Cart {
